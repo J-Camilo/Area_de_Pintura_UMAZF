@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.Footer{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: rgb(241, 238, 238);
+  border-top: solid rgb(197, 195, 195) 1px;
+  border-top-right-radius: .8rem;
+  border-top-left-radius: .8rem;
+  bottom: 0;
+}
+
+.Footer>h1 {
+  font-size: 15px;
+  color: gray;
+}

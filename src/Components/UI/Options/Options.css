@@ -1,0 +1,259 @@
+.Content {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.accordion {
+    display: flex;
+    width: 80%;
+    height: 34rem;
+    border-radius: 2rem;
+    overflow: hidden;
+    margin-top: 2.5rem;
+    border: solid red 2px;
+    z-index: 1;
+    justify-content: center;
+}
+
+.img_ {
+    width: 0px;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: .9;
+    /* transition: all 400ms ease; */
+
+}
+
+/* .img_:hover {
+    cursor: pointer;
+    width: 300px;
+    opacity: 1;
+    filter: contrast(120%);
+} */
+
+
+/*---------------------- Options ------------------- */
+
+.Content_options {
+    z-index: 1;
+    display: flex;
+    justify-content: space-evenly;
+    width: 72rem;
+    /* position: absolute; */
+    display: flex;
+    align-items: center;
+    margin-top: 12rem;
+    padding: .9rem;
+}
+
+.btn,
+.btn2,
+.btn3 {
+    width: 17rem;
+    height: 23rem;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius:1.8rem;
+    /* animation-name: anim-down; */
+    animation: anim-down 1.3s forwards;
+    color: #fc5b5b;
+}
+
+.btn2 {
+    animation: anim-down2 1s forwards;
+}
+
+.btn3 {
+    animation: anim-down3 1.3s forwards;
+}
+
+@keyframes anim-down {
+    from {
+        opacity: 0;
+        transform: translatey(300px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translatey(0px);
+    }
+}
+
+@keyframes anim-down2 {
+    from {
+        opacity: 0;
+        transform: translatey(300px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translatey(0px);
+    }
+}
+
+@keyframes anim-down3 {
+    from {
+        opacity: 0;
+        transform: translatey(300px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translatey(0px);
+    }
+}
+
+.Icons{
+    font-size: 4rem;
+    color: rgb(252, 252, 252);
+}
+
+/*--------------------------------- BTN Operator -----------------------------------------*/
+
+.btn>p,
+.btn2>p,
+.btn3>p {
+    color: #ffefef;
+    font-size: 1.5rem;
+}
+
+.btn {
+    /* border: 3px solid rgb(56, 175, 255); */
+    /* position: relative; */
+    font-weight: bold;
+    transition: 0.2s ease all;
+    background-image: url(../../Images/Interface/Pulsar\ 150.png);
+    background-color: rgba(85, 218, 252, 0.651);
+    background-size: cover;
+    background-position: 100%;
+    backdrop-filter: blur(4px);
+}
+
+.btn:before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: '';
+    background-color: rgb(56, 175, 255);
+    z-index: -1;
+}
+
+.btn:hover,
+.btn:focus {
+    color: #fc5b5b;
+ 
+}
+
+.btn:hover:before,
+.btn:focus:before {
+    transition: 0.3s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    border-radius: 1.8rem;
+    color: #fc5b5b;
+}
+
+.btn:active {
+    transform: scale(0.9);
+}
+
+
+
+/*----------------------------------- BTN Admin ---------------------------------------*/
+
+.btn2 {
+    /* border: 3px solid #555454; */
+    position: relative;
+    font-weight: bold;
+    transition: 0.2s ease all;
+    background-image: url(../../Images/Interface/Pulsar\ RS\ 200.png);
+    background-color: rgba(136, 136, 136, 0.651);
+    background-size: cover;
+    background-position: 100%;
+}
+
+.btn2:before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: '';
+    background-color: rgb(85, 85, 85);
+    z-index: -1;
+}
+
+.btn2:hover,
+.btn2:focus {
+    color: #fc5b5b;
+}
+
+.btn2:hover:before,
+.btn2:focus:before {
+    transition: 0.3s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    border-radius: 1.8rem;
+    color: #fc5b5b;
+}
+
+.btn2:active {
+    transform: scale(0.9);
+}
+/*------------------------------- BTN Supervisor -------------------------------------------*/
+
+.btn3 {
+    /* border: 3px solid #fc5b5b; */
+    position: relative;
+    font-weight: bold;
+    transition: 0.2s ease all;
+    background-image: url(../../Images/Interface/vehicle.png);
+    background-color: rgba(247, 99, 99, 0.651);
+    background-size: cover;
+    background-position: 100%;
+}
+
+.btn3:before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: '';
+    background-color: rgb(245, 93, 93);
+    z-index: -1;
+    
+}
+
+.btn3:hover,
+.btn3:focus {
+    color: #fc5b5b;
+}
+
+.btn3:hover:before,
+.btn3:focus:before {
+    transition: 0.3s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    border-radius: 1.8rem;
+    color: #fc5b5b;
+}
+
+.btn3:active {
+    transform: scale(0.9);
+}
