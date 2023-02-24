@@ -1,10 +1,12 @@
 import Logo from "../../Images/Interface/Logo.png"
-import { Options } from "../../UI/Options/Options"
+
 import { Footer } from "../../UI/Footer/Footer"
-import "./Home.css"
+import  { Link } from "react-router-dom"
+import { Lg_Supervisor } from "../../UI/Lg_Supervisor/Lg_Supervisor";
+// import "./Home.css"
 
 
-export const Home = (props) => {
+export const Supervisor = (props) => {
   return (
     <>
 
@@ -14,11 +16,16 @@ export const Home = (props) => {
         <div className="inner-header flex">
           <div className="Counter_header">
             <img src={Logo} alt="Logo" srcSet="" className="Logo" />
-            <h1 className="Text_major">Area de Pintura</h1>
+            <h1 className="Text_major">Iniciar Sesión</h1>
+            <Link to="/" className="text"><h1 className="Text_back">Atrás</h1></Link>
           </div>
         </div>
      
-      
+       
+
+
+
+
         <div>
           <svg
             className="waves"
@@ -59,7 +66,7 @@ export const Home = (props) => {
         </div>
       </div>
 
-      <Options />
+      <Lg_Supervisor />
      
       <Footer />
     </>

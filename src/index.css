@@ -12,6 +12,19 @@ code {
     monospace;
 }
 
+.text {
+  text-decoration: none;
+}
+
+.Text_back {
+  font-weight: bold;
+  color: gray;
+}
+
+.Text_major {
+  font-weight: bold;
+}
+
 .Footer{
   display: flex;
   justify-content: center;
@@ -26,4 +39,7 @@ code {
 .Footer>h1 {
   font-size: 15px;
   color: gray;
+  font-weight: bold;
+
+  
 }
