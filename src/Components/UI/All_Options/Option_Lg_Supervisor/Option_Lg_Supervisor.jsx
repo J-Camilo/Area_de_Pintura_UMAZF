@@ -1,13 +1,13 @@
-import { Login } from "../Login/Login"
+import { Login } from "../../Login/Login"
 
 /* --------------- Icons ------------------- */
 import { BsTools } from "react-icons/bs"
 import { RiAdminFill } from "react-icons/ri"
 import { MdSupervisorAccount } from "react-icons/md"
 
-import "./Lg_Supervisor.css"
+import "./Option_Lg_Supervisor.css"
 
-export const Lg_Supervisor = (props) => {
+export const Option_Lg_Supervisor = (props) => {
     return (
 
         <div className="Content_2">

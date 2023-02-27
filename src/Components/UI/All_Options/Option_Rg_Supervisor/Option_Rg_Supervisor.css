@@ -1,0 +1,98 @@
+.Content_3 {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/*---------------------- Options ------------------- */
+
+.Content_options_3 {
+    z-index: 1;
+    display: flex;
+    justify-content: space-evenly;
+    width: 72rem;
+    /* position: absolute; */
+    display: flex;
+    align-items: center;
+    margin-top: 10rem;
+    padding: .9rem;
+}
+
+
+
+
+.btn_content {
+    animation:btn_content 800ms forwards;
+}
+
+.btn_content{
+    width: 17rem;
+    height: 23rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius:1.8rem;
+    color: #fc5b5b;
+}
+
+
+
+@keyframes btn_content {
+    from {
+        opacity: 1;
+        width:47rem;
+        height: 400px;
+    }
+
+    to {
+        opacity: 1;
+        width:47rem;
+        height: 430px;
+    }
+}
+
+
+
+.Icons_2{
+    font-size: 4rem;
+    color: rgb(252, 252, 252);
+}
+
+.Icons_,
+.Disable{
+    font-size: 4rem;
+    color: rgb(252, 252, 252);
+    animation: off 1ms forwards;
+    display: none;
+
+}
+
+@keyframes off {
+    from {
+        opacity: 1;
+        
+    }
+
+    to {
+        opacity: 0;
+        display: none;
+    }
+}
+
+    
+
+/*------------------------------- BTN Supervisor -------------------------------------------*/
+
+.btn_content {
+    /* border: 3px solid #fc5b5b; */
+    /* position: absolute; */
+    font-weight: bold;
+    transition: 0.2s ease all;
+    background-position: 100%;
+    background-color: #fc5b5b;
+
+    /* ----------- change of size ---------- */
+       
+}
+

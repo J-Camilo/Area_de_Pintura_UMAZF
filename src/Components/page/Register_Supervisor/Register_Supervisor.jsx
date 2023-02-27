@@ -2,11 +2,11 @@ import Logo from "../../Images/Interface/Logo.png"
 
 import { Footer } from "../../UI/Footer/Footer"
 import  { Link } from "react-router-dom"
-import { Option_Lg_Supervisor } from "../../UI/All_Options/Option_Lg_Supervisor/Option_Lg_Supervisor";
+import { Option_Rg_Supervisor } from "../../UI/All_Options/Option_Rg_Supervisor/Option_Rg_Supervisor";
 import "../../page/Home/Home.css"
 
 
-export const Supervisor = (props) => {
+export const Register_Supervisor = (props) => {
   return (
     <>
 
@@ -16,8 +16,8 @@ export const Supervisor = (props) => {
         <div className="inner-header flex">
           <div className="Counter_header">
             <img src={Logo} alt="Logo" srcSet="" className="Logo" />
-            <h1 className="Text_major">Iniciar Sesión</h1>
-            <Link to="/" className="text"><h1 className="Text_back">Atrás</h1></Link>
+            <h1 className="Text_major">Registrarse</h1>
+            <Link to="/login_Supervisor" className="text"><h1 className="Text_back">Atrás</h1></Link>
           </div>
         </div>
      
@@ -66,7 +66,7 @@ export const Supervisor = (props) => {
         </div>
       </div>
 
-      <Option_Lg_Supervisor />
+      <Option_Rg_Supervisor />
      
       <Footer />
     </>

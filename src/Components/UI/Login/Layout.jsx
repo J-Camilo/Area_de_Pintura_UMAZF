@@ -1,5 +1,5 @@
 
-import "./Login.css"
+// import "../Login/Login.css"
 
 export const Layouth = (props) => {
     return (
@@ -21,9 +21,7 @@ export const Layouth = (props) => {
                                 <label htmlFor="">Contraseña</label>
                             </div><br /><br />
                             <input type="submit" value="Ingresar" className="btn_send"/>
-                                {/* <div className="register"><br />
-                                    <p>¿No tienes cuenta? <Link to="/" className="text">Registrate</Link></p>
-                                </div> */}
+                          
                         </form><br />
 
                     </div>

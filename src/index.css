@@ -43,3 +43,226 @@ code {
 
   
 }
+
+
+
+/*------------------------------ login and register ---------------------------------*/
+
+.Icon-user {
+  font-size: 10rem;
+}
+
+.Content_Icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+/* ----------------------- Text ----------------------------*/
+
+.All {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 44rem;
+  animation: opacity 1s forwards;
+}
+
+
+@keyframes opacity {
+  from {
+      opacity: 0;
+      
+  }
+
+  to {
+      opacity: 1;
+  }
+}
+
+form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-box{
+  position: relative;
+  border: solid white 2px;
+  width: 400px;
+  height: 350px;
+  border-radius: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(240, 248, 255, 0.432);
+}
+
+.form-box>.form-value>form>h3 {
+  font-size: 1.5em; 
+  text-align: center;
+}
+
+.inputbox {
+  position: relative;
+  margin: 30px, 0;
+  width: 300px;
+  border-bottom: solid white 2px;
+}
+
+
+.inputbox>label {
+  position: absolute;
+  top: 30px;
+  left: 5px;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 1em;
+  pointer-events: none;
+  transition: 300ms;
+}
+
+.inputbox>input {
+  margin-top: 1rem;
+  width: 100%;
+  height: 35px;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  padding: 0, 35px, 0, 5px;
+  background: transparent;
+}
+
+input:focus ~ label,
+input:focus ~ :valid {
+top: 10px;
+
+}
+.inputbox>ion-icon {
+  position: absolute;
+  right: 8px;
+  font-size: 1.2em;
+  top: 20px;
+}
+
+.btn_send {
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-radius: 1rem;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+
+/*---------------------------- Register ---------------------------*/
+
+.Icon-user_ {
+  font-size: 10rem;
+  padding: 3rem;
+}
+
+.Content_Icon_ {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* ----------------------- Text ----------------------------*/
+
+.All_ {
+  color: white;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: center;
+  width: 44rem;
+  animation: opacity_ 1s forwards;
+}
+
+
+@keyframes opacity_ {
+  from {
+      opacity: 0;
+      
+  }
+
+  to {
+      opacity: 1;
+  }
+}
+
+
+
+.form-box_{
+  position: relative;
+  border: solid white 2px;
+  width: 400px;
+  height: 390px;
+  border-radius: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(240, 248, 255, 0.432);
+}
+
+.form-box_>.form-value_>form>h3 {
+  font-size: 1.5em; 
+  text-align: center;
+}
+
+.inputbox_ {
+  position: relative;
+  margin: 30px, 0;
+  width: 300px;
+  border-bottom: solid white 2px;
+}
+
+
+.inputbox_>label {
+  position: absolute;
+  top: 30px;
+  left: 5px;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 1em;
+  pointer-events: none;
+  transition: 300ms;
+}
+
+.inputbox_>input {
+  margin-top: 1rem;
+  width: 100%;
+  height: 35px;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  padding: 0, 35px, 0, 5px;
+  background: transparent;
+}
+
+input:focus ~ label,
+input:focus ~ :valid {
+top: 10px;
+
+}
+.inputbox_>ion-icon {
+  position: absolute;
+  right: 8px;
+  font-size: 1.2em;
+  top: 20px;
+}
+
+.btn_send_ {
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-radius: 1rem;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+}

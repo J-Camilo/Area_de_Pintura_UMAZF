@@ -1,5 +1,5 @@
 import Logo from "../../Images/Interface/Logo.png"
-import { Options } from "../../UI/Options/Options"
+import { Options } from "../../UI/All_Options/Options/Options"
 import { Footer } from "../../UI/Footer/Footer"
 import "./Home.css"
 

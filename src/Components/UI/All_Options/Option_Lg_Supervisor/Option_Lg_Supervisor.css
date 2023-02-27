@@ -1,41 +1,12 @@
-.Content {
+.Content_2 {
     display: flex;
     justify-content: center;
     padding: 1rem;
 }
 
-.accordion {
-    display: flex;
-    width: 80%;
-    height: 34rem;
-    border-radius: 2rem;
-    overflow: hidden;
-    margin-top: 2.5rem;
-    border: solid red 2px;
-    z-index: 1;
-    justify-content: center;
-}
-
-.img_ {
-    width: 0px;
-    flex-grow: 1;
-    object-fit: cover;
-    opacity: .9;
-    /* transition: all 400ms ease; */
-
-}
-
-/* .img_:hover {
-    cursor: pointer;
-    width: 300px;
-    opacity: 1;
-    filter: contrast(120%);
-} */
-
-
 /*---------------------- Options ------------------- */
 
-.Content_options {
+.Content_options_2 {
     z-index: 1;
     display: flex;
     justify-content: space-evenly;
@@ -43,97 +14,131 @@
     /* position: absolute; */
     display: flex;
     align-items: center;
-    margin-top: 12rem;
+    margin-top: 10rem;
     padding: .9rem;
 }
 
-.btn,
-.btn2,
-.btn3 {
+.btn_,
+.btn_2{
     width: 17rem;
     height: 23rem;
-    background-color: aqua;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     border-radius:1.8rem;
     /* animation-name: anim-down; */
-    animation: anim-down 1s forwards;
+    animation: anim-down_ 700ms forwards;
     color: #fc5b5b;
 }
 
-.btn2 {
-    animation: anim-down2 .8s forwards;
+.btn_2 {
+    animation: anim-down_2 700ms forwards;
 }
 
-.btn3 {
-    animation: anim-down3 1s forwards;
+.btn_3 {
+    animation: anim-down_3 800ms forwards;
 }
 
-@keyframes anim-down {
+.btn_3 {
+    width: 17rem;
+    /* height: 35rem; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius:1.8rem;
+    color: #fc5b5b;
+}
+
+@keyframes anim-down_ {
     from {
+        opacity: 1;
+    }
+
+    to {
         opacity: 0;
-        transform: translatey(300px);
+        display: none;
+        position: absolute;
+    }
+}
+
+@keyframes anim-down_2 {
+    from {
+        opacity: 1;
+        
+    }
+
+    to {
+        opacity: 0;
+        display: none;
+        position: absolute;
+
+    }
+}
+
+@keyframes anim-down_3 {
+    from {
+        opacity: 1;
     }
 
     to {
         opacity: 1;
-        transform: translatey(0px);
+        width:47rem;
+        height: 390px;
     }
 }
 
-@keyframes anim-down2 {
-    from {
-        opacity: 0;
-        transform: translatey(300px);
-    }
 
-    to {
-        opacity: 1;
-        transform: translatey(0px);
-    }
-}
 
-@keyframes anim-down3 {
-    from {
-        opacity: 0;
-        transform: translatey(300px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translatey(0px);
-    }
-}
-
-.Icons{
+.Icons_2{
     font-size: 4rem;
     color: rgb(252, 252, 252);
 }
 
+.Icons_,
+.Disable{
+    font-size: 4rem;
+    color: rgb(252, 252, 252);
+    animation: off 1ms forwards;
+    display: none;
+
+}
+
+@keyframes off {
+    from {
+        opacity: 1;
+        
+    }
+
+    to {
+        opacity: 0;
+        display: none;
+    }
+}
+
 /*--------------------------------- BTN Operator -----------------------------------------*/
 
-.btn>p,
-.btn2>p,
-.btn3>p {
+.btn_>p,
+.btn_2>p,
+.btn_3>p {
     color: #ffefef;
     font-size: 1.5rem;
 }
 
-.btn {
+.btn_ {
     /* border: 3px solid rgb(56, 175, 255); */
     /* position: relative; */
     font-weight: bold;
     transition: 0.2s ease all;
-    background-image: url(../../Images/Interface/Pulsar\ 150.png);
+    background-image: url(../../../Images/Interface/Pulsar\ 150.png);
     background-color: rgba(85, 218, 252, 0.651);
     background-size: cover;
     background-position: 100%;
     backdrop-filter: blur(4px);
 }
 
-.btn:before {
+.btn_:before {
     transition: 0.5s all ease;
     position: absolute;
     top: 0;
@@ -146,14 +151,14 @@
     z-index: -1;
 }
 
-.btn:hover,
-.btn:focus {
+.btn_:hover,
+.btn_:focus {
     color: #fc5b5b;
  
 }
 
-.btn:hover:before,
-.btn:focus:before {
+.btn_:hover:before,
+.btn_:focus:before {
     transition: 0.3s all ease;
     left: 0;
     right: 0;
@@ -162,7 +167,7 @@
     color: #fc5b5b;
 }
 
-.btn:active {
+.btn_:active {
     transform: scale(0.9);
 }
 
@@ -170,18 +175,18 @@
 
 /*----------------------------------- BTN Admin ---------------------------------------*/
 
-.btn2 {
+.btn_2 {
     /* border: 3px solid #555454; */
     position: relative;
     font-weight: bold;
     transition: 0.2s ease all;
-    background-image: url(../../Images/Interface/Pulsar\ RS\ 200.png);
+    background-image: url(../../../Images/Interface/Pulsar\ RS\ 200.png);
     background-color: rgba(136, 136, 136, 0.651);
     background-size: cover;
     background-position: 100%;
 }
 
-.btn2:before {
+.btn_2:before {
     transition: 0.5s all ease;
     position: absolute;
     top: 0;
@@ -194,13 +199,13 @@
     z-index: -1;
 }
 
-.btn2:hover,
-.btn2:focus {
+.btn_2:hover,
+.btn_2:focus {
     color: #fc5b5b;
 }
 
-.btn2:hover:before,
-.btn2:focus:before {
+.btn_2:hover:before,
+.btn_2:focus:before {
     transition: 0.3s all ease;
     left: 0;
     right: 0;
@@ -209,51 +214,20 @@
     color: #fc5b5b;
 }
 
-.btn2:active {
+.btn_2:active {
     transform: scale(0.9);
 }
 /*------------------------------- BTN Supervisor -------------------------------------------*/
 
-.btn3 {
+.btn_3 {
     /* border: 3px solid #fc5b5b; */
-    position: relative;
+    /* position: absolute; */
     font-weight: bold;
     transition: 0.2s ease all;
-    background-image: url(../../Images/Interface/vehicle.png);
-    background-color: rgba(247, 99, 99, 0.651);
-    background-size: cover;
     background-position: 100%;
+    background-color: #fc5b5b;
+
+    /* ----------- change of size ---------- */
+       
 }
 
-.btn3:before {
-    transition: 0.5s all ease;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    right: 50%;
-    bottom: 0;
-    opacity: 0;
-    content: '';
-    background-color: rgb(245, 93, 93);
-    z-index: -1;
-    
-}
-
-.btn3:hover,
-.btn3:focus {
-    color: #fc5b5b;
-}
-
-.btn3:hover:before,
-.btn3:focus:before {
-    transition: 0.3s all ease;
-    left: 0;
-    right: 0;
-    opacity: 1;
-    border-radius: 1.8rem;
-    color: #fc5b5b;
-}
-
-.btn3:active {
-    transform: scale(0.9);
-}
