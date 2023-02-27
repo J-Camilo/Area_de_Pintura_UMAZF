@@ -11,7 +11,7 @@ export const Layout = (props) => {
                         <form action="">
                             <h3>Ingresa tus datos</h3>
                             <div className="inputbox_">
-                                <ion-icon name="lock-closed-outline"></ion-icon>
+                            <ion-icon name="person-outline"></ion-icon>
                                 <input type="password" value="" required minLength={8} />
                                 <label htmlFor="">Nombre de Usuaro</label>
                             </div>
