@@ -28,12 +28,12 @@
     flex-direction: column;
     border-radius:1.8rem;
     /* animation-name: anim-down; */
-    animation: anim-down_ 300ms forwards;
+    animation: anim-down_ 700ms forwards;
     color: #fc5b5b;
 }
 
 .btn_2 {
-    animation: anim-down_2 400ms forwards;
+    animation: anim-down_2 700ms forwards;
 }
 
 .btn_3 {

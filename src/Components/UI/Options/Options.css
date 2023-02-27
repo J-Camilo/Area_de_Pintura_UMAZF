@@ -59,16 +59,16 @@
     flex-direction: column;
     border-radius:1.8rem;
     /* animation-name: anim-down; */
-    animation: anim-down 1.3s forwards;
+    animation: anim-down 1s forwards;
     color: #fc5b5b;
 }
 
 .btn2 {
-    animation: anim-down2 1s forwards;
+    animation: anim-down2 .8s forwards;
 }
 
 .btn3 {
-    animation: anim-down3 1.3s forwards;
+    animation: anim-down3 1s forwards;
 }
 
 @keyframes anim-down {

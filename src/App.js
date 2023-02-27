@@ -14,7 +14,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login_Supervisor" element={<Supervisor />} />
+        <Route path="/login_Supervisor" element={<Supervisor />} /> 
       </Routes>
     </BrowserRouter>
   
