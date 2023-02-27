@@ -25,7 +25,7 @@ code {
   font-weight: bold;
 }
 
-.Footer{
+.Footer {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -41,7 +41,7 @@ code {
   color: gray;
   font-weight: bold;
 
-  
+
 }
 
 
@@ -59,6 +59,7 @@ code {
   align-items: center;
   padding: 2rem;
 }
+
 /* ----------------------- Text ----------------------------*/
 
 .All {
@@ -74,12 +75,12 @@ code {
 
 @keyframes opacity {
   from {
-      opacity: 0;
-      
+    opacity: 0;
+
   }
 
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
@@ -89,7 +90,7 @@ form {
   flex-direction: column;
 }
 
-.form-box{
+.form-box {
   position: relative;
   border: solid white 2px;
   width: 400px;
@@ -102,7 +103,7 @@ form {
 }
 
 .form-box>.form-value>form>h3 {
-  font-size: 1.5em; 
+  font-size: 1.5em;
   text-align: center;
 }
 
@@ -136,11 +137,12 @@ form {
   background: transparent;
 }
 
-input:focus ~ label,
-input:focus ~ :valid {
-top: 10px;
+input:focus~label,
+input:focus~ :valid {
+  top: 10px;
 
 }
+
 .inputbox>ion-icon {
   position: absolute;
   right: 8px;
@@ -172,6 +174,7 @@ top: 10px;
   justify-content: center;
   align-items: center;
 }
+
 /* ----------------------- Text ----------------------------*/
 
 .All_ {
@@ -187,18 +190,16 @@ top: 10px;
 
 @keyframes opacity_ {
   from {
-      opacity: 0;
-      
+    opacity: 0;
+
   }
 
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
-
-
-.form-box_{
+.form-box_ {
   position: relative;
   border: solid white 2px;
   width: 400px;
@@ -211,7 +212,7 @@ top: 10px;
 }
 
 .form-box_>.form-value_>form>h3 {
-  font-size: 1.5em; 
+  font-size: 1.5em;
   text-align: center;
 }
 
@@ -245,11 +246,12 @@ top: 10px;
   background: transparent;
 }
 
-input:focus ~ label,
-input:focus ~ :valid {
-top: 10px;
+input:focus~label,
+input:focus~ :valid {
+  top: 10px;
 
 }
+
 .inputbox_>ion-icon {
   position: absolute;
   right: 8px;

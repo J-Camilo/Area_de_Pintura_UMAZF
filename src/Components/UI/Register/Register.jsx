@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import { MdSupervisorAccount } from "react-icons/md"
 import { Layout } from "../Register/Layout"
 

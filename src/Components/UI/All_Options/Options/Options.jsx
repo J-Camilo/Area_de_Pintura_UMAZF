@@ -17,9 +17,9 @@ export const Options = (props) => {
                 <div className="btn">
                     <BsTools className="Icons" />
                     <p>Operario</p></div>
-                <div className="btn2">
+                <Link to="/Login_Admin" className="text"><div className="btn2">
                     <RiAdminFill className="Icons" />
-                    <p>Administrador</p></div>
+                    <p>Administrador</p></div></Link>
                 <Link to="/login_Supervisor" className="text"><div className="btn3">
                     <MdSupervisorAccount className="Icons" />
                     <p>Supervisor</p></div></Link>

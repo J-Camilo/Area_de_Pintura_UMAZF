@@ -2,11 +2,9 @@ import Logo from "../../Images/Interface/Logo.png"
 
 import { Footer } from "../../UI/Footer/Footer"
 import  { Link } from "react-router-dom"
-import { Lg_Supervisor } from "../../UI/Lg_Supervisor/Lg_Supervisor";
-import "./Admin.css"
+import { Option_Lg_Admin } from "../../UI/All_Options/Option_Lg_Admin/Option_Lg_Admin";
 
-
-export const Supervisor = (props) => {
+export const Admin = (props) => {
   return (
     <>
 
@@ -66,7 +64,7 @@ export const Supervisor = (props) => {
         </div>
       </div>
 
-      <Lg_Supervisor />
+      <Option_Lg_Admin />
      
       <Footer />
     </>

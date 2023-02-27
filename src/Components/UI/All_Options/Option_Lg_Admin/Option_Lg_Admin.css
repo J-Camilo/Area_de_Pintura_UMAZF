@@ -1,4 +1,4 @@
-.Content_2 {
+.Content_4 {
     display: flex;
     justify-content: center;
     padding: 1rem;
@@ -6,7 +6,7 @@
 
 /*---------------------- Options ------------------- */
 
-.Content_options_2 {
+.Content_options_4 {
     z-index: 1;
     display: flex;
     justify-content: space-evenly;
@@ -18,8 +18,8 @@
     padding: .9rem;
 }
 
-.btn_,
-.btn_2{
+.btn_a,
+.btn_3a{
     width: 17rem;
     height: 23rem;
     display: flex;
@@ -28,19 +28,19 @@
     flex-direction: column;
     border-radius:1.8rem;
     /* animation-name: anim-down; */
-    animation: anim-down_ 700ms forwards;
+    animation: anim-down_a 0ms forwards;
     color: #fc5b5b;
 }
 
-.btn_2 {
-    animation: anim-down_2 700ms forwards;
+.btn_3a {
+    animation: anim-down_2a 1  0ms forwards;
 }
 
-.btn_3 {
-    animation: anim-down_3 700ms forwards;
+.btn_2a {
+    animation: anim-down_3a 600ms forwards;
 }
 
-.btn_3 {
+.btn_2a {
     width: 17rem;
     /* height: 35rem; */
     display: flex;
@@ -51,7 +51,7 @@
     color: #fc5b5b;
 }
 
-@keyframes anim-down_ {
+@keyframes anim-down_a {
     from {
         opacity: 1;
     }
@@ -63,7 +63,7 @@
     }
 }
 
-@keyframes anim-down_2 {
+@keyframes anim-down_2a {
     from {
         opacity: 1;
         
@@ -77,7 +77,7 @@
     }
 }
 
-@keyframes anim-down_3 {
+@keyframes anim-down_3a {
     from {
         opacity: 1;
     }
@@ -91,7 +91,7 @@
 
 
 
-.Icons_2{
+.Icons_4{
     font-size: 4rem;
     color: rgb(252, 252, 252);
 }
@@ -119,14 +119,14 @@
 
 /*--------------------------------- BTN Operator -----------------------------------------*/
 
-.btn_>p,
-.btn_2>p,
-.btn_3>p {
+.btn_a>p,
+.btn_2a>p,
+.btn_3a>p {
     color: #ffefef;
     font-size: 1.5rem;
 }
 
-.btn_ {
+.btn_a {
     /* border: 3px solid rgb(56, 175, 255); */
     /* position: relative; */
     font-weight: bold;
@@ -138,7 +138,7 @@
     backdrop-filter: blur(4px);
 }
 
-.btn_:before {
+.btn_a:before {
     transition: 0.5s all ease;
     position: absolute;
     top: 0;
@@ -151,14 +151,14 @@
     z-index: -1;
 }
 
-.btn_:hover,
-.btn_:focus {
+.btn_a:hover,
+.btn_a:focus {
     color: #fc5b5b;
  
 }
 
-.btn_:hover:before,
-.btn_:focus:before {
+.btn_a:hover:before,
+.btn_a:focus:before {
     transition: 0.3s all ease;
     left: 0;
     right: 0;
@@ -167,7 +167,7 @@
     color: #fc5b5b;
 }
 
-.btn_:active {
+.btn_a:active {
     transform: scale(0.9);
 }
 
@@ -175,18 +175,28 @@
 
 /*----------------------------------- BTN Admin ---------------------------------------*/
 
-.btn_2 {
+.btn_2a {
     /* border: 3px solid #555454; */
+    font-weight: bold;
+    transition: 0.2s ease all;
+    background-position: 100%;
+    background-color: #505050;
+}
+
+
+/*------------------------------- BTN Supervisor -------------------------------------------*/
+.btn_3a {
+    /* border: 3px solid #fc5b5b; */
     position: relative;
     font-weight: bold;
     transition: 0.2s ease all;
-    background-image: url(../../../Images/Interface/Pulsar\ RS\ 200.png);
-    background-color: rgba(136, 136, 136, 0.651);
+    background-image: url(../../../Images/Interface/vehicle.png);
+    background-color: rgba(247, 99, 99, 0.651);
     background-size: cover;
     background-position: 100%;
 }
 
-.btn_2:before {
+.btn_3a:before {
     transition: 0.5s all ease;
     position: absolute;
     top: 0;
@@ -195,17 +205,18 @@
     bottom: 0;
     opacity: 0;
     content: '';
-    background-color: rgb(85, 85, 85);
+    background-color: rgb(245, 93, 93);
     z-index: -1;
+    
 }
 
-.btn_2:hover,
-.btn_2:focus {
+.btn_3a:hover,
+.btn_3a:focus {
     color: #fc5b5b;
 }
 
-.btn_2:hover:before,
-.btn_2:focus:before {
+.btn_3a:hover:before,
+.btn_3a:focus:before {
     transition: 0.3s all ease;
     left: 0;
     right: 0;
@@ -214,20 +225,8 @@
     color: #fc5b5b;
 }
 
-.btn_2:active {
+.btn_3a:active {
     transform: scale(0.9);
 }
-/*------------------------------- BTN Supervisor -------------------------------------------*/
 
-.btn_3 {
-    /* border: 3px solid #fc5b5b; */
-    /* position: absolute; */
-    font-weight: bold;
-    transition: 0.2s ease all;
-    background-position: 100%;
-    background-color: #fc5b5b;
-
-    /* ----------- change of size ---------- */
-       
-}
 
