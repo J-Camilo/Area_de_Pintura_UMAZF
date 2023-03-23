@@ -4,23 +4,14 @@ html{
     animation: Header 1s forwards;
 }
 
-@keyframes Header {
-    from {
-        opacity: -3;
-        /* transform: translatey(100px); */
-    }
 
-    to {
-        opacity: 2;
-        /* transform: translatey(0px); */
-    }
-}
 
 body {
     margin: 0;
 }
 
 /* ------------- nav ---------------*/
+
 
 
 #logo {
@@ -43,7 +34,7 @@ p {
     color: #333333;
 }
 
-.header {
+.header2 {
     background-color: rgb(248, 95, 95);
     background-image: url(../../Images/Interface/vehicle.png);
     background-size: cover;
@@ -53,7 +44,7 @@ p {
     height: 11rem;
 }
 
-.logo {
+.logo2 {
     width: 50px;
     fill: white;
     padding-right: 15px;
@@ -61,27 +52,18 @@ p {
     vertical-align: middle;
 }
 
-.inner-header {
+.inner-header2 {
     /* height: 65vh; */
     width: 100%;
     margin: 0;
     padding: 0;
 }
 
-.flex {
+.flex2 {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-}
-
-.waves {
-    position: relative;
-    width: 100%;
-    height: 15vh;
-    margin-top: 5rem;
-    min-height: 100px;
-    max-height: 150px;
 }
 
 .content {
@@ -91,34 +73,10 @@ p {
     background-color: white;
 }
 
-.parallax>use {
-    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
-}
-
-.parallax>use:nth-child(1) {
-    animation-delay: -2s;
-    animation-duration: 7s;
-
-}
-
-.parallax>use:nth-child(2) {
-    animation-delay: -3s;
-    animation-duration: 10s;
-}
-
-.parallax>use:nth-child(3) {
-    animation-delay: -4s;
-    animation-duration: 13s;
-}
-
-.parallax>use:nth-child(4) {
-    animation-delay: -5s;
-    animation-duration: 20s;
-}
 
 /* ------------------ Nav --------------------- */
 
-.Counter_header {
+.Counter_header_2 {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -136,6 +94,13 @@ p {
     backdrop-filter: blur(4px);
     font-family: 'Times New Roman', Times, serif;
     font-size: 1px;
+    animation: Counter_animation 1.5s forwards;
+    
+}
+
+.Text_major_ {
+    text-decoration: none;
+    color: #5c5a5a;
 }
 
 .Logo {
@@ -148,6 +113,17 @@ p {
 
 /* - --------------------- Navegation ----------------------- */
 
+@keyframes Counter_animation {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 1;
+        width: 50rem;
+        height: 6rem;
+    }
+}
 
 @keyframes move-forever {
     0% {
@@ -156,6 +132,27 @@ p {
 
     100% {
         transform: translate3d(85px, 0, 0);
+    }
+}
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+@keyframes Header {
+    from {
+        opacity: -3;
+        /* transform: translatey(100px); */
+    }
+
+    to {
+        opacity: 2;
+        /* transform: translatey(0px); */
     }
 }
 

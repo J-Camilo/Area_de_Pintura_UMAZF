@@ -1,3 +1,17 @@
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
+/* .prueba {
+  background: linear-gradient(198.35deg, #ffffff00 31.67%, rgba(255, 255, 255, 0) 80.55%);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(2px);
+    width: 22rem;
+    height: 23rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #ffffff;
+} */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -14,6 +28,13 @@ code {
 
 .text {
   text-decoration: none;
+  color: gray;
+}
+
+.text_parragraf {
+  text-decoration: none;
+  margin-top: 0;
+  color: rgb(255, 255, 255);
 }
 
 .Text_back {
@@ -33,7 +54,9 @@ code {
   border-top: solid rgb(197, 195, 195) 1px;
   border-top-right-radius: .8rem;
   border-top-left-radius: .8rem;
+  position: absolute;
   bottom: 0;
+  margin-top: 1rem;
 }
 
 .Footer>h1 {
@@ -158,6 +181,27 @@ input:focus~ :valid {
   outline: none;
   cursor: pointer;
   font-size: 1em;
+  transition: all 200ms ease-out;
+}
+
+.btn_send_back {
+  width: 150px;
+  height: 40px;
+  border: none;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  outline: none;
+  cursor: pointer;
+  transition: all 200ms ease-out;
+  font-size: 1em;
+}
+
+.btn_send_:hover,
+.btn_send:hover,
+.btn_send_back:hover {
+  background-color: #333333;
+  transition: all 200ms ease-in;
+  color: #ffffff;
 }
 
 
@@ -221,18 +265,7 @@ input:focus~ :valid {
   margin: 30px, 0;
   width: 300px;
   border-bottom: solid white 2px;
-}
 
-
-.inputbox_>label {
-  position: absolute;
-  top: 30px;
-  left: 5px;
-  transform: translateY(-50%);
-  color: white;
-  font-size: 1em;
-  pointer-events: none;
-  transition: 300ms;
 }
 
 .inputbox_>input {
@@ -267,4 +300,187 @@ input:focus~ :valid {
   outline: none;
   cursor: pointer;
   font-size: 1em;
+}
+
+.Text-input {
+  color: aliceblue;
+}
+
+
+
+
+/* ------------------------- Layout ---------------------------*/
+
+html {
+  animation: Header 1s forwards;
+}
+
+@keyframes Header {
+  from {
+    opacity: -3;
+    /* transform: translatey(100px); */
+  }
+
+  to {
+    opacity: 2;
+    /* transform: translatey(0px); */
+  }
+}
+
+body {
+  margin: 0;
+}
+
+/* ------------- nav ---------------*/
+
+
+#logo {
+  width: 15%;
+  padding: 1rem;
+}
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  letter-spacing: 2px;
+  font-size: 27px;
+
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  font-size: 14px;
+  color: #333333;
+}
+
+.header {
+  background-color: rgb(248, 95, 95);
+  background-image: url(../src/Components/Images/Interface/vehicle.png);
+  background-size: cover;
+  background-position: 50%;
+  /* position: absolute; */
+  width: 100%;
+  height: 11rem;
+}
+
+.logo {
+  width: 50px;
+  fill: white;
+  padding-right: 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.inner-header {
+  /* height: 65vh; */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.waves {
+  position: relative;
+  width: 100%;
+  height: 15vh;
+  margin-top: 5rem;
+  min-height: 100px;
+  max-height: 150px;
+}
+
+.content {
+  position: relative;
+  height: 20vh;
+  text-align: center;
+  background-color: white;
+}
+
+.parallax>use {
+  animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+
+.parallax>use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+
+}
+
+.parallax>use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+
+.parallax>use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+
+.parallax>use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+
+/* ------------------ Nav --------------------- */
+
+.Counter_header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgba(233, 233, 233, 0.733);
+  border-radius: 2rem;
+  width: 40rem;
+  height: 6rem;
+  z-index: 1;
+  margin-top: 12rem;
+  z-index: 99;
+  position: absolute;
+  background: linear-gradient(198.35deg, #ffffff 31.67%, rgba(255, 255, 255, 0.6) 87.55%);
+  backdrop-filter: blur(4px);
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1px;
+}
+
+.Logo {
+  width: 100px;
+  height: 35px;
+  padding-right: 3rem;
+  border-right: solid red 2px;
+}
+
+
+/* - --------------------- Navegation ----------------------- */
+
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .waves {
+    height: 40px;
+    min-height: 40px;
+  }
+
+  .content {
+    height: 30vh;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
 }

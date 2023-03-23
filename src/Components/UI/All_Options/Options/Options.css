@@ -50,14 +50,14 @@
 .btn,
 .btn2,
 .btn3 {
-    width: 17rem;
+    width: 22rem;
     height: 23rem;
     background-color: aqua;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border-radius:1.8rem;
+    border-radius: 1.8rem;
     /* animation-name: anim-down; */
     animation: anim-down 1s forwards;
     color: #fc5b5b;
@@ -107,8 +107,8 @@
     }
 }
 
-.Icons{
-    font-size: 4rem;
+.Icons {
+    font-size: 6rem;
     color: rgb(252, 252, 252);
 }
 
@@ -118,7 +118,12 @@
 .btn2>p,
 .btn3>p {
     color: #ffefef;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    background-color: #fc5b5b;
+    background: linear-gradient(198.35deg, #ffffff00 31.67%, rgba(255, 255, 255, 0) 87.55%);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(2px);
+    border-radius: .5rem;
 }
 
 .btn {
@@ -149,7 +154,7 @@
 .btn:hover,
 .btn:focus {
     color: #fc5b5b;
- 
+
 }
 
 .btn:hover:before,
@@ -212,6 +217,7 @@
 .btn2:active {
     transform: scale(0.9);
 }
+
 /*------------------------------- BTN Supervisor -------------------------------------------*/
 
 .btn3 {
@@ -236,7 +242,7 @@
     content: '';
     background-color: rgb(245, 93, 93);
     z-index: -1;
-    
+
 }
 
 .btn3:hover,

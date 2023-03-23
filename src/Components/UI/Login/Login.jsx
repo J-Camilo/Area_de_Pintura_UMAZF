@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { MdSupervisorAccount } from "react-icons/md"
-import { Layouth     } from "../Login/Layout"
+import { Layouth } from "../Login/Layout"
 
 
 export const Login = (props) => {
@@ -10,7 +10,9 @@ export const Login = (props) => {
                 <Layouth />
                 <div className="Content_Icon">
                     <MdSupervisorAccount className="Icon-user" />
-                    <Link to="/Register_Supervisor"><button className="btn_send">Registrarse</button></Link>
+                    <h3  className="text_parragraf">¿Aun no tienes cuenta?</h3>
+                    <Link to="/Register_Supervisor/r/R3gcaso"><button className="btn_send">Registrarse</button></Link>
+                    <Link to="/"><button className="btn_send_back">Volver</button></Link>
                 </div>
             </div>
         </>
