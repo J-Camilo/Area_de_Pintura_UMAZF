@@ -173,52 +173,7 @@
 
 
 
-/*----------------------------------- BTN Admin ---------------------------------------*/
-
-.btn2 {
-    /* border: 3px solid #555454; */
-    position: relative;
-    font-weight: bold;
-    transition: 0.2s ease all;
-    background-image: url(../../../Images/Interface/Pulsar\ RS\ 200.png);
-    background-color: rgba(136, 136, 136, 0.651);
-    background-size: cover;
-    background-position: 100%;
-}
-
-.btn2:before {
-    transition: 0.5s all ease;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    right: 50%;
-    bottom: 0;
-    opacity: 0;
-    content: '';
-    background-color: rgb(85, 85, 85);
-    z-index: -1;
-}
-
-.btn2:hover,
-.btn2:focus {
-    color: #fc5b5b;
-}
-
-.btn2:hover:before,
-.btn2:focus:before {
-    transition: 0.3s all ease;
-    left: 0;
-    right: 0;
-    opacity: 1;
-    border-radius: 1.8rem;
-    color: #fc5b5b;
-}
-
-.btn2:active {
-    transform: scale(0.9);
-}
-
-/*------------------------------- BTN Supervisor -------------------------------------------*/
+/*------------------------------- BTN Login -------------------------------------------*/
 
 .btn3 {
     /* border: 3px solid #fc5b5b; */

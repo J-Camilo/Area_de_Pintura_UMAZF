@@ -1,3 +1,4 @@
+/* login */
 .Content_2 {
     display: flex;
     justify-content: center;
@@ -19,14 +20,14 @@
 }
 
 .btn_,
-.btn_2{
+.btn_2 {
     width: 17rem;
     height: 23rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border-radius:1.8rem;
+    border-radius: 1.8rem;
     /* animation-name: anim-down; */
     animation: anim-down_ 700ms forwards;
     color: #fc5b5b;
@@ -47,7 +48,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border-radius:1.8rem;
+    border-radius: 1.8rem;
     color: #fc5b5b;
 }
 
@@ -66,7 +67,7 @@
 @keyframes anim-down_2 {
     from {
         opacity: 1;
-        
+
     }
 
     to {
@@ -84,20 +85,20 @@
 
     to {
         opacity: 1;
-        width:47rem;
+        width: 47rem;
         height: 390px;
     }
 }
 
 
 
-.Icons_2{
+.Icons_2 {
     font-size: 4rem;
     color: rgb(252, 252, 252);
 }
 
 .Icons_,
-.Disable{
+.Disable {
     font-size: 4rem;
     color: rgb(252, 252, 252);
     animation: off 1ms forwards;
@@ -108,7 +109,7 @@
 @keyframes off {
     from {
         opacity: 1;
-        
+
     }
 
     to {
@@ -127,11 +128,10 @@
 }
 
 .btn_ {
-    /* border: 3px solid rgb(56, 175, 255); */
-    /* position: relative; */
+
     font-weight: bold;
     transition: 0.2s ease all;
-    background-image: url(../../../Images/Interface/Pulsar\ 150.png);
+    background-image: url(../../Images/Interface/Pulsar\ 150.png);
     background-color: rgba(85, 218, 252, 0.651);
     background-size: cover;
     background-position: 100%;
@@ -154,7 +154,7 @@
 .btn_:hover,
 .btn_:focus {
     color: #fc5b5b;
- 
+
 }
 
 .btn_:hover:before,
@@ -173,50 +173,7 @@
 
 
 
-/*----------------------------------- BTN Admin ---------------------------------------*/
 
-.btn_2 {
-    /* border: 3px solid #555454; */
-    position: relative;
-    font-weight: bold;
-    transition: 0.2s ease all;
-    background-image: url(../../../Images/Interface/Pulsar\ RS\ 200.png);
-    background-color: rgba(136, 136, 136, 0.651);
-    background-size: cover;
-    background-position: 100%;
-}
-
-.btn_2:before {
-    transition: 0.5s all ease;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    right: 50%;
-    bottom: 0;
-    opacity: 0;
-    content: '';
-    background-color: rgb(85, 85, 85);
-    z-index: -1;
-}
-
-.btn_2:hover,
-.btn_2:focus {
-    color: #fc5b5b;
-}
-
-.btn_2:hover:before,
-.btn_2:focus:before {
-    transition: 0.3s all ease;
-    left: 0;
-    right: 0;
-    opacity: 1;
-    border-radius: 1.8rem;
-    color: #fc5b5b;
-}
-
-.btn_2:active {
-    transform: scale(0.9);
-}
 /*------------------------------- BTN Supervisor -------------------------------------------*/
 
 .btn_3 {
@@ -228,6 +185,5 @@
     background-color: #fc5b5b;
 
     /* ----------- change of size ---------- */
-       
-}
 
+}
