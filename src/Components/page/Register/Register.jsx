@@ -2,6 +2,7 @@ import { Waves } from "../../UI/Waves/Waves";
 import { Nav } from "../../UI/Nav/Nav";
 import "./Register.css";
 import { React, useEffect } from 'react';
+import Swal from 'sweetalert2';
 import Alert from '@mui/material/Alert';
 
 /* --------------- Icons ------------------- */
@@ -9,8 +10,30 @@ import { MdSupervisorAccount } from "react-icons/md"
 import { Link } from "react-router-dom";
 
 
+
 export const Register = (props) => {
 
+    Swal.fire({
+        title: 'Recuerda !No compartas la información con nadie!',
+        icon: 'warning',
+        backdrop: '#ffffff00',  
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        width: 550,
+        allowOutsideClick: true,
+        timer: 5000,
+        stopKeydownPropagation: true,
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        },
+        customClass: {
+          popup: 'Content_Swall_2',
+        }
+      })
 
     // validaciones username
     //   useEffect(() => {

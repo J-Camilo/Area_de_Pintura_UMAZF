@@ -26,6 +26,8 @@ function App() {
   const userId = localStorage.getItem("idCode");
   const NameUser = localStorage.getItem("Name")
 
+  /*------------------- variables --------------------- */
+
 
 
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -353,6 +355,27 @@ function App() {
   //     })
   //   });
 
+  Swal.fire({
+    title: 'Hola... soy la isla dinamica, ya puedes registarte e iniciar',
+    icon: 'success',
+    backdrop: '#ffffff00',  
+    toast: true,
+    position: 'top',
+    showConfirmButton: false,
+    width: 550,
+    allowOutsideClick: true,
+    timer: 5000,
+    stopKeydownPropagation: true,
+    showClass: {
+      popup: 'animate__animated animate__fadeInDown'
+    },
+    hideClass: {
+      popup: 'animate__animated animate__fadeOutUp'
+    },
+    customClass: {
+      popup: 'Content_Swall_2',
+    }
+  })
 
   /* ------------------------------------------------------------------------ finish UserId --------------------------------------------------------------  */
 
@@ -370,9 +393,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/All-options/r/oWncaso2" element={valiLogin ? <Data Delecte={Delecte} NameUser={NameUser} /> : <Navigate replace to="/login/r/owncaso" />} />
 
         {/* logic Props */}
+        <Route path="/All-options/r/oWncaso2" element={valiLogin ? <Data Delecte={Delecte} NameUser={NameUser} /> : <Navigate replace to="/login/r/owncaso" />} />
         <Route path="/login/r/owncaso" element={valiLogin ? <Navigate replace to="/All-options/r/oWncaso2" /> : <Login alertUserLoginPassword={alertUserLoginPassword} setalertUserLoginPassword={setalertUserLoginPassword} setalertConexionLogin={setalertConexionLogin} alertConexionLogin={alertConexionLogin} alertUserLogin={alertUserLogin} setalertUserLogin={setalertUserLogin} messagesLogin={messagesLogin} onClick2={onClick2} switchShown2={switchShown2} shown2={shown2} userLogin={userLogin} ClickLogin={ClickLogin} passwordUser={passwordUser} onChangePasswordLogin={onChangePasswordLogin} onChangeUserLogin={onChangeUserLogin} />} />
         <Route path="/Register/r/R3gcaso" element={userId ? <Navigate replace to="/login/r/owncaso" /> : <Register alertConexion={alertConexion} setalertConexion={setalertConexion} alertUser={alertUser} setalertUser={setalertUser} setmessages={setmessages} messages={messages} validemail={validemail} validUsername={validUsername} confrimPasword={confrimPasword} onChangeconfrimPasword={onChangeconfrimPasword} postApi={postApi} emailRegister={emailRegister} passwordRegister={passwordRegister} usernameRegister={usernameRegister} onChangeemailRegister={onChangeemailRegister} onChangepasswordRegister={onChangepasswordRegister} onChangeusernameRegister={onChangeusernameRegister} />} />
 

@@ -6,3 +6,15 @@
     justify-content: space-evenly;
     
 }
+
+.Content_Swall_2{
+    margin-top: 9rem;
+    border-radius: 3rem;
+    /* background-color: aqua; */
+    height: 4rem;
+    display: grid;
+    align-content: center;   
+    justify-content: space-evenly;
+    
+}
+
