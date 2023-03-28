@@ -1,0 +1,8 @@
+.Content_Swall{
+    margin-top: 9rem;
+    height: 4rem;
+    display: grid;
+    align-content: center;   
+    justify-content: space-evenly;
+    
+}

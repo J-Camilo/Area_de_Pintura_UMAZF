@@ -97,7 +97,7 @@ export const Register = (props) => {
 
                                             {props.alertUser ? <Alert variant="outlined" severity="warning">Usuario o Email ya Registrado!</Alert> : null}
                                             {props.alertConexion ? <Alert variant="outlined" severity="warning">Sin conexion — <strong>Conectate a una red!</strong></Alert> : null}
-                                            <input  id='buttonRegister' value="Registrarse" type="submit" className="btn_send_" />
+                                            <input value="Registrarse" type="submit" className="btn_send_" />
                                       
 
                                         </form>
