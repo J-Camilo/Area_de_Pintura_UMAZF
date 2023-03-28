@@ -85,7 +85,7 @@ code {
   justify-content: space-around;
   align-items: center;
   width: 44rem;
-  animation: opacity 1s forwards;
+  animation: opacity 2s forwards;
 }
 
 
@@ -252,6 +252,7 @@ input:focus~ :valid {
 .form-box_>.form-value_>form>h3 {
   font-size: 1.5em;
   text-align: center;
+  margin: 0;
 }
 
 .inputbox_ {
@@ -294,6 +295,7 @@ input:focus~ :valid {
   outline: none;
   cursor: pointer;
   font-size: 1em;
+  margin-top: 1rem;
 }
 
 .Text-input {

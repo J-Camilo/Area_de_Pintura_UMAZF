@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react'
 import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle';
 import { Link } from "react-router-dom"
 import "./Login.css"
 
 /* -------------- Components ---------------*/
-import { Footer } from "../../UI/Footer/Footer"
 import { Waves } from "../../UI/Waves/Waves"
 import { Nav } from "../../UI/Nav/Nav"
 
@@ -72,7 +70,7 @@ export const Login = (props) => {
                       <p className="forgetPass"><Link to="/recoverPassword" >¿Haz olvidado tu contraseña?</Link></p>
                       {props.alertUserLogin ? <Alert variant="outlined" severity="error">Usuario no registrado — <strong>Registrate!</strong></Alert> : null}
                       {props.alertUserLoginPassword ? <Alert variant="outlined" severity="error">Contraseña o email incorrectos — <strong>Verifica!</strong></Alert> : null}
-                      {props.alertConexionLogin ? <Alert variant="outlined" severity="warning">Sin conexion — <strong>Conectate a una red!</strong></Alert> : <p></p>}
+                      {props.alertConexionLogin ? <Alert variant="outlined" severity="warning">Sin conexion — <strong>Conectate a una red!</strong></Alert> : null}
 
                       <input type="submit" value="Ingresar" className="btn_send" />
 
@@ -86,7 +84,7 @@ export const Login = (props) => {
               <div className="Content_Icon">
                 <MdSupervisorAccount className="Icon-user" />
                 <h3 className="text_parragraf">¿Aun no tienes cuenta?</h3>
-                <Link to="/Register/r/R3gcaso"><button className="btn_send">Registrarse</button></Link>
+                <Link to="/Register/r/R3gcaso"><button className="btn_send" onClick={onclick}>Registrarse</button></Link>
                 <Link to="/"><button className="btn_send_back">Volver al inicio</button></Link>
               </div>
             </div>

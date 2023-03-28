@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 /* --------------- Dependecias ------------------ */
@@ -11,6 +11,7 @@ import { Home } from "./Components/page/Home/Home";
 import { Login } from './Components/page/Login/Login';
 import { Register } from './Components/page/Register/Register';
 import { Data } from './Components/page/Data/Data';
+import { Error_404 } from "./Components/page/Error_404/Error_404";
 
 
 
@@ -18,7 +19,7 @@ import { Data } from './Components/page/Data/Data';
 
 function App() {
  
-  const valiLoginAdmin = localStorage.getItem("CodeValid_A");
+  // const valiLoginAdmin = localStorage.getItem("CodeValid_A");
   const valiLogin = localStorage.getItem("CodeVerifycation");
   // let navigate = useNavigate(); 
 
@@ -97,8 +98,6 @@ function App() {
   /*------------------------------------------------------------------ Login ----------------------------------------------------------------------------*/
 
 
-  // let navigate = useNavigate();  
-
   /*validaciones login*/
   const [messagesLogin, setmessagesLogin] = useState("")
   const [alertUserLogin, setalertUserLogin] = useState(false)
@@ -123,7 +122,11 @@ function App() {
 
   const getApi = async() => {
    
-    axios.get('https://apisupervisor-production.up.railway.app/Api/users')
+    axios.get('https://apisupervisor-production.up.railway.app/Api/users' )
+    // , {
+    //   headers: {
+    //     "Access-Control-Allow-Origin" : true
+    //   }})
       .then(function (response) {
         // handle success
         response.data.map(async (data) => {
@@ -193,13 +196,82 @@ function App() {
   }
 
   /*------------------------------------------------------------------ Finish Login ----------------------------------------------------------------------------*/
+  
+  
+  
+  /*------------------------------------------------------------------ Register ----------------------------------------------------------------------------*/
+ /*inicio validaciones register*/
+ const [alertUser, setalertUser] = useState(false)
+ const [alertConexion, setalertConexion] = useState(false)
+ const [validUsername, setvalidUsername] = useState('');
+ const [messages, setmessages] = useState("")
+ const [validemail, setvalidemail] = useState('.@');
+ const [usernameRegister, setusernameRegister] = useState("")
+ const [passwordRegister, setpasswordRegister] = useState("")
+ const [confrimPasword, setconfrimPasword] = useState("")
+ const [emailRegister, setemailRegister] = useState("")
+ const onChangeusernameRegister = ({ currentTarget }) => setusernameRegister(currentTarget.value);
+ const onChangepasswordRegister = ({ currentTarget }) => setpasswordRegister(currentTarget.value);
+ const onChangeemailRegister = ({ currentTarget }) => setemailRegister(currentTarget.value.toLowerCase());
+ const onChangeconfrimPasword = ({ currentTarget }) => setconfrimPasword(currentTarget.value);
 
 
 
+ const postApi = async(e) => {
+   e.preventDefault()
+
+   const encriptado = await encriptar(contraseñaEncriptar, passwordRegister);
+
+   if ((usernameRegister.indexOf('`') !== -1 || usernameRegister.indexOf('.') !== -1 || usernameRegister.indexOf('@') !== -1 || usernameRegister.indexOf('!') !== -1 || usernameRegister.indexOf('%') !== -1 || usernameRegister.indexOf('$') !== -1 || /\s/.test(usernameRegister)) || (emailRegister.indexOf('.') === -1 || emailRegister.indexOf('@') === -1 || /\s/.test(emailRegister))) {
+     console.log("error");
+   } else {
+     axios.post('https://apisupervisor-production.up.railway.app/Api/users', {
+       "name": usernameRegister,
+       "email": emailRegister,
+       "password": encriptado
+     })
+       .then(function (response) {
+         // handle success
+         console.log(response.data);
+
+        //  navigate('login')
+
+         response.data.map((data => console.log(data)));
+       })
+       .catch(function (error) {
+        //  handle error
+         setmessages(error.message)
+
+       });
+     setusernameRegister("")
+     setpasswordRegister("")
+     setconfrimPasword("")
+     setemailRegister("")
+     setmessages("")
+     setalertUser(false)
+     setalertConexion(false)
 
 
+   }
 
+   setvalidUsername(usernameRegister)
+   setvalidemail(emailRegister)
+   console.log(messages);
+ }
+ 
+ 
+  /*------------------------------------------------------------------ Finish Register ----------------------------------------------------------------------------*/
+  
+//   useEffect(() => {
+//     const URL = 'https://rickandmortyapi.com/api/character'
 
+//     const asyncFetchData = async() =>{
+//         const res = await fetch(URL)
+//         const data = await res.json()
+//         console.log(data);
+//     }
+//     asyncFetchData();
+// }, [])
 
 
   return (
@@ -207,13 +279,14 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/All-options/r/oWncaso2" element={<Data />} />
 
         {/* logic Props */}
         <Route path="/login/r/owncaso" element={valiLogin ? <Navigate replace to="/All-options/r/oWncaso2" /> : <Login alertUserLoginPassword={alertUserLoginPassword} setalertUserLoginPassword={setalertUserLoginPassword} setalertConexionLogin={setalertConexionLogin} alertConexionLogin={alertConexionLogin} alertUserLogin={alertUserLogin} setalertUserLogin={setalertUserLogin} messagesLogin={messagesLogin} onClick2={onClick2} switchShown2={switchShown2} shown2={shown2} userLogin={userLogin} ClickLogin={ClickLogin} passwordUser={passwordUser} onChangePasswordLogin={onChangePasswordLogin} onChangeUserLogin={onChangeUserLogin} />} />
-        <Route path="/Register/r/R3gcaso" element={<Register />} />
+        <Route path="/Register/r/R3gcaso" element={<Register alertConexion={alertConexion} setalertConexion={setalertConexion} alertUser={alertUser} setalertUser={setalertUser} setmessages={setmessages} messages={messages} validemail={validemail} validUsername={validUsername} confrimPasword={confrimPasword} onChangeconfrimPasword={onChangeconfrimPasword} postApi={postApi} emailRegister={emailRegister} passwordRegister={passwordRegister} usernameRegister={usernameRegister} onChangeemailRegister={onChangeemailRegister} onChangepasswordRegister={onChangepasswordRegister} onChangeusernameRegister={onChangeusernameRegister}  />} />
 
         {/* Protect routers */}
-        <Route path="/All-options/r/oWncaso2" element={valiLogin ? <Data />:<Navigate replace to="/Error/r" />} />    
+        <Route path="/*" element={<Error_404 />} />
 
       </Routes>
     </BrowserRouter>

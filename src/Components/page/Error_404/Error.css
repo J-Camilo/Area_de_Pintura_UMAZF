@@ -1,0 +1,14 @@
+.Content_all_404 {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Error_image {
+    width: 55rem;
+}
+
+.text_first_error {
+    font-size: 3rem;
+}
