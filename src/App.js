@@ -355,27 +355,30 @@ function App() {
   //     })
   //   });
 
-  Swal.fire({
-    title: 'Hola... soy la isla dinamica, ya puedes registarte e iniciar',
-    icon: 'success',
-    backdrop: '#ffffff00',  
-    toast: true,
-    position: 'top',
-    showConfirmButton: false,
-    width: 550,
-    allowOutsideClick: true,
-    timer: 5000,
-    stopKeydownPropagation: true,
-    showClass: {
-      popup: 'animate__animated animate__fadeInDown'
-    },
-    hideClass: {
-      popup: 'animate__animated animate__fadeOutUp'
-    },
-    customClass: {
-      popup: 'Content_Swall_2',
-    }
-  })
+  /* ------------------------------------------------------------------------ dynamic islan --------------------------------------------------------------  */
+
+
+  // Swal.fire({
+  //   title: 'Hola... soy la isla dinamica, ya puedes registarte e iniciar',
+  //   icon: 'success',
+  //   backdrop: '#ffffff00',  
+  //   toast: true,
+  //   position: 'top',
+  //   showConfirmButton: false,
+  //   width: 550,
+  //   allowOutsideClick: true,
+  //   timer: 5000,
+  //   stopKeydownPropagation: true,
+  //   showClass: {
+  //     popup: 'animate__animated animate__fadeInDown'
+  //   },
+  //   hideClass: {
+  //     popup: 'animate__animated animate__fadeOutUp'
+  //   },
+  //   customClass: {
+  //     popup: 'Content_Swall_2',
+  //   }
+  // })
 
   /* ------------------------------------------------------------------------ finish UserId --------------------------------------------------------------  */
 
