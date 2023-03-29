@@ -261,7 +261,7 @@ function App() {
           localStorage.setItem("CRQsDul8xCamE", true);
           Swal.fire({
             title: 'Te has registrado con exito',
-            html: '<a href="/login/r/owncaso" class="BtnAlert_Ancla"><ion-icon class="Icon_Alert"name="chevron-back-outline"><buttom class="BtnAlert">Ir a Login</buttom></a>',
+            html: '<a href="/login/r/owncaso" class="BtnAlert_Ancla">Ir a login<ion-icon  class="Icon_Alert" name="chevron-forward-outline"></ion-icon></a>',
             icon: 'success',
             backdrop: '#ffffff00',
             toast: true,
@@ -350,7 +350,6 @@ function App() {
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
 
   /* ------------------------------------------------------------------------ data user --------------------------------------------------------------  */
-
 
 
 
