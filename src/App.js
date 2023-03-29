@@ -23,8 +23,11 @@ function App() {
   /* --------------------- LocalStorage ------------------ */
   // const valiLoginAdmin = localStorage.getItem("CodeValid_A");
   const valiLogin = localStorage.getItem("CodeVerifycation");
-  const userId = localStorage.getItem("idCode");
-  const NameUser = localStorage.getItem("Name")
+  const userId = localStorage.getItem("CRQsDul8xCamE");
+  const h = localStorage.getItem("Code");
+  const NameUser = localStorage.getItem("Name");
+  const NShow = localStorage.getItem("CRQsDul8xCamE");
+
 
   /*------------------- variables --------------------- */
 
@@ -258,14 +261,16 @@ function App() {
           localStorage.setItem("CRQsDul8xCamE", true);
           Swal.fire({
             title: 'Te has registrado con exito',
+            html: '<a href="/login/r/owncaso" class="BtnAlert_Ancla"><ion-icon class="Icon_Alert"name="chevron-back-outline"><buttom class="BtnAlert">Ir a Login</buttom></a>',
             icon: 'success',
             backdrop: '#ffffff00',
             toast: true,
             position: 'top',
             showConfirmButton: false,
-            width: 550,
+            width: 560,
             allowOutsideClick: true,
-            timer: 2000,
+            timer: 8000,
+            timerProgressBar: true,
             stopKeydownPropagation: true,
             showClass: {
               popup: 'animate__animated animate__fadeInDown'
@@ -274,7 +279,8 @@ function App() {
               popup: 'animate__animated animate__fadeOutUp'
             },
             customClass: {
-              popup: 'Content_Swall',
+              popup: 'Content_Swall_',
+              container: 'Content_Swal_All'
             }
           })
         })
@@ -282,16 +288,18 @@ function App() {
           //  handle error
           setmessages(error.message)
 
+
           Swal.fire({
-            title: 'Oh no... Ha ocurrido un error',
+            title: 'Oh no. ah ocurrido un error, intenta de nuevo o mas tarde',
             icon: 'error',
             backdrop: '#ffffff00',
             toast: true,
             position: 'top',
             showConfirmButton: false,
-            width: 550,
+            width: 560,
             allowOutsideClick: true,
-            timer: 2000,
+            timer: 3000,
+            // timerProgressBar: true,
             stopKeydownPropagation: true,
             showClass: {
               popup: 'animate__animated animate__fadeInDown'
@@ -300,7 +308,8 @@ function App() {
               popup: 'animate__animated animate__fadeOutUp'
             },
             customClass: {
-              popup: 'Content_Swall',
+              popup: 'Content_Swall_error',
+              container: 'Content_Swal_All'
             }
           })
         });
@@ -326,7 +335,7 @@ function App() {
   const Delecte = () => {
     localStorage.removeItem("CodePs");
     localStorage.removeItem("CodeVerifycation");
-    localStorage.removeItem("idCode");
+    localStorage.removeItem("Code");
     localStorage.removeItem("CRQsDul8xCamE");
     localStorage.removeItem("Name");
   }
@@ -340,45 +349,95 @@ function App() {
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-  /* ------------------------------------------------------------------------ UserId --------------------------------------------------------------  */
+  /* ------------------------------------------------------------------------ data user --------------------------------------------------------------  */
 
-  // const [NameId, setNameId] = useState("");
 
-  // axios({
-  //   method: 'get',
-  //   url: `https://apisupervisor-production.up.railway.app/Api/users/${userId}`,
-  //   responseType: 'stream'
-  // })
-  //   .then(function (response) {
-  //     response.data.map(data => {
-  //       console.log(data);
-  //     })
-  //   });
+
 
   /* ------------------------------------------------------------------------ dynamic islan --------------------------------------------------------------  */
 
+  const onClick3 = () => {
+    setTimeout(function(){
+      Swal.fire({
+        title: `Hola, soy La isla dinamica`,
+        icon: 'info',
+        backdrop: '#ffffff00',
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        width: 360,
+        allowOutsideClick: true,
+        timer: 3000,
+        // timerProgressBar: true,
+        stopKeydownPropagation: true,
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        },
+        customClass: {
+          popup: 'Content_Swall_Info',
+          container: 'Content_Swal_All'
+        }
+      })
+  }, 2000);
 
-  // Swal.fire({
-  //   title: 'Hola... soy la isla dinamica, ya puedes registarte e iniciar',
-  //   icon: 'success',
-  //   backdrop: '#ffffff00',  
-  //   toast: true,
-  //   position: 'top',
-  //   showConfirmButton: false,
-  //   width: 550,
-  //   allowOutsideClick: true,
-  //   timer: 5000,
-  //   stopKeydownPropagation: true,
-  //   showClass: {
-  //     popup: 'animate__animated animate__fadeInDown'
-  //   },
-  //   hideClass: {
-  //     popup: 'animate__animated animate__fadeOutUp'
-  //   },
-  //   customClass: {
-  //     popup: 'Content_Swall_2',
-  //   }
-  // })
+  setTimeout(function(){
+    Swal.fire({
+      title: 'Mi creador me diseño apara informarte sobre la pagina',
+      icon: 'info',
+      backdrop: '#ffffff00',
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      width: 560,
+      allowOutsideClick: true,
+      timer: 4000,
+      // timerProgressBar: true,
+      stopKeydownPropagation: true,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      },
+      customClass: {
+        popup: 'Content_Swall_Info',
+        container: 'Content_Swal_All'
+      }
+    })
+}, 6000);
+
+setTimeout(function(){
+  Swal.fire({
+    title: 'No soy una IA <b>(Inteligencia Artificial)</b> Soy Automatizado',
+    icon: 'info',
+    backdrop: '#ffffff00',
+    toast: true,
+    position: 'top',
+    showConfirmButton: false,
+    width: 560,
+    allowOutsideClick: true,
+    timer: 4000,
+    // timerProgressBar: true,
+    stopKeydownPropagation: true,
+    showClass: {
+      popup: 'animate__animated animate__fadeInDown'
+    },
+    hideClass: {
+      popup: 'animate__animated animate__fadeOutUp'
+    },
+    customClass: {
+      popup: 'Content_Swall_Info',
+      container: 'Content_Swal_All'
+    }
+  })
+}, 12000);
+  }
+  
+
+
 
   /* ------------------------------------------------------------------------ finish UserId --------------------------------------------------------------  */
 
@@ -399,7 +458,7 @@ function App() {
 
         {/* logic Props */}
         <Route path="/All-options/r/oWncaso2" element={valiLogin ? <Data Delecte={Delecte} NameUser={NameUser} /> : <Navigate replace to="/login/r/owncaso" />} />
-        <Route path="/login/r/owncaso" element={valiLogin ? <Navigate replace to="/All-options/r/oWncaso2" /> : <Login alertUserLoginPassword={alertUserLoginPassword} setalertUserLoginPassword={setalertUserLoginPassword} setalertConexionLogin={setalertConexionLogin} alertConexionLogin={alertConexionLogin} alertUserLogin={alertUserLogin} setalertUserLogin={setalertUserLogin} messagesLogin={messagesLogin} onClick2={onClick2} switchShown2={switchShown2} shown2={shown2} userLogin={userLogin} ClickLogin={ClickLogin} passwordUser={passwordUser} onChangePasswordLogin={onChangePasswordLogin} onChangeUserLogin={onChangeUserLogin} />} />
+        <Route path="/login/r/owncaso" element={valiLogin ? <Navigate replace to="/All-options/r/oWncaso2" /> : <Login onClick3={onClick3} NShow={NShow}alertUserLoginPassword={alertUserLoginPassword} setalertUserLoginPassword={setalertUserLoginPassword} setalertConexionLogin={setalertConexionLogin} alertConexionLogin={alertConexionLogin} alertUserLogin={alertUserLogin} setalertUserLogin={setalertUserLogin} messagesLogin={messagesLogin} onClick2={onClick2} switchShown2={switchShown2} shown2={shown2} userLogin={userLogin} ClickLogin={ClickLogin} passwordUser={passwordUser} onChangePasswordLogin={onChangePasswordLogin} onChangeUserLogin={onChangeUserLogin} />} />
         <Route path="/Register/r/R3gcaso" element={userId ? <Navigate replace to="/login/r/owncaso" /> : <Register alertConexion={alertConexion} setalertConexion={setalertConexion} alertUser={alertUser} setalertUser={setalertUser} setmessages={setmessages} messages={messages} validemail={validemail} validUsername={validUsername} confrimPasword={confrimPasword} onChangeconfrimPasword={onChangeconfrimPasword} postApi={postApi} emailRegister={emailRegister} passwordRegister={passwordRegister} usernameRegister={usernameRegister} onChangeemailRegister={onChangeemailRegister} onChangepasswordRegister={onChangepasswordRegister} onChangeusernameRegister={onChangeusernameRegister} />} />
 
         {/* Protect routers */}

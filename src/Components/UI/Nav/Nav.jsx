@@ -1,10 +1,8 @@
 import Logo from "../../Images/Interface/Logo.png"
-// import  { Link } from "react-router-dom"
 
 
 export const Nav = (props) => {
-
-
+  
 
   return (
     <>

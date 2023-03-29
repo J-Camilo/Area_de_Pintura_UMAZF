@@ -1,20 +1,65 @@
-.Content_Swall{
+.Content_Swall_ {
     margin-top: 9rem;
+    border: solid 2px rgb(106, 250, 137) !important;
+    border-radius: 2rem !important;
     height: 4rem;
-    display: grid;
-    align-content: center;   
-    justify-content: space-evenly;
-    
+    display: flex !important;
+    /* align-content: center;    */
+    justify-content: space-around !important;
+    background: white;
+    align-items: center;
+    box-shadow: none !important;
+    z-index: 99 !important;
 }
 
-.Content_Swall_2{
+.Content_Swall_error {
     margin-top: 9rem;
-    border-radius: 3rem;
-    /* background-color: aqua; */
+    border: solid 2px rgb(250, 106, 106) !important;
+    border-radius: 2rem !important;
     height: 4rem;
-    display: grid;
-    align-content: center;   
-    justify-content: space-evenly;
-    
+    display: flex !important;
+    /* align-content: center;    */
+    justify-content: space-around !important;
+    background: white;
+    align-items: center;
+    box-shadow: none !important;
+    z-index: 99 !important;
 }
 
+.Content_Swall_Info {
+    margin-top: 9rem;
+    border: solid 2px rgb(106, 221, 250) !important;
+    border-radius: 2rem !important;
+    height: 4rem;
+    display: flex !important;
+    /* align-content: center;    */
+    justify-content: space-around !important;
+    background: white;
+    align-items: center;
+    box-shadow: none !important;
+    z-index: 99 !important;
+}
+
+
+.Content_Swal_All {
+    z-index: 98 !important;
+}
+
+.BtnAlert_Ancla {
+    text-decoration: none;
+    color: gray;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    transition: all 200ms ease-out;
+}
+
+.BtnAlert_Ancla:hover {
+    color: rgb(34, 236, 34);
+    transition: all 200ms ;
+}
+
+.Icon_Alert {
+    padding: 10px;
+    margin-top: 1px;
+}

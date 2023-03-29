@@ -26,6 +26,7 @@ code {
 .text_parragraf {
   text-decoration: none;
   margin-top: 0;
+  text-align: center;
   color: rgb(255, 255, 255);
 }
 
@@ -431,7 +432,7 @@ p {
   flex-direction: row;
   align-items: center;
   background-color: rgba(233, 233, 233, 0.733);
-  border-radius: 2rem;
+  border-radius: 1.5rem;
   width: 40rem;
   height: 6rem;
   z-index: 1;
@@ -439,7 +440,8 @@ p {
   z-index: 99;
   position: absolute;
   background: linear-gradient(198.35deg, #ffffff 31.67%, rgba(255, 255, 255, 0.6) 87.55%);
-  box-shadow: 0px 0px 7px #939393;
+  /* background: white; */
+  /* box-shadow: 0px 0px 7px #939393; */
   backdrop-filter: blur(4px);
   font-family: 'Times New Roman', Times, serif;
   font-size: 1px;

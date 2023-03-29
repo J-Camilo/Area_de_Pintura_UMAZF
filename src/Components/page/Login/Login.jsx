@@ -14,6 +14,7 @@ import { MdSupervisorAccount } from "react-icons/md"
 
 
 export const Login = (props) => {
+
   useEffect(() => {
     if (props.messagesLogin === "usuario no registrado") {
 
@@ -32,7 +33,9 @@ export const Login = (props) => {
     props.onClick2()
   }
 
-
+  const onclick_Alert = () => {
+    props.onClick3()
+  }
 
   return (
     <>
@@ -72,7 +75,7 @@ export const Login = (props) => {
                       {props.alertUserLoginPassword ? <Alert variant="outlined" severity="error">Contraseña o email incorrectos — <strong>Verifica!</strong></Alert> : null}
                       {props.alertConexionLogin ? <Alert variant="outlined" severity="warning">Sin conexion — <strong>Conectate a una red!</strong></Alert> : null}
 
-                      <input type="submit" value="Ingresar" className="btn_send" />
+                      <input type="submit" value="Ingresar" className="btn_send" onClick={onclick_Alert}/>
 
                     </form>
                   </div>
@@ -83,8 +86,7 @@ export const Login = (props) => {
 
               <div className="Content_Icon">
                 <MdSupervisorAccount className="Icon-user" />
-                <h3 className="text_parragraf">¿Aun no tienes cuenta?</h3>
-                <Link to="/Register/r/R3gcaso"><button className="btn_send" onClick={onclick}>Registrarse</button></Link>
+                {props.NShow ? <h3 className="text_parragraf" id='ShowRg'>Ya tienes una cuenta, puedes ingresar</h3> : <><h3 className="text_parragraf" id='ShowRg'>¿Aún no tienes cuenta?</h3> <Link to="/Register/r/R3gcaso"><button className="btn_send" id='ShowRg' onClick={onclick}>Registrarse</button></Link></>}
                 <Link to="/"><button className="btn_send_back">Volver al inicio</button></Link>
               </div>
             </div>
