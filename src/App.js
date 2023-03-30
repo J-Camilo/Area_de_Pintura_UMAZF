@@ -1,9 +1,9 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
 
 /* --------------- Dependecias ------------------ */
-import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import axios from "axios";
 import Swal from 'sweetalert2';
 import 'animate.css';
@@ -162,17 +162,18 @@ function App() {
             localStorage.setItem("CodePs", data.password);
             localStorage.setItem("CodeVerifycation", true)
 
+            
             setTimeout(function () {
               Swal.fire({
-                title: `Hola, soy La isla dinamica`,
-                icon: 'info',
+                title: `Bienvenido ${data.name}, que bueno verte de nuevo`,
+                // icon: 'info',
                 backdrop: '#ffffff00',
                 toast: true,
                 position: 'top',
                 showConfirmButton: false,
-                width: 360,
+                width: 560,
                 allowOutsideClick: true,
-                timer: 3000,
+                timer: 4000,
                 // timerProgressBar: true,
                 stopKeydownPropagation: true,
                 showClass: {
@@ -182,71 +183,12 @@ function App() {
                   popup: 'animate__animated animate__fadeOutUp'
                 },
                 customClass: {
-                  popup: 'Content_Swall_Info',
+                  popup: 'Content_Swall_',
                   container: 'Content_Swal_All'
                 }
               })
             }, 2000);
-
-            setTimeout(function () {
-              Swal.fire({
-                title: 'Mi creador me diseño para informarte sobre la pagina',
-                icon: 'info',
-                backdrop: '#ffffff00',
-                toast: true,
-                position: 'top',
-                showConfirmButton: false,
-                width: 560,
-                allowOutsideClick: true,
-                timer: 4000,
-                // timerProgressBar: true,
-                stopKeydownPropagation: true,
-                showClass: {
-                  popup: 'animate__animated animate__fadeInDown'
-                },
-                hideClass: {
-                  popup: 'animate__animated animate__fadeOutUp'
-                },
-                customClass: {
-                  popup: 'Content_Swall_Info',
-                  container: 'Content_Swal_All'
-                }
-              })
-            }, 6000);
-
-            setTimeout(function () {
-              Swal.fire({
-                title: 'No soy una IA <b>(Inteligencia Artificial)</b> Soy Automatizado',
-                icon: 'info',
-                backdrop: '#ffffff00',
-                toast: true,
-                position: 'top',
-                showConfirmButton: false,
-                width: 560,
-                allowOutsideClick: true,
-                timer: 4000,
-                // timerProgressBar: true,
-                stopKeydownPropagation: true,
-                showClass: {
-                  popup: 'animate__animated animate__fadeInDown'
-                },
-                hideClass: {
-                  popup: 'animate__animated animate__fadeOutUp'
-                },
-                customClass: {
-                  popup: 'Content_Swall_Info',
-                  container: 'Content_Swal_All'
-                }
-              })
-            }, 12000);
-
-          } else if (userLogin !== data.email && passwordUser !== desencriptado) {
-            setmessagesLogin("usuario no registrado")
-            setalertConexionLogin(false)
-
-          } else if (userLogin !== data.email || passwordUser !== desencriptado) {
-            setmessagesLogin("contraseña o email incorrectos")
-            setalertConexionLogin(false)
+            
           }
 
           return console.log("data obtenida");
@@ -257,6 +199,7 @@ function App() {
         console.log(error);
         setmessagesLogin(error.message);
       })
+
   }
 
   const ClickLogin = (e) => {
@@ -410,13 +353,6 @@ function App() {
 
   /*------------------------------------------------------------------ Finish Register ----------------------------------------------------------------------------*/
 
-  const Delecte = () => {
-    localStorage.removeItem("CodePs");
-    localStorage.removeItem("CodeVerifycation");
-    localStorage.removeItem("Code");
-    localStorage.removeItem("CRQsDul8xCamE");
-    localStorage.removeItem("Name");
-  }
 
 
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -428,6 +364,13 @@ function App() {
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
 
   /* ------------------------------------------------------------------------ data user --------------------------------------------------------------  */
+  const Delecte = () => {
+    localStorage.removeItem("CodePs");
+    localStorage.removeItem("CodeVerifycation");
+    localStorage.removeItem("Code");
+    localStorage.removeItem("CRQsDul8xCamE");
+    localStorage.removeItem("Name");
+  }
 
 
 
@@ -447,7 +390,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home valiLogin={valiLogin} NameUser={NameUser}/>} />
 
         {/* logic Props */}
         <Route path="/All-options/r/oWncaso2" element={valiLogin ? <Data Delecte={Delecte} NameUser={NameUser} /> : <Navigate replace to="/login/r/owncaso" />} />
