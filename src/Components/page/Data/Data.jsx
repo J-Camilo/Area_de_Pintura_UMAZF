@@ -4,6 +4,7 @@ import "./Data.css"
 /*------------------ components ------------------- */
 import { Footer } from "../../UI/Footer/Footer";
 import { Waves } from "../../UI/Waves/Waves"; 
+import { Options_User } from "../../UI/All_Options/Options_User/Options_User";
 
 /*----------------- dependencias ------------------ */
 // import Swal from 'sweetalert2';
@@ -25,6 +26,7 @@ export const Data = (props) => {
                 <Waves />
             </div>
 
+            <Options_User Disable_btn={props.Disable_btn}/>
             <Footer />
         </>
     );
