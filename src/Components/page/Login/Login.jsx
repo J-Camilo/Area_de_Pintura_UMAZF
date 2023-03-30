@@ -33,9 +33,6 @@ export const Login = (props) => {
     props.onClick2()
   }
 
-  const onclick_Alert = () => {
-    props.onClick3()
-  }
 
   return (
     <>
@@ -75,7 +72,7 @@ export const Login = (props) => {
                       {props.alertUserLoginPassword ? <Alert variant="outlined" severity="error">Contraseña o email incorrectos — <strong>Verifica!</strong></Alert> : null}
                       {props.alertConexionLogin ? <Alert variant="outlined" severity="warning">Sin conexion — <strong>Conectate a una red!</strong></Alert> : null}
 
-                      <input type="submit" value="Ingresar" className="btn_send" onClick={onclick_Alert}/>
+                      <input type="submit" value="Ingresar" className="btn_send"/>
 
                     </form>
                   </div>
