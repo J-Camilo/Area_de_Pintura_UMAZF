@@ -1,0 +1,227 @@
+#logo {
+    width: 15%;
+    padding: 1rem;
+}
+
+h1 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+    font-size: 27px;
+
+}
+
+.header_acc {
+    background-color: rgb(248, 95, 95);
+    background-image: url(../../Components/Images/Interface/vehicle.png);
+    background-size: cover;
+    background-position: 50%;
+    /* position: absolute; */
+    width: 100%;
+    height: 11rem;
+}
+
+.logo_acc {
+    width: 50px;
+    fill: white;
+    padding-right: 15px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.inner-header_acc {
+    /* height: 65vh; */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.flex_acc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* 
+.content {
+    position: relative;
+    height: 20vh;
+    text-align: center;
+    background-color: white;
+} */
+
+
+/* ------------------ Nav --------------------- */
+
+.Counter_header_acc {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(233, 233, 233, 0.733);
+    border-radius: 2rem;
+    width: 40rem;
+    height: 6rem;
+    z-index: 1;
+    margin-top: 12rem;
+    z-index: 99;
+    position: absolute;
+    background: linear-gradient(198.35deg, #ffffff 31.67%, rgba(255, 255, 255, 0.6) 87.55%);
+    backdrop-filter: blur(4px);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1px;
+    animation: Counter_animation_acc .8s forwards;
+
+}
+
+
+.Logo_acc {
+    width: 100px;
+    height: 35px;
+    padding-right: 3rem;
+    border-right: solid red 2px;
+}
+
+
+/* -------------------------- content ------------------*/
+
+.Text_account {
+    padding-left: 12px;
+    border-left: solid  red;
+}
+
+.text_down {
+    text-align: center;
+    color: gray;
+}
+
+.select_text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.select_text_ {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.select_info {
+    border-left: solid red;
+    background-color: rgb(253, 138, 138);
+    width: 15.9rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 300ms ease-in;
+    cursor: pointer;
+}
+
+.All_Account {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 2rem;
+}
+
+.options_Account {
+    background-color: #e2e1e19f;
+    border-radius: .9rem;
+    margin: 0px 20px 0px 0px;
+    height: 23.5rem;
+    width: 16rem;
+}
+
+.Content_option_account {
+    display: flex;
+    flex-direction: column;
+}
+
+.Content_Img {
+    background-color: rgb(255, 78, 78);
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    border-top-left-radius: .9rem;
+    border-top-right-radius: .9rem;
+    align-items: center;
+}
+
+.Info_Account {
+    background-color: rgb(226, 223, 223);
+    width: 40rem;
+    border-radius: .9rem;
+    padding: 1rem;
+    flex-direction: column;
+}
+
+.Update_Info_Account {
+    background-color: rgb(226, 223, 223);
+    width: 40rem;
+    border-radius: .9rem;
+    display: none;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.Content_text {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+    border: solid  red;
+    border-radius: .9rem;
+    font-size: 1.3rem;
+    padding: 1rem;
+    margin: 20px 20px 0px 20px;
+}
+
+
+.Content_text_ {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: solid  red;
+    border-radius: .9rem;
+    font-size: 1.3rem;
+    padding: 1rem;
+    margin: 20px 20px 20px 20px;
+}
+
+/* - --------------------- Navegation ----------------------- */
+
+@keyframes Counter_animation_acc {
+    from {
+        width: 50rem;
+        height: 6rem;
+    }
+
+    to {
+        width: 40rem;
+        height: 6rem;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .waves {
+        height: 40px;
+        min-height: 40px;
+    }
+
+    .content {
+        height: 30vh;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}

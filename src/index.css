@@ -1,4 +1,5 @@
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
 html {
   animation: Header 1s forwards;
 }
@@ -51,7 +52,7 @@ code {
   bottom: 0;
   margin-top: 1rem;
   text-align: center;
- 
+
 }
 
 .Footer>p {
@@ -130,18 +131,6 @@ form {
   margin: 30px, 0;
   width: 300px;
   border-bottom: solid white 2px;
-}
-
-
-.inputbox>label {
-  position: absolute;
-  top: 30px;
-  left: 5px;
-  transform: translateY(-50%);
-  color: white;
-  font-size: 1em;
-  pointer-events: none;
-  transition: 300ms;
 }
 
 .inputbox>input {
@@ -239,6 +228,22 @@ input:focus~ :valid {
   }
 }
 
+
+.btn_send_ {
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-radius: 1rem;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 1rem;
+}
+
+/* ------------------------- Layout ---------------------------*/
+
+
+
 .form-box_ {
   position: relative;
   border: solid white 2px;
@@ -252,63 +257,66 @@ input:focus~ :valid {
 }
 
 .form-box_>.form-value_>form>h3 {
-  font-size: 1.5em;
-  text-align: center;
-  margin: 0;
-}
+    font-size: 1.5em;
+    text-align: center;
+    margin: 0;
+  }
+  
+   .inputbox_ {
+    position: relative;
+    margin: 30px, 0;
+    width: 300px;
+    border-bottom: solid white 2px;
+  } 
 
-.inputbox_ {
-  position: relative;
-  margin: 30px, 0;
-  width: 300px;
-  border-bottom: solid white 2px;
+  .inputbox_2 {
+    position: relative;
+    margin: 30px, 0;
+    width: 500px;
+    border-bottom: solid white 2px;
+  } 
+  
+  .inputbox_>input {
+    margin-top: 1rem;
+    width: 100%;
+    height: 35px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0, 35px, 0, 5px;
+    background: transparent;
+  }
+  
 
-}
+  .inputbox_2>input {
+    margin-top: 1rem;
+    width: 100%;
+    height: 35px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0, 35px, 0, 5px;
+    background: transparent;
+  }
 
-.inputbox_>input {
-  margin-top: 1rem;
-  width: 100%;
-  height: 35px;
-  border: none;
-  outline: none;
-  font-size: 1em;
-  padding: 0, 35px, 0, 5px;
-  background: transparent;
-}
+  input:focus~label, 
+  input:focus~ :valid {
+    top: 10px;
+  }
+  
+  .inputbox_>ion-icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    top: 20px;
+  }
 
-input:focus~label,
-input:focus~ :valid {
-  top: 10px;
-
-}
-
-.inputbox_>ion-icon {
-  position: absolute;
-  right: 8px;
-  font-size: 1.2em;
-  top: 20px;
-}
-
-.btn_send_ {
-  width: 200px;
-  height: 40px;
-  border: none;
-  border-radius: 1rem;
-  outline: none;
-  cursor: pointer;
-  font-size: 1em;
-  margin-top: 1rem;
-}
-
-.Text-input {
-  color: aliceblue;
-}
-
-
-
-
-/* ------------------------- Layout ---------------------------*/
-
+  .inputbox_2>ion-icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    top: 20px;
+  }
 
 
 @keyframes Header {
@@ -342,6 +350,7 @@ h1 {
   font-size: 27px;
 
 }
+
 /* 
 p {
 
@@ -424,6 +433,7 @@ p {
 
 .Counter_header {
   display: flex;
+  top: 40px;
   justify-content: space-evenly;
   align-items: center;
   flex-direction: row;
@@ -432,13 +442,10 @@ p {
   border-radius: 1.5rem;
   width: 40rem;
   height: 6rem;
-  z-index: 1;
-  margin-top: 12rem;
+  /* z-index: 1; */
   z-index: 99;
   position: absolute;
   background: linear-gradient(198.35deg, #ffffff 31.67%, rgba(255, 255, 255, 0.6) 87.55%);
-  /* background: white; */
-  /* box-shadow: 0px 0px 7px #939393; */
   backdrop-filter: blur(4px);
   font-family: 'Times New Roman', Times, serif;
   font-size: 1px;

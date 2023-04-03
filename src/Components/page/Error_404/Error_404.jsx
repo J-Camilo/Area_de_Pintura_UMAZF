@@ -23,7 +23,6 @@ export const Error_404 = (props) => {
             </div>
         <div className="Content_all_404">
             <div className="content_404">
-                {/* <h1 className="text_first_error">Opps...</h1> */}
                 <img src={desconect_404} alt="image_404" className="Error_image"/>
             </div>
         </div>

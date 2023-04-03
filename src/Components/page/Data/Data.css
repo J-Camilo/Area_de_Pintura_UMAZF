@@ -87,7 +87,7 @@ h1 {
     backdrop-filter: blur(4px);
     font-family: 'Times New Roman', Times, serif;
     font-size: 1px;
-    animation: Counter_animation 1.5s forwards;
+    animation: Counter_animation .8s forwards;
     
 }
 

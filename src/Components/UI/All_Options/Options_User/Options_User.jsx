@@ -31,7 +31,7 @@ export const Options_User = (props) => {
                         <TbCloudDataConnection className="Icons" />
                         <p>Bases de datos</p></div>
                     </Link>
-                    <Link to="/All-options/r/oWncaso2" className="text"><div className="btn_Acount" onClick={props.Disable_btn}>
+                    <Link to="/Account/r/Acc-caso" className="text"><div className="btn_Acount">
                         <RiAccountPinCircleLine className="Icons" />
                         <p>Mi Cuenta</p></div>
                     </Link>

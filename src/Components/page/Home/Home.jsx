@@ -13,7 +13,7 @@ export const Home = (props) => {
         <Waves />
       </div>
 
-      <Options valiLogin={props.valiLogin} NameUser={props.NameUser}/>
+      <Options valiLogin={props.valiLogin} NameUser={props.NameUser.ame}/>
       <Footer />
     </>
   );

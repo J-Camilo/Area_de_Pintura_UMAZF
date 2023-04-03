@@ -60,11 +60,12 @@ export const Login = (props) => {
                       <h3>Ingresa tus datos</h3>
                       <div className="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
-                        <input type="email" minLength={8} onChange={props.onChangeUserLogin} value={props.userLogin} required placeholder='Email' />
+                        <input className='Input_text' type="email" minLength={8} onChange={props.onChangeUserLogin} value={props.userLogin} placeholder='Email' required />
                       </div>
+
                       <div className="inputbox">
                         <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input required minLength={8} type={props.shown2 ? 'text' : 'password'} onChange={props.onChangePasswordLogin} value={props.passwordUser} placeholder='Contraseña' />
+                        <input className='Input_text' required minLength={8} type={props.shown2 ? 'text' : 'password'} onChange={props.onChangePasswordLogin} value={props.passwordUser} placeholder='Contraseña' />
                       </div>
 
                       <p className="forgetPass"><Link to="/recoverPassword" >¿Haz olvidado tu contraseña?</Link></p>
