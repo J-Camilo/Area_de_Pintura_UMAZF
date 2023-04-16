@@ -4,6 +4,10 @@ html {
   animation: Header 1s forwards;
 }
 
+*{
+  font-family: 'Lato', sans-serif;
+
+}
 
 /* *{
   margin: 0px;
