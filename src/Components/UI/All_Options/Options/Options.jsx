@@ -12,21 +12,26 @@ export const Options = (props) => {
     return (
         <div className="Content">
             <div className="Content_options">
-                <div className="btn">
-                    <BsTools className="Icons" />
-                    <p>Operario</p></div>
 
-                {props.valiLogin 
-                    ? <Link to="/All-options/r/oWncaso2" className="text"><div className="btn3">
+
+                {props.valiLogin
+                    ? <a href="/All-options/r/oWncaso2" className="text"><div className="btn_op">
                         <MdSupervisorAccount className="Icons" />
-                        <p className="Text_User_">Cuenta vinculada</p>
-                        <p className="Text_User">Entrar como <b>{props.NameUser}</b></p>
-                        </div>
-                    </Link>
-                    : <Link to="/login/r/owncaso" className="text"><div className="btn3">
-                        <MdSupervisorAccount className="Icons" />
-                        <p>Iniciar Sesión</p></div>
-                    </Link>
+                        {/* <p className="Text_User_">Cuenta vinculada</p> */}
+                        <p className="Text_User"><b>{props.NameUser}</b></p>
+                        <p className="Text_User_paragraft">Has clic en tu nombre para entrar </p>
+                    </div>
+                    </a>
+                    : <>
+                        <div className="btn">
+                            <BsTools className="Icons" />
+                            <p>Operario</p></div>
+
+                        <Link to="/login/r/owncaso" className="text"><div className="btn3">
+                            <MdSupervisorAccount className="Icons" />
+                            <p>Iniciar Sesión</p></div>
+                        </Link>
+                    </>
                 }
             </div>
         </div>

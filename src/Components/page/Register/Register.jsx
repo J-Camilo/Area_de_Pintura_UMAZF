@@ -1,9 +1,11 @@
-import { Waves } from "../../UI/Waves/Waves";
-import { Nav } from "../../UI/Nav/Nav";
 import "./Register.css";
 import { React, useEffect } from 'react';
-// import Swal from 'sweetalert2';
 import Alert from '@mui/material/Alert';
+
+/* --------------- Components ------------------ */
+import { Waves } from "../../UI/Waves/Waves";
+import { Nav } from "../../UI/Nav/Nav";
+import { Fond_Animated } from "../../UI/Fond_Animated/Fond_Animated";
 
 /* --------------- Icons ------------------- */
 import { MdSupervisorAccount } from "react-icons/md"
@@ -23,14 +25,15 @@ export const Register = (props) => {
         }
       }, [props.messages]);
 
-    const onclick = () => {
-        props.onClick()
-    }
+    // const onclick = () => {
+    //     props.onClick()
+    // }
 
 
     return (
 
         <>
+            <Fond_Animated />
             <div className="header">
                 <Nav Text="Registrarse" sty="Counter_header" contentAll="inner-header flex" />
                 <Waves />

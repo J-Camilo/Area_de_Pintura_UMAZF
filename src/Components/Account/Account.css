@@ -11,6 +11,10 @@ h1 {
 
 }
 
+.text_account{
+    margin: 30px, 30px, 30px, 30px;
+}
+
 .header_acc {
     background-color: rgb(248, 95, 95);
     background-image: url(../../Components/Images/Interface/vehicle.png);
@@ -89,7 +93,7 @@ h1 {
 
 .Text_account {
     padding-left: 12px;
-    border-left: solid  red;
+    border-left: solid red;
 }
 
 .text_down {
@@ -170,12 +174,21 @@ h1 {
     padding: 1rem;
 }
 
+.Update_Info_Password {
+    background-color: rgb(226, 223, 223);
+    width: 40rem;
+    border-radius: .9rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
 .Content_text {
     display: flex;
     flex-direction: row;
     /* justify-content: center; */
     align-items: center;
-    border: solid  red;
+    border: solid red;
     border-radius: .9rem;
     font-size: 1.3rem;
     padding: 1rem;
@@ -188,7 +201,7 @@ h1 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: solid  red;
+    border: solid red;
     border-radius: .9rem;
     font-size: 1.3rem;
     padding: 1rem;

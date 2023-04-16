@@ -1,11 +1,11 @@
 /* --------------- Images Of interfaces ------------- */
 import Logo from "../../Images/Interface/Logo.png";
 import desconect_404 from "../../Images/Interface/error404quees.jpg";
+import { Link } from "react-router-dom";
 
 /* --------------- Components ------------- */
 import { Footer } from "../../UI/Footer/Footer";
 import { Waves } from "../../UI/Waves/Waves";
-import { Link } from "react-router-dom";
 import "./Error.css"
 
 export const Error_404 = (props) => {

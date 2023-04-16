@@ -21,16 +21,9 @@
     flex-grow: 1;
     object-fit: cover;
     opacity: .9;
-    /* transition: all 400ms ease; */
 
 }
 
-/* .img_:hover {
-    cursor: pointer;
-    width: 300px;
-    opacity: 1;
-    filter: contrast(120%);
-} */
 
 
 /*---------------------- Options ------------------- */
@@ -40,15 +33,13 @@
     display: flex;
     justify-content: space-evenly;
     width: 72rem;
-    /* position: absolute; */
     display: flex;
     align-items: center;
-    /* margin-top: 12rem; */
     padding: .9rem;
 }
 
 .btn,
-.btn2,
+.btn_op,
 .btn3 {
     width: 22rem;
     height: 23rem;
@@ -61,10 +52,6 @@
     /* animation-name: anim-down; */
     animation: anim-down 1s forwards;
     color: #fc5b5b;
-}
-
-.btn2 {
-    animation: anim-down2 .8s forwards;
 }
 
 .btn3 {
@@ -83,17 +70,6 @@
     }
 }
 
-@keyframes anim-down2 {
-    from {
-        opacity: 0;
-        transform: translatey(300px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translatey(0px);
-    }
-}
 
 @keyframes anim-down3 {
     from {
@@ -104,7 +80,22 @@
     to {
         opacity: 1;
         transform: translatey(0px);
+
+    }   
+}
+
+
+@keyframes anim-space {
+    from {
+        opacity: 0;
+        transform: translatey(300px);
+        width: 4rem;
     }
+
+    to {
+        opacity: 1;
+        width: 47rem;
+    }   
 }
 
 .Icons {
@@ -126,38 +117,16 @@
     border-radius: .5rem;
     font-family: 'Lato', sans-serif;
     letter-spacing: 1px;
-    /* font-size: 14px; */
 }
 
-.Text_User_ {
-    color: #ffefef;
-    font-size: 1.8rem;
-    background-color: #fc5b5b;
-    background: linear-gradient(198.35deg, #ffffff00 31.67%, rgba(255, 255, 255, 0) 87.55%);
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter: blur(2px);
-    border-radius: .5rem;
-    font-family: 'Lato', sans-serif;
-    letter-spacing: 1px;
-    margin: 0px;
-    text-align: center;
-}
 
-.Text_User {
-    color: #ffefef;
-    font-size: 1.8rem;
-    background-color: #fc5b5b;
-    background: linear-gradient(198.35deg, #ffffff00 31.67%, rgba(255, 255, 255, 0) 87.55%);
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter: blur(2px);
-    border-radius: .5rem;
-    font-family: 'Lato', sans-serif;
-    letter-spacing: 1px;
-    margin: 0;
-}
 
+
+
+
+
+/*------------------------------------ All btn -----------------------------------------------*/
 .btn {
-
     font-weight: bold;
     transition: 0.2s ease all;
     background-image: url(../../../Images/Interface/Pulsar\ 150.png);
@@ -227,7 +196,6 @@
     content: '';
     background-color: rgb(245, 93, 93);
     z-index: -1;
-
 }
 
 .btn3:hover,
@@ -246,5 +214,55 @@
 }
 
 .btn3:active {
+    transform: scale(0.9);
+}
+
+
+
+
+/*------------------------------- BTN Options -------------------------------------------*/
+
+.btn_op {
+    /* border: 3px solid #fc5b5b; */
+    position: relative;
+    font-weight: bold;
+    transition: 0.2s ease all;
+    /* background-image: url(../../../Images/Interface/vehicle.png); */
+    background-color: rgba(247, 99, 99, 0.651);
+    background-size: cover;
+    background-position: 100%;
+    text-align: center;
+    animation: anim-space 800ms forwards;
+}
+
+.btn_op:before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: '';
+    background-color: rgb(245, 93, 93);
+    z-index: -1;
+}
+
+.btn_op:hover,
+.btn_op:focus {
+    color: #fc5b5b;
+}
+
+.btn_op:hover:before,
+.btn_op:focus:before {
+    transition: 0.3s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    border-radius: 1.8rem;
+    color: #fc5b5b;
+}
+
+.btn_op:active {
     transform: scale(0.9);
 }

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 /*------------------- components --------------- */
 import { Waves } from '../UI/Waves/Waves';
+// import { Troubleshoot } from "@mui/icons-material";
 
 export const Account = (props) => {
     return (
@@ -28,8 +29,8 @@ export const Account = (props) => {
                     </div>
                     <div className="Content_option_account">
                         <p className="select_info" id="select_info" onClick={props.Show}>Infomación Personal</p>
-                        <p className="select_text" id="select_text" onClick={props.Show2}>Cambiar Contraseña</p>
-                        <p className="select_text_" id="select_text_" onClick={props.Show3}>Actualizar Información</p>
+                        <p className="select_text" id="select_text" onClick={props.Show2}>Actualizar datos</p>
+                        <p className="select_text_" id="select_text_" onClick={props.Show3}>Cambiar contraseña</p>
                     </div>
                 </div>
 
@@ -37,11 +38,46 @@ export const Account = (props) => {
                 <div className="Info_Account" id="Info_Account">
                     <h1 className='Text_account'><b>Informacion del Usuario</b></h1>
                     <div className="Content_text">
+
                         <div>
-                            <p><b>Nombre: </b>  {props.codeUser.name}</p>
+                            <p className="text_account"><b>Nombre: </b>  {props.codeUser.name}</p>
                             <p><b>Email: </b> {props.codeUser.email}</p>
-                            <p><b>Usuario:  </b> {props.codeUser.email} </p>
+                            <p><b>Usuario:  </b> {props.codeUser.preference === null || props.codeUser.preference === "" ? <>Normal</> : props.codeUser.preference} </p>
+                            <p><b>Cualidades  </b></p>
+                            {props.codeUser.preference === "master"
+                                ? <> <p> El usuario {props.codeUser.preference} tiene el poder apsoluto <b>(Creador de la pagina)</b></p>
+                                    <ul>
+                                        <li>Tienes acceso total</li>
+                                    </ul>
+                                    <p>Al tener este rol debes ser precabido con lo que haces</p> </>
+                                : null}
+                            {props.codeUser.preference === "admin"
+                                ? <> <p></p>
+                                    <ul>
+                                        <li>Modificar</li>
+                                        <li>Borrar todos los datos</li>
+                                        <li>Dar roles a los demas usuarios</li>
+                                        <li>Tienes acceso a todos los formularios <b>(Modificar, Actualizar, Borrar)</b></li>
+                                        <b><li>Más opciones pronto</li></b>
+                                    </ul>
+                                    <p>Al tener este rol debes ser precabido con lo que haces</p> </>
+                                : null}
+                            {props.codeUser.preference === "supervisor"
+                                ? <> <p></p>
+                                    <ul>
+                                        <li>Modificar Algunos datos</li>
+                                        <li>Puedes ver los datos que entran <b>(sin poder borrar)</b></li>
+                                        <li>Puedes actualizar los datos <b>(sin poder borrar)</b></li>
+                                        <li>Tienes acceso a todos los formularios<b>(solo puedes ver)</b></li>
+                                    </ul>
+                                    <p>Si quieres mas acceso manda un correo y nos contactaremos contigo</p> </>
+                                : null}
+                            {props.codeUser.preference === null
+                                ? <> <p>Solo puedes ver la pagina</p>
+                                    <p>Si quieres mas acceso manda un correo y nos contactaremos contigo</p> </>
+                                : null}
                         </div>
+
 
                     </div>
                     <p className="text_down">Manten tu Información actualizada para una mejor experiencia</p>
@@ -60,33 +96,32 @@ export const Account = (props) => {
                                 <ion-icon name="person-outline"></ion-icon>
                                 <input className='Input_text' type="name" required minLength="5" placeholder="Email" value={props.usernameRegister} onChange={props.onChangeusernameRegister} />
                             </div>
-                            <p>Ingresa tu contraseña para confirmar</p>
                             <div className="inputbox_2">
                                 <ion-icon name="lock-closed-outline"></ion-icon>
-                                <input className='Input_text' type="name" required minLength="5" placeholder='Contraseña' value={props.usernameRegister} onChange={props.onChangeusernameRegister} />
+                                <input className='Input_text' type="name" required minLength="5" placeholder='Ingresa tu contraseña para verificar' value={props.usernameRegister} onChange={props.onChangeusernameRegister} />
                             </div>
                             <input type="submit" value="Enviar" className="btn_send_" />
                         </form>
                     </div>
 
-                    {/* ---------------------------------- Update user --------------------------------------------- */}
+                    {/* ---------------------------------- Update password --------------------------------------------- */}
 
-                    <div className="Update_Info_Account" id="Update_Info_Account">
-                        <h1 className='Text_account'><b>Actualizar Información</b></h1>
+                    <div className="Update_Info_Password" id="Update_Info_Password">
+                        <h1 className='Text_account'><b>Actualizar Contraseña</b></h1>
                         <div className="Content_text_">
                             <form>
                                 <div className="inputbox_2">
                                     <ion-icon name="person-outline"></ion-icon>
-                                    <input className='Input_text' type="name" required minLength="5" placeholder='Primer Nombre' value={props.usernameRegister} onChange={props.onChangeusernameRegister} />
+                                    <input className='Input_text' type="password" required minLength="5" placeholder='Contraseña antigua' value={props.usernameRegister} onChange={props.onChangeusernameRegister} />
                                 </div>
                                 <div className="inputbox_2">
                                     <ion-icon name="person-outline"></ion-icon>
-                                    <input className='Input_text' type="name" required minLength="5" placeholder="Email" value={props.usernameRegister} onChange={props.onChangeusernameRegister} />
+                                    <input className='Input_text' type="password" required minLength="5" placeholder="Nueva Contraseña" value={props.usernameRegister} onChange={props.onChangeusernameRegister} />
                                 </div>
                                 <p>Ingresa tu contraseña para confirmar</p>
                                 <div className="inputbox_2">
                                     <ion-icon name="lock-closed-outline"></ion-icon>
-                                    <input className='Input_text' type="name" required minLength="5" placeholder='Contraseña' value={props.usernameRegister} onChange={props.onChangeusernameRegister} />
+                                    <input className='Input_text' type="password" required minLength="5" placeholder='Confirmar Contraseña' value={props.usernameRegister} onChange={props.onChangeusernameRegister} />
                                 </div>
                                 <input type="submit" value="Enviar" className="btn_send_" />
                             </form>

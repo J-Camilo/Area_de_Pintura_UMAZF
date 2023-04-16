@@ -6,6 +6,7 @@ import "./Login.css"
 /* -------------- Components ---------------*/
 import { Waves } from "../../UI/Waves/Waves"
 import { Nav } from "../../UI/Nav/Nav"
+import { Fond_Animated } from '../../UI/Fond_Animated/Fond_Animated';
 
 /* --------------- Icons ------------------- */
 import { BsTools } from "react-icons/bs"
@@ -29,13 +30,14 @@ export const Login = (props) => {
     }
   }, [props.messagesLogin]);
 
-  const onclick = () => {
-    props.onClick2()
-  }
+  // const onclick = () => {
+  //   props.onClick2()
+  // }
 
 
   return (
     <>
+    <Fond_Animated />
       <div className="header">
         <Nav Text="Iniciar Sesión" sty="Counter_header" contentAll="inner-header flex" />
         <Waves />

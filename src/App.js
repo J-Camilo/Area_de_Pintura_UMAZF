@@ -2,11 +2,12 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import './App.css';
 
-/* --------------- Dependecias ------------------ */
+/* --------------- Dependecies ------------------ */
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import axios from "axios";
 import Swal from 'sweetalert2';
 import 'animate.css';
+
 
 /*----------------------- Components ---------------------- */
 import { Home } from "./Components/page/Home/Home";
@@ -15,6 +16,7 @@ import { Register } from './Components/page/Register/Register';
 import { Data } from './Components/page/Data/Data';
 import { Error_404 } from "./Components/page/Error_404/Error_404";
 import { Account } from './Components/Account/Account';
+// import { Users } from "../src/Logic/Users"
 
 
 
@@ -25,10 +27,11 @@ function App() {
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
+ 
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /* -------------------------------------------------- LocalStorage ---------------------------------------------------- */
   // const valiLoginAdmin = localStorage.getItem("CodeValid_A");
-  const valiLogin = localStorage.getItem("CodeVerifycation");
+  const valiLogin = localStorage.getItem("Q29kZVZlcmlmeWNhdGlvbg==");
   const userId = localStorage.getItem("CRQsDul8xCamE");
   const id_User = localStorage.getItem("CRmoaBwT2p2r6");
   const NShow = localStorage.getItem("CRQsDul8xCamE");
@@ -157,8 +160,8 @@ function App() {
             setalertHome(true);
 
             localStorage.setItem("CRmoaBwT2p2r6", data._id);
-            localStorage.setItem("CodePs", data.password);
-            localStorage.setItem("CodeVerifycation", true)
+            localStorage.setItem("Q29kZVBz", data.password);
+            localStorage.setItem("Q29kZVZlcmlmeWNhdGlvbg==", true)
 
 
             setTimeout(function () {
@@ -199,7 +202,8 @@ function App() {
             setalertConexionLogin(false)
           }
 
-          return console.log("Error in system");
+          // return console.log("Error in system");
+
         });
       })
       .catch(function (error) {
@@ -374,6 +378,7 @@ function App() {
   const Show = () => {
     document.getElementById("Info_Account").style.display = 'flex'
     document.getElementById("Update_Info_Account").style.display = 'none'
+    document.getElementById("Update_Info_Password").style.display = 'none'
     document.getElementById("select_info").className = "select_info";
     document.getElementById("select_text").className = "select_text";
     document.getElementById("select_text_").className = "select_text_";
@@ -383,16 +388,17 @@ function App() {
   const Show2 = () => {
     document.getElementById("Info_Account").style.display = 'none'
     document.getElementById("Update_Info_Account").style.display = 'flex'
+    document.getElementById("Update_Info_Password").style.display = 'none'
     document.getElementById("select_info").className = "select_text";
     document.getElementById("select_text").className = "select_info";
     document.getElementById("select_text_").className = "select_text";
-
 
   }
 
   const Show3 = () => {
     document.getElementById("Info_Account").style.display = 'none'
-    document.getElementById("Update_Info_Account").style.display = 'flex'
+    document.getElementById("Update_Info_Password").style.display = 'flex'
+    document.getElementById("Update_Info_Account").style.display = 'none'
     document.getElementById("select_text").className = "select_text";
     document.getElementById("select_info").className = "select_text";
     document.getElementById("select_text_").className = "select_info";
@@ -400,15 +406,46 @@ function App() {
   }
 
   /* ------------------------------------------------------------------------ data user --------------------------------------------------------------  */
+  const [codeUser, setCodeUser] = useState([]);
+
   const Delecte = () => {
-    localStorage.removeItem("CodePs");
-    localStorage.removeItem("CodeVerifycation");
-    localStorage.removeItem("Code");
+    localStorage.removeItem("Q29kZVBz");
+    localStorage.removeItem("Q29kZVZlcmlmeWNhdGlvbg==");
     localStorage.removeItem("CRQsDul8xCamE");
-    localStorage.removeItem("Name");
+    localStorage.removeItem("CRmoaBwT2p2r6");
   }
 
-  const [codeUser, setCodeUser] = useState([])
+  // setTimeout(function () {
+  //   Swal.fire({
+  //     title: `Has estado mucho tiempo inactivo. Hemos cerrado sesion por temas de seguridad`,
+  //     // icon: 'info',
+  //     backdrop: '#ffffff00',
+  //     toast: true,
+  //     position: 'top',
+  //     showConfirmButton: false,
+  //     width: 700,
+  //     allowOutsideClick: true,
+  //     timer: 4800,
+  //     // timerProgressBar: true,
+  //     stopKeydownPropagation: true,
+  //     showClass: {
+  //       popup: 'animate__animated animate__fadeInDown'
+  //     },
+  //     hideClass: {
+  //       popup: 'animate__animated animate__fadeOutUp'
+  //     },
+  //     customClass: {
+  //       popup: 'Content_Swall_',
+  //       container: 'Content_Swal_All'
+  //     }
+  //   })
+
+  //   localStorage.removeItem("Q29kZVBz");
+  //   localStorage.removeItem("Q29kZVZlcmlmeWNhdGlvbg==");
+  //   localStorage.removeItem("CRQsDul8xCamE");
+  //   localStorage.removeItem("CRmoaBwT2p2r6");
+
+  // }, 10000);
 
   const baseURL = `https://apisupervisor-production.up.railway.app/Api/users/${id_User}`;
   useEffect(() => {
@@ -461,8 +498,9 @@ function App() {
       toast: true,
       position: 'top',
       showConfirmButton: false,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
       width: 360,
-      allowOutsideClick: true,
       timer: 800,
       // timerProgressBar: true,
       stopKeydownPropagation: true,
@@ -498,10 +536,11 @@ function App() {
         <Route path="/" element={<Home valiLogin={valiLogin} codeUser={codeUser} />} />
 
         {/* logic Props */}
-        <Route path="/All-options/r/oWncaso2" element={valiLogin ? <Data Delecte={Delecte} Disable={Disable} Disable_btn={Disable_btn} /> : <Navigate replace to="/login/r/owncaso" />} />
+        <Route path="/All-options/r/oWncaso2" element={valiLogin ? <Data codeUser={codeUser} Delecte={Delecte} Disable={Disable} Disable_btn={Disable_btn} id_User={id_User} /> : <Navigate replace to="/login/r/owncaso" />} />
         <Route path="/login/r/owncaso" element={valiLogin ? <Navigate replace to="/All-options/r/oWncaso2" /> : <Login NShow={NShow} alertUserLoginPassword={alertUserLoginPassword} setalertUserLoginPassword={setalertUserLoginPassword} setalertConexionLogin={setalertConexionLogin} alertConexionLogin={alertConexionLogin} alertUserLogin={alertUserLogin} setalertUserLogin={setalertUserLogin} messagesLogin={messagesLogin} onClick2={onClick2} switchShown2={switchShown2} shown2={shown2} userLogin={userLogin} ClickLogin={ClickLogin} passwordUser={passwordUser} onChangePasswordLogin={onChangePasswordLogin} onChangeUserLogin={onChangeUserLogin} />} />
         <Route path="/Register/r/R3gcaso" element={userId ? <Navigate replace to="/login/r/owncaso" /> : <Register alertConexion={alertConexion} setalertConexion={setalertConexion} alertUser={alertUser} setalertUser={setalertUser} setmessages={setmessages} messages={messages} validemail={validemail} validUsername={validUsername} confrimPasword={confrimPasword} onChangeconfrimPasword={onChangeconfrimPasword} postApi={postApi} emailRegister={emailRegister} passwordRegister={passwordRegister} usernameRegister={usernameRegister} onChangeemailRegister={onChangeemailRegister} onChangepasswordRegister={onChangepasswordRegister} onChangeusernameRegister={onChangeusernameRegister} />} />
         <Route path="/Account/r/Acc-caso" element={valiLogin ? <Account codeUser={codeUser} Show={Show} Show2={Show2} Show3={Show3} /> : <Navigate replace to="/login/r/owncaso" />} />
+        {/* <Route path="/All-options/:id" element={<Users />} /> */}
 
 
         {/* Protect routers */}
@@ -509,7 +548,6 @@ function App() {
 
       </Routes>
     </BrowserRouter>
-
   );
 }
 

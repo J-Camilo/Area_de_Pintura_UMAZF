@@ -23,18 +23,22 @@ export const Options_User = (props) => {
                         <MdOutlineAnalytics className="Icons"/>
                         <p>Datos power bi</p></div>
                     </Link>
-                    <Link to="/All-options/r/oWncaso2" className="text"><div className="btn_Users" onClick={props.Disable_btn}>
+
+                    {props.codeUser.preference === "admin" || props.codeUser.preference === "master" 
+                     ? <Link to="/All-options/r/Usecaso" className="text"><div className="btn_Users">
                         <FaUsers className="Icons" />
                         <p>Usuarios</p></div>
-                    </Link>
-                    <Link to="/All-options/r/oWncaso2" className="text"><div className="btn_DataBase" onClick={props.Disable_btn}>
+                    </Link> : null }
+
+                    {props.codeUser.preference === "master" || props.codeUser.preference === "admin" 
+                     ? <Link to="/All-options/r/oWncaso2" className="text"><div className="btn_DataBase" onClick={props.Disable_btn}>
                         <TbCloudDataConnection className="Icons" />
                         <p>Bases de datos</p></div>
-                    </Link>
-                    <Link to="/Account/r/Acc-caso" className="text"><div className="btn_Acount">
+                    </Link> : null }
+                    <a href="/Account/r/Acc-caso" className="text"><div className="btn_Acount">
                         <RiAccountPinCircleLine className="Icons" />
                         <p>Mi Cuenta</p></div>
-                    </Link>
+                    </a>
                 </div>
             </div>
         </>
