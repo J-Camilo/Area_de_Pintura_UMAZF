@@ -40,10 +40,16 @@ export const Account = (props) => {
                     <div className="Content_text">
 
                         <div>
-                            <p className="text_account"><b>Nombre: </b>  {props.codeUser.name}</p>
+                            <p><b>Nombre: </b>  {props.codeUser.name}</p>
                             <p><b>Email: </b> {props.codeUser.email}</p>
-                            <p><b>Usuario:  </b> {props.codeUser.preference === null || props.codeUser.preference === "" ? <>Normal</> : props.codeUser.preference} </p>
+                            <p><b>Usuario:  </b> {props.codeUser.preference ? props.codeUser.preference : <>Normal</>} </p>
                             <p><b>Cualidades  </b></p>
+                            {props.codeUser.preference
+                                ? null
+                                : <>
+                                    <p>Solo puedes ver la pagina</p>
+                                    <p>Si quieres mas acceso manda un correo y nos contactaremos contigo</p>
+                                </>}
                             {props.codeUser.preference === "master"
                                 ? <> <p> El usuario {props.codeUser.preference} tiene el poder apsoluto <b>(Creador de la pagina)</b></p>
                                     <ul>
@@ -72,10 +78,8 @@ export const Account = (props) => {
                                     </ul>
                                     <p>Si quieres mas acceso manda un correo y nos contactaremos contigo</p> </>
                                 : null}
-                            {props.codeUser.preference === null
-                                ? <> <p>Solo puedes ver la pagina</p>
-                                    <p>Si quieres mas acceso manda un correo y nos contactaremos contigo</p> </>
-                                : null}
+
+
                         </div>
 
 
