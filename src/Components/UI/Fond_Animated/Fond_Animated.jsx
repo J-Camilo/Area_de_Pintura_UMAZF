@@ -3,8 +3,8 @@ import "./Fond_Animated.css"
 
 export const Fond_Animated = () => {
     return (
-        <div class="area" >
-            <ul class="circles">
+        <div className="area" >
+            <ul className="circles">
                 <li></li>
                 <li></li>
                 <li></li>
