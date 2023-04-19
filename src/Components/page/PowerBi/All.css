@@ -1,0 +1,32 @@
+.Content_data_powerbi {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.Data_powerBi {
+    background-color: rgba(255, 255, 255, 0.548);
+    backdrop-filter: blur(6px);
+    border-radius: 1.5rem;
+    border: solid red 2px;
+
+    animation: anim-powerBi 800ms forwards;
+}
+
+
+/* ------------------------------- Animation ------------------------------*/
+
+@keyframes anim-powerBi {
+    from {
+        opacity: 0;
+        width: 0rem;
+    }
+
+    to {
+        opacity: 1;
+        width: 1140px;
+        height: 541.25px;
+    }   
+}

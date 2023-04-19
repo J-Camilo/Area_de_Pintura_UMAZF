@@ -16,18 +16,14 @@ import { Register } from './Components/page/Register/Register';
 import { Data } from './Components/page/Data/Data';
 import { Error_404 } from "./Components/page/Error_404/Error_404";
 import { Account } from './Components/Account/Account';
-// import { Users } from "../src/Logic/Users"
+import { All_Users } from './Components/page/All_Users/All_Users';
+import { PowerBi } from './Components/page/PowerBi/PowerBi';
+import { Aprobation } from './Components/page/PowerBi/Aprobation';
 
 
 
 
 function App() {
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
- 
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /* -------------------------------------------------- LocalStorage ---------------------------------------------------- */
   // const valiLoginAdmin = localStorage.getItem("CodeValid_A");
@@ -43,12 +39,8 @@ function App() {
 
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-
   // /*----------------------------------------------------------------------- encrypted password ----------------------------------------------------------*/
+
   const bufferABase64 = buffer => btoa(String.fromCharCode(...new Uint8Array(buffer)));
   const base64ABuffer = buffer => Uint8Array.from(atob(buffer), c => c.charCodeAt(0));
   const LONGITUD_SAL = 16;
@@ -114,8 +106,6 @@ function App() {
   /*fin datos*/
   // /*------------------------------------------------- Finish encrypted password ----------------------------------------------------------*/
 
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -249,9 +239,6 @@ function App() {
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
 
   /*------------------------------------------------------------------ Register ----------------------------------------------------------------------------*/
   /*inicio validaciones register*/
@@ -367,14 +354,11 @@ function App() {
 
 
 
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
+  //-----------------------------------------------------------------------------
+  // --------------------------- show the component -----------------------------
 
+
+  // --------------------------- conmponent Account ----------------------------
   const Show = () => {
     document.getElementById("Info_Account").style.display = 'flex'
     document.getElementById("Update_Info_Account").style.display = 'none'
@@ -405,8 +389,29 @@ function App() {
 
   }
 
+// ----------------------------- component All_Users -------------------------
+  const Show4 = () => {
+
+
+  }
+
+  const Show5 = () => {
+
+
+  }
+
+  const Close4 = () => {
+
+
+  }
+  //-----------------------------------------------------------------------------
+  //  ------------------ finish show the component ------------------------------
+
+
+  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
+  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
+  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /* ------------------------------------------------------------------------ data user --------------------------------------------------------------  */
-  const [codeUser, setCodeUser] = useState([]);
 
   const Delecte = () => {
     localStorage.removeItem("Q29kZVBz");
@@ -415,37 +420,10 @@ function App() {
     localStorage.removeItem("CRmoaBwT2p2r6");
   }
 
-  // setTimeout(function () {
-  //   Swal.fire({
-  //     title: `Has estado mucho tiempo inactivo. Hemos cerrado sesion por temas de seguridad`,
-  //     // icon: 'info',
-  //     backdrop: '#ffffff00',
-  //     toast: true,
-  //     position: 'top',
-  //     showConfirmButton: false,
-  //     width: 700,
-  //     allowOutsideClick: true,
-  //     timer: 4800,
-  //     // timerProgressBar: true,
-  //     stopKeydownPropagation: true,
-  //     showClass: {
-  //       popup: 'animate__animated animate__fadeInDown'
-  //     },
-  //     hideClass: {
-  //       popup: 'animate__animated animate__fadeOutUp'
-  //     },
-  //     customClass: {
-  //       popup: 'Content_Swall_',
-  //       container: 'Content_Swal_All'
-  //     }
-  //   })
+  //-----------------------------------------------------------------------------
+  // ----------------------------- get one user ---------------------------------
 
-  //   localStorage.removeItem("Q29kZVBz");
-  //   localStorage.removeItem("Q29kZVZlcmlmeWNhdGlvbg==");
-  //   localStorage.removeItem("CRQsDul8xCamE");
-  //   localStorage.removeItem("CRmoaBwT2p2r6");
-
-  // }, 10000);
+ const [codeUser, setCodeUser] = useState([]);
 
   const baseURL = `https://apisupervisor-production.up.railway.app/Api/users/${id_User}`;
   useEffect(() => {
@@ -454,101 +432,118 @@ function App() {
     });
   }, []);
 
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-  /* ------------------------------------------------------------------------ dynamic island --------------------------------------------------------------  */
-  const Disable = () => {
-    Swal.fire({
-      title: 'Oh no. ah ocurrido un error, intenta de nuevo o mas tarde',
-      icon: 'error',
-      backdrop: '#ffffff00',
-      toast: true,
-      position: 'top',
-      showConfirmButton: false,
-      width: 560,
-      allowOutsideClick: true,
-      timer: 3000,
-      // timerProgressBar: true,
-      stopKeydownPropagation: true,
-      showClass: {
-        popup: 'animate__animated animate__fadeInDown'
-      },
-      hideClass: {
-        popup: 'animate__animated animate__fadeOutUp'
-      },
-      customClass: {
-        popup: 'Content_Swall_error',
-        container: 'Content_Swal_All'
-      }
-    })
-  };
-
-  /*-----------------------------*/
-  const Disable_btn = () => {
-    Swal.fire({
-      title: 'Este boton esta deshabilidado',
-      icon: 'error',
-      backdrop: '#ffffff00',
-      toast: true,
-      position: 'top',
-      showConfirmButton: false,
-      allowOutsideClick: false,
-      allowEscapeKey: false,
-      width: 360,
-      timer: 800,
-      // timerProgressBar: true,
-      stopKeydownPropagation: true,
-      showClass: {
-        popup: 'animate__animated animate__fadeInDown'
-      },
-      hideClass: {
-        popup: 'animate__animated animate__fadeOutUp'
-      },
-      customClass: {
-        popup: 'Content_Swall_error',
-        container: 'Content_Swal_All'
-      }
-    })
-  };
+  //-----------------------------------------------------------------------------
+  // ----------------------------- get all users ---------------------------------
 
 
+  const [contenUsers, setContenUsers] = useState([]);
+
+  const baseURLj = `https://apisupervisor-production.up.railway.app/Api/users`;
+  useEffect(() => {
+    axios.get(baseURLj).then((response) => {
+      setContenUsers(response.data)
+    });
+  }, []);
 
 
-  /* ------------------------------------------------------------------------ finish dinamy islan --------------------------------------------------------------  */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------ dynamic island --------------------------------------------------------------  */
+const Disable = () => {
+  Swal.fire({
+    title: 'Oh no. ah ocurrido un error, intenta de nuevo o mas tarde',
+    icon: 'error',
+    backdrop: '#ffffff00',
+    toast: true,
+    position: 'top',
+    showConfirmButton: false,
+    width: 560,
+    allowOutsideClick: true,
+    timer: 3000,
+    // timerProgressBar: true,
+    stopKeydownPropagation: true,
+    showClass: {
+      popup: 'animate__animated animate__fadeInDown'
+    },
+    hideClass: {
+      popup: 'animate__animated animate__fadeOutUp'
+    },
+    customClass: {
+      popup: 'Content_Swall_error',
+      container: 'Content_Swal_All'
+    }
+  })
+};
 
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home valiLogin={valiLogin} codeUser={codeUser} />} />
+/*-----------------------------*/
+const Disable_btn = () => {
+  Swal.fire({
+    title: 'Este boton esta deshabilidado',
+    icon: 'error',
+    backdrop: '#ffffff00',
+    toast: true,
+    position: 'top',
+    showConfirmButton: false,
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    width: 360,
+    timer: 800,
+    // timerProgressBar: true,
+    stopKeydownPropagation: true,
+    showClass: {
+      popup: 'animate__animated animate__fadeInDown'
+    },
+    hideClass: {
+      popup: 'animate__animated animate__fadeOutUp'
+    },
+    customClass: {
+      popup: 'Content_Swall_error',
+      container: 'Content_Swal_All'
+    }
+  })
+};
 
-        {/* logic Props */}
-        <Route path="/All-options/r/oWncaso2" element={valiLogin ? <Data codeUser={codeUser} Delecte={Delecte} Disable={Disable} Disable_btn={Disable_btn} id_User={id_User} /> : <Navigate replace to="/login/r/owncaso" />} />
-        <Route path="/login/r/owncaso" element={valiLogin ? <Navigate replace to="/All-options/r/oWncaso2" /> : <Login NShow={NShow} alertUserLoginPassword={alertUserLoginPassword} setalertUserLoginPassword={setalertUserLoginPassword} setalertConexionLogin={setalertConexionLogin} alertConexionLogin={alertConexionLogin} alertUserLogin={alertUserLogin} setalertUserLogin={setalertUserLogin} messagesLogin={messagesLogin} onClick2={onClick2} switchShown2={switchShown2} shown2={shown2} userLogin={userLogin} ClickLogin={ClickLogin} passwordUser={passwordUser} onChangePasswordLogin={onChangePasswordLogin} onChangeUserLogin={onChangeUserLogin} />} />
-        <Route path="/Register/r/R3gcaso" element={userId ? <Navigate replace to="/login/r/owncaso" /> : <Register alertConexion={alertConexion} setalertConexion={setalertConexion} alertUser={alertUser} setalertUser={setalertUser} setmessages={setmessages} messages={messages} validemail={validemail} validUsername={validUsername} confrimPasword={confrimPasword} onChangeconfrimPasword={onChangeconfrimPasword} postApi={postApi} emailRegister={emailRegister} passwordRegister={passwordRegister} usernameRegister={usernameRegister} onChangeemailRegister={onChangeemailRegister} onChangepasswordRegister={onChangepasswordRegister} onChangeusernameRegister={onChangeusernameRegister} />} />
-        <Route path="/Account/r/Acc-caso" element={valiLogin ? <Account codeUser={codeUser} Show={Show} Show2={Show2} Show3={Show3} /> : <Navigate replace to="/login/r/owncaso" />} />
-        {/* <Route path="/All-options/:id" element={<Users />} /> */}
 
 
-        {/* Protect routers */}
-        <Route path="/*" element={<Error_404 />} />
 
-      </Routes>
-    </BrowserRouter>
-  );
+/* ------------------------------------------------------------------------ finish dinamy islan --------------------------------------------------------------  */
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+return (
+  <BrowserRouter>
+    <Routes>
+
+      {/*contetnt normal */}
+      <Route path="/" element={<Home valiLogin={valiLogin} codeUser={codeUser} />} />
+
+      {/* logic Props contetnt protect */}
+      <Route path="/All-options/r/oWncaso2" element={valiLogin ? <Data codeUser={codeUser} Delecte={Delecte} Disable={Disable} Disable_btn={Disable_btn} id_User={id_User} /> : <Navigate replace to="/login/r/owncaso" />} />
+      <Route path="/login/r/owncaso" element={valiLogin ? <Navigate replace to="/All-options/r/oWncaso2" /> : <Login NShow={NShow} alertUserLoginPassword={alertUserLoginPassword} setalertUserLoginPassword={setalertUserLoginPassword} setalertConexionLogin={setalertConexionLogin} alertConexionLogin={alertConexionLogin} alertUserLogin={alertUserLogin} setalertUserLogin={setalertUserLogin} messagesLogin={messagesLogin} onClick2={onClick2} switchShown2={switchShown2} shown2={shown2} userLogin={userLogin} ClickLogin={ClickLogin} passwordUser={passwordUser} onChangePasswordLogin={onChangePasswordLogin} onChangeUserLogin={onChangeUserLogin} />} />
+      <Route path="/Register/r/R3gcaso" element={userId ? <Navigate replace to="/login/r/owncaso" /> : <Register alertConexion={alertConexion} setalertConexion={setalertConexion} alertUser={alertUser} setalertUser={setalertUser} setmessages={setmessages} messages={messages} validemail={validemail} validUsername={validUsername} confrimPasword={confrimPasword} onChangeconfrimPasword={onChangeconfrimPasword} postApi={postApi} emailRegister={emailRegister} passwordRegister={passwordRegister} usernameRegister={usernameRegister} onChangeemailRegister={onChangeemailRegister} onChangepasswordRegister={onChangepasswordRegister} onChangeusernameRegister={onChangeusernameRegister} />} />
+      <Route path="/Account/r/Acc-caso" element={valiLogin ? <Account codeUser={codeUser} Show={Show} Show2={Show2} Show3={Show3} /> : <Navigate replace to="/login/r/owncaso" />} />
+      
+      {/* logic Props contetnt */}
+      <Route path="/All-options/r/Bicaso" element={<PowerBi />} />
+      <Route path="/All-options/r/Adcaso" element={<Aprobation />} />
+      <Route path="/All-options/r/Usecaso" element={<All_Users contenUsers={contenUsers} codeUser={codeUser} Show5={Show5} Show4={Show4} Close={Close4}/>} />
+
+
+      {/* Protect routers */}
+      <Route path="/*" element={<Error_404 />} />
+
+    </Routes>
+  </BrowserRouter>
+);
 }
 
 export default App;

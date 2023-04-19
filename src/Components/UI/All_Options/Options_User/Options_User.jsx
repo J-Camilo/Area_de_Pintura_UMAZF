@@ -19,7 +19,7 @@ export const Options_User = (props) => {
                     <div className="btn_Forms" onClick={props.Disable_btn}>
                         <BsTools className="Icons" />
                         <p>Formularios</p></div>
-                    <Link to="/All-options/r/oWncaso2" className="text"><div className="btn_powerBi" onClick={props.Disable_btn}>
+                    <Link to="/All-options/r/Bicaso" className="text"><div className="btn_powerBi" >
                         <MdOutlineAnalytics className="Icons"/>
                         <p>Datos power bi</p></div>
                     </Link>

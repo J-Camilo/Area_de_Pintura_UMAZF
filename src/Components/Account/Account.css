@@ -11,7 +11,7 @@ h1 {
 
 }
 
-.text_account{
+.text_account {
     margin: 30px, 30px, 30px, 30px;
 }
 
@@ -159,10 +159,10 @@ h1 {
 
 .Info_Account {
     background-color: rgb(226, 223, 223);
-    width: 40rem;
     border-radius: .9rem;
     padding: 1rem;
     flex-direction: column;
+    animation: content_show 1s forwards;
 }
 
 .Update_Info_Account {
@@ -172,6 +172,7 @@ h1 {
     display: none;
     flex-direction: column;
     padding: 1rem;
+    animation: content_show 1s forwards;
 }
 
 .Update_Info_Password {
@@ -206,9 +207,24 @@ h1 {
     font-size: 1.3rem;
     padding: 1rem;
     margin: 20px 20px 20px 20px;
+    animation: content_opacity 800ms forwards;
 }
 
 /* - --------------------- Navegation ----------------------- */
+
+
+
+@keyframes content_opacity {
+    from {
+        opacity: 0;
+        width: 1px;
+    }
+
+    to {
+        opacity: 1;
+        width: 35rem;
+    }
+}
 
 @keyframes Counter_animation_acc {
     from {
