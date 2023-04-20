@@ -517,8 +517,8 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-        {/*contetnt normal */}
-        <Route path="/" element={<Home valiLogin={valiLogin} codeUser={codeUser} id_User={id_User}/>} />
+        {/*content*/}
+        <Route path="/" element={<Home valiLogin={valiLogin} codeUser={codeUser} id_User={id_User}  Disable={Disable}/>} />
 
         {/* logic Props contetnt protect */}
         <Route path="/All-options/r/oWncaso2" element={valiLogin ? <Data codeUser={codeUser} Delecte={Delecte} Disable={Disable} Disable_btn={Disable_btn} id_User={id_User} /> : <Error_404 />} />
