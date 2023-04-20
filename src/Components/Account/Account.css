@@ -197,7 +197,7 @@ h1 {
 }
 
 
-.Content_text_ {
+.Content_text {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -207,7 +207,6 @@ h1 {
     font-size: 1.3rem;
     padding: 1rem;
     margin: 20px 20px 20px 20px;
-    animation: content_opacity 800ms forwards;
 }
 
 /* - --------------------- Navegation ----------------------- */

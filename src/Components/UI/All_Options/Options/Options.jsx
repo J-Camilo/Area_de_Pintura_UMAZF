@@ -16,7 +16,7 @@ export const Options = (props) => {
 
                 {props.valiLogin
                     ? props.valiLogin === true
-                        ? <a href="/" className="text"><div className="btn_op" onClick={props.Disable}>
+                        ? <a href="/" className="text"><div className="btn_op">
                             <MdSupervisorAccount className="Icons" />
                             <p className="Text_User"><b>Esta intentanto ilegalmente a esta pagina</b></p>
                         </div>

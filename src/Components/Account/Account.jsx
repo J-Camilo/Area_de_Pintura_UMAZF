@@ -90,7 +90,7 @@ export const Account = (props) => {
                 {/* ---------------------------------- Update user --------------------------------------------- */}
                 <div className="Update_Info_Account" id="Update_Info_Account">
                     <h1 className='Text_account'><b>Actualizar Información</b></h1>
-                    <div className="Content_text_">
+                    <div className="Content_text">
                         <form>
                             <div className="inputbox_2">
                                 <ion-icon name="person-outline"></ion-icon>

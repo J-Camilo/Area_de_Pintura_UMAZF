@@ -6,6 +6,19 @@
     padding: 1rem;
 }
 
+.Content_text_ {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: solid red;
+    border-radius: .9rem;
+    font-size: 1.3rem;
+    padding: 1rem;
+    margin: 20px 20px 20px 20px;
+    animation: content_opacity 800ms forwards;
+}
+
 .Data_powerBi {
     background-color: rgba(255, 255, 255, 0.548);
     backdrop-filter: blur(6px);
