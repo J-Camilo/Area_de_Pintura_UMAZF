@@ -320,6 +320,8 @@ input:focus~ :valid {
   margin: 30px, 0;
   width: 500px;
   border-bottom: solid white 2px;
+  animation: content_Disable 1s forwards;
+
 }
 
 .inputbox_>input {
@@ -374,6 +376,18 @@ input:focus~ :valid {
   to {
     opacity: 2;
     /* transform: translatey(0px); */
+  }
+}
+
+
+@keyframes content_Disable {
+  from {
+    opacity: 0;
+
+  }
+
+  to {
+    opacity: 1;
   }
 }
 

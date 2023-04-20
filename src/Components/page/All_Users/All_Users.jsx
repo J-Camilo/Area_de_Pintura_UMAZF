@@ -10,6 +10,14 @@ import { Fond_Animated } from "../../UI/Fond_Animated/Fond_Animated";
 
 
 export const All_Users = (props) => {
+
+    const add = (e) => {
+      JSON.stringify(localStorage.setItem("VXN1YXJpbyBpZGVudGlmaWNhZG8gcGFyYSBhY3R1YWxpemFy", e.target.value))
+      document.getElementById("content_all_edit_").className = "content_all_edit";
+      document.getElementById("content_edit").className = "content_edit_";
+    }
+  
+
     return (
         <>
             <Fond_Animated />
@@ -28,16 +36,20 @@ export const All_Users = (props) => {
                 <p><b>Todos los Usuarios</b></p>
             </div>
 
-            {props.codeUser
-                ? props.contenUsers.map((data, key) => (
-                    <> <div className="content_api_users" key={key}>
+            <div className="content_search">
+                <input type="search" name="Name" id="Character" placeholder="Busca el nombre de esa persona"/>
+            </div>
 
-                        <p>{data.name}</p>
-                        <p>{data.email}</p>
-                        <p>{data.preference ? data.preference : <>Normal</>}</p>
+            {props.codeUser._id === props.id_User
+                ? props.contenUsers.map((data, key) => (
+                    <> <div className="content_api_users" id="content_api_users" key={key}>
+
+                        <p><b>Nombre: </b>{data.name}</p>
+                        <p><b>Email: </b>{data.email}</p>
+                        <p><b>Usuario: </b>{data.preference ? data.preference : <>Normal</>}</p>
                         <div className="Content_options_users">
-                            <div><p className="Delete" onClick={props.Show5}>Eliminar</p></div>
-                            <div><p className="Edit" onClick={props.Show4}>Editar</p></div>
+                            <div><button className="Delete" onClick={props.Show5}>Eliminar</button></div>
+                            <div><button className="Edit" onClick={(e) => { add(e) }} value={data._id}>Editar</button></div>
                         </div>
 
                         {/* ------------------------------------------------------ */}
@@ -47,12 +59,12 @@ export const All_Users = (props) => {
                 )
                 )
                 : <div className="content_api_users">
-                    <p>El contenito no se puede mostrar en este momento </p>
+                    <p>El contenito no se puede mostrar en este momento esta intentando acceder de forma ilegal</p>
                 </div>
             }
 
 
-            <div className="content_all_edit">
+            <div className="content_all_edit_" id="content_all_edit_">
                 <div className="content_edit" id="content_edit">
                     <div className="Content_text_">
                         <form>
@@ -72,7 +84,7 @@ export const All_Users = (props) => {
                         </form>
                     </div>
                     <div className="Content_close">
-                        <button className="btn_send_close" >Salir de el editor</button>
+                        <button className="btn_send_close" onClick={props.Close} >Salir de el editor</button>
 
                     </div>
 

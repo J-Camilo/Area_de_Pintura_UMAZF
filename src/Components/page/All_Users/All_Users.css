@@ -4,10 +4,8 @@
     justify-content:  space-around;
     align-items: center;
     border-radius: 1rem;
-    margin: auto;
-    margin-top: 20px;
     font-size: 1.6rem;
-
+    margin: 20px auto;
     animation: content_ 800ms forwards;
 }
 
@@ -57,10 +55,59 @@
 
 .Content_options_users {
     display: flex;
-    justify-content:  space-between;
+    justify-content:space-around;
     align-items: center;
     width: 10rem;
 }
+
+.content_search {
+  background-color: rgb(253, 100, 100);
+  display: flex;
+  justify-content:  center;
+  align-items: center;
+  border-radius: 1.3rem;
+  font-size: 1.6rem;
+  animation: content_Search 700ms forwards;
+  margin: 20px auto;
+  width: 35rem;
+  height: 3rem;
+}
+
+#Character {
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.3rem;
+  text-align: center;
+  animation: content_SearchCa 900ms forwards;
+  position: absolute;
+  height: 2rem;
+}
+
+@keyframes content_Search {
+  from {
+    opacity: 0;
+    width: 5rem;
+  }
+
+  to {
+    opacity: 1;
+    width: 35rem;
+    height: 3rem;
+  }
+}
+
+@keyframes content_SearchCa {
+  from {
+    opacity: 0;
+    width: 10%;
+  }
+
+  to {
+    opacity: 1;
+    width: 40%;
+  }
+}
+
 
 
 /* ---------------------------- btn ---------------------------- */
@@ -69,18 +116,30 @@
 .Edit {
     transition: all 300ms ease-out;
     cursor: pointer;
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 1rem;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 5px;
 }
 
 .Delete:hover {
-    color: red;
+    color: rgb(255, 251, 251);
+    background-color: rgb(255, 124, 124);
     font: bold;
     transition: all 300ms ease-out;
+    
 }
 
 .Edit:hover {
-    color: rgb(0, 119, 255);
+  color: rgb(255, 251, 251);
+  background-color: rgb(124, 224, 255);
     text-decoration:dashed;
     transition: all 300ms ease-out;
+    
 }
 
 /*-------------------------------- conten edit --------------------------*/
@@ -88,6 +147,7 @@
  display: flex;
  justify-content: center;
     margin: auto;
+  align-items: flex-end;
 }
 
 .Content_close {
@@ -114,35 +174,26 @@
     transition: all 300ms ease-in;
 }
 
-.content_all_edit  {
-    display: none;
+.content_all_edit_  {
+  display: none;
 }
 
 .content_edit_ {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.753);
+    background-color: rgba(255, 255, 255, 0.589);
     border-radius: 1.5rem;
     position: absolute;
     backdrop-filter: blur(5px);
     z-index: 99; 
-    margin-top: -13em;
-    animation: content_edit 800ms forwards;
+    margin-top: -10em;
+    animation: content_edit 500ms forwards;
     border: solid gray 2px;
 }
 
-.content_edit_close {
-    display: flex;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.753);
-    border-radius: 1.5rem;
-    position: absolute;
-    backdrop-filter: blur(5px);
-    z-index: 99; 
-    margin-top: -13em;
-    animation: content_edit_close 2s forwards;
-}
+
 
 @keyframes content_edit {
     from {
@@ -153,7 +204,7 @@
   
     to {
       opacity: 1;
-      width: 40rem;
+      width: 50rem;
       height: auto;
     }
   }
@@ -169,5 +220,6 @@
       opacity: 0;
       width: 0rem;
       height: auto;
+      display: none;
     }
   }

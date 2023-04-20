@@ -54,7 +54,7 @@ export const Register = (props) => {
                                             <h3>Ingresa tus datos</h3>
                                             <div className="inputbox_">
                                                 <ion-icon name="person-outline"></ion-icon>
-                                                <input  className='Input_text' type="name" required minLength="5" placeholder='Primer Nombre' value={props.usernameRegister} onChange={props.onChangeusernameRegister} />
+                                                <input  className='Input_text' type="name" required minLength="5" placeholder='Nombre Completo' value={props.usernameRegister} onChange={props.onChangeusernameRegister} />
                                             </div>
                                             {/* <p className='pvaliRegister' id='txtvalidUsername' /> */}
                                             <div className="inputbox_">
