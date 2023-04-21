@@ -31,7 +31,7 @@ function App() {
   const userId = localStorage.getItem("CRQsDul8xCamE");
   const id_User = localStorage.getItem("CRmoaBwT2p2r6");
   const NShow = localStorage.getItem("CRQsDul8xCamE");
-  let Update_User = (localStorage.getItem("VXN1YXJpbyBpZGVudGlmaWNhZG8gcGFyYSBhY3R1YWxpemFy"));
+  const Update_User = localStorage.getItem("VXN1YXJpbyBpZGVudGlmaWNhZG8gcGFyYSBhY3R1YWxpemFy");
 
   /*------------------- variables --------------------- */
 
@@ -404,11 +404,7 @@ function App() {
   /* ------------------------------------------------------------------------ data user --------------------------------------------------------------  */
 
   const Delecte = () => {
-    localStorage.removeItem("Q29kZVBz");
-    localStorage.removeItem("Q29kZVZlcmlmeWNhdGlvbg==");
-    localStorage.removeItem("CRQsDul8xCamE");
-    localStorage.removeItem("CRmoaBwT2p2r6");
-    localStorage.removeItem("VXN1YXJpbyBpZGVudGlmaWNhZG8gcGFyYSBhY3R1YWxpemFy")
+    localStorage.clear();
   }
 
   //-----------------------------------------------------------------------------
@@ -435,10 +431,32 @@ function App() {
     });
   }, []);
 
+
   //-----------------------------------------------------------------------------
-  // ----------------------------- update user ---------------------------------
+  // ----------------------------- uptade users ---------------------------------
+  const [usernameUp, setUsernameUp] = useState("")
+  const [emailUp, setEmailUp] = useState("")
+  const [stateUp, setStateUp] = useState("")
+  const onChangeU = ({ currentTarget }) => setUsernameUp(currentTarget.value);
+  const onChangeE = ({ currentTarget }) => setEmailUp(currentTarget.value);
+  const onChangeS = ({ currentTarget }) => setStateUp(currentTarget.value.toLowerCase());
 
+  const putApi = (e) => {
+    axios.put(`https://apisupervisor-production.up.railway.app/Api/users/${Update_User}`, {
+      "name": usernameUp,
+      "email": emailUp,
+      "preference": stateUp,
 
+    })
+    .catch(function (error) {
+      // handle error
+      setmessages(error.message)
+    });
+    setUsernameUp("")
+    setEmailUp("")
+    setStateUp("")
+
+  }
 
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -518,14 +536,14 @@ function App() {
       <Routes>
 
         {/*content*/}
-        <Route path="/" element={<Home valiLogin={valiLogin} codeUser={codeUser} id_User={id_User}  Disable={Disable}/>} />
+        <Route path="/" element={<Home valiLogin={valiLogin} codeUser={codeUser} id_User={id_User} Disable={Disable} />} />
 
         {/* logic Props contetnt protect */}
         <Route path="/All-options/r/oWncaso2" element={valiLogin ? <Data codeUser={codeUser} Delecte={Delecte} Disable={Disable} Disable_btn={Disable_btn} id_User={id_User} /> : <Error_404 />} />
         <Route path="/login/r/owncaso" element={valiLogin ? <Navigate replace to="/All-options/r/oWncaso2" /> : <Login NShow={NShow} alertUserLoginPassword={alertUserLoginPassword} setalertUserLoginPassword={setalertUserLoginPassword} setalertConexionLogin={setalertConexionLogin} alertConexionLogin={alertConexionLogin} alertUserLogin={alertUserLogin} setalertUserLogin={setalertUserLogin} messagesLogin={messagesLogin} onClick2={onClick2} switchShown2={switchShown2} shown2={shown2} userLogin={userLogin} ClickLogin={ClickLogin} passwordUser={passwordUser} onChangePasswordLogin={onChangePasswordLogin} onChangeUserLogin={onChangeUserLogin} />} />
         <Route path="/Register/r/R3gcaso" element={userId ? <Navigate replace to="/login/r/owncaso" /> : <Register alertConexion={alertConexion} setalertConexion={setalertConexion} alertUser={alertUser} setalertUser={setalertUser} setmessages={setmessages} messages={messages} validemail={validemail} validUsername={validUsername} confrimPasword={confrimPasword} onChangeconfrimPasword={onChangeconfrimPasword} postApi={postApi} emailRegister={emailRegister} passwordRegister={passwordRegister} usernameRegister={usernameRegister} onChangeemailRegister={onChangeemailRegister} onChangepasswordRegister={onChangepasswordRegister} onChangeusernameRegister={onChangeusernameRegister} />} />
-        <Route path="/Account/r/Acc-caso" element={valiLogin ? <Account codeUser={codeUser} Show={Show} Show2={Show2} Show3={Show3} /> : <Error_404 />} />
-        <Route path="/All-options/r/Usecaso" element={valiLogin ? <All_Users contenUsers={contenUsers} codeUser={codeUser} Show4={Show4} Close={Close4} id_User={id_User}/> : <Error_404 />} />
+        <Route path="/Account/r/Acc-caso" element={valiLogin ? <Account codeUser={codeUser} Show={Show} Show2={Show2} Show3={Show3}/> : <Error_404 />} />
+        <Route path="/All-options/r/Usecaso" element={valiLogin ? <All_Users contenUsers={contenUsers} codeUser={codeUser} Show4={Show4} Close={Close4} id_User={id_User}  putApi={putApi} usernameUp={usernameUp} emailUp={emailUp} stateUp={stateUp} onChangeU={onChangeU} onChangeE={onChangeE} onChangeS={onChangeS}/> : <Error_404 />} />
 
 
         {/* logic Props contetnt */}

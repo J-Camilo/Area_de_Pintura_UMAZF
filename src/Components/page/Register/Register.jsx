@@ -61,7 +61,7 @@ export const Register = (props) => {
                                                 <ion-icon name="mail-outline"></ion-icon>
                                                 <input className='Input_text' type="email" value={props.emailRegister} onChange={props.onChangeemailRegister} required minLength={8} placeholder='Email' />
                                             </div>
-                                            {/* <p className='pvaliRegister' id='txtvalidEmail' /> */}
+                                            {/* <p className='pvaliRegister' id='txtvalidEmail' /> */} 
                                             <div className="inputbox_">
                                                 <ion-icon name="lock-closed-outline"></ion-icon>
                                                 <input className='Input_text' type="password" autoComplete="current-password" required minLength="8" maxLength="20" value={props.passwordRegister} onChange={props.onChangepasswordRegister} placeholder='Contraseña' />
