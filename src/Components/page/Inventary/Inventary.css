@@ -1,0 +1,28 @@
+.Content_nav-product {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    width: 80%;
+    border-radius: 1.5rem;
+    border: solid red 2px;
+    height: 6rem;
+    margin: 50px auto;
+    font-size: 1.5rem;
+    background-color: rgb(226, 223, 223);
+}
+
+#Character_product {
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.3rem;
+    text-align: center;
+    animation: content_SearchCa 900ms forwards;
+    height: 2rem;
+}
+
+.search_product {
+    display: contents;
+    font-size: 1.3rem;
+
+}

@@ -2,7 +2,7 @@ import Logo from "../../Components/Images/Interface/Logo.png";
 import React from 'react';
 import './Account.css';
 
-/* -------------------- depedenci -------------------- */
+/* -------------------- dependenci -------------------- */
 import { Link } from "react-router-dom";
 
 /*------------------- components --------------- */
@@ -91,20 +91,20 @@ export const Account = (props) => {
                 <div className="Update_Info_Account" id="Update_Info_Account">
                     <h1 className='Text_account'><b>Actualizar Información</b></h1>
                     <div className="Content_text">
-                        <form>
+                        <form onSubmit={props.updateData}>
                             <div className="inputbox_2">
                                 <ion-icon name="person-outline"></ion-icon>
-                                <input className='Input_text' type="name" required minLength="5" placeholder='Primer Nombre' value={props.usernameRegister} onChange={props.onChangeusernameRegister} />
+                                <input className='Input_text' type="name" required minLength="5" placeholder='Nombre' value={props.usernameUp} onChange={props.onChangeU}  />
                             </div>
                             <div className="inputbox_2">
                                 <ion-icon name="person-outline"></ion-icon>
-                                <input className='Input_text' type="name" required minLength="5" placeholder="Email" value={props.usernameRegister} onChange={props.onChangeusernameRegister} />
+                                <input className='Input_text' type="email" required minLength="5" placeholder="Email" value={props.emailUp} onChange={props.onChangeE} />
                             </div>
                             <div className="inputbox_2">
                                 <ion-icon name="lock-closed-outline"></ion-icon>
-                                <input className='Input_text' type="name" required minLength="5" placeholder='Ingresa tu contraseña para verificar' value={props.usernameRegister} onChange={props.onChangeusernameRegister} />
+                                <input className='Input_text' type="password" required minLength="5" placeholder='Ingresa tu contraseña para verificar' />
                             </div>
-                            <input type="submit" value="Enviar" className="btn_send_" />
+                            <input type="submit" value="Actualizar" className="btn_send_" />
                         </form>
                     </div>
 

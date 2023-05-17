@@ -19,6 +19,7 @@ import { Account } from './Components/Account/Account';
 import { All_Users } from './Components/page/All_Users/All_Users';
 import { PowerBi } from './Components/page/PowerBi/PowerBi';
 import { Aprobation } from './Components/page/PowerBi/Aprobation';
+import { Inventary } from './Components/page/Inventary/Inventary';
 
 
 
@@ -26,20 +27,16 @@ import { Aprobation } from './Components/page/PowerBi/Aprobation';
 function App() {
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /* -------------------------------------------------- LocalStorage ---------------------------------------------------- */
-  // const valiLoginAdmin = localStorage.getItem("CodeValid_A");
   const valiLogin = localStorage.getItem("Q29kZVZlcmlmeWNhdGlvbg==");
   const userId = localStorage.getItem("CRQsDul8xCamE");
   const id_User = localStorage.getItem("CRmoaBwT2p2r6");
   const NShow = localStorage.getItem("CRQsDul8xCamE");
+  const pas_ = localStorage.getItem("Y29udHJhc2XDsWEgZW5jcmlwdGFkYSB5IG1hbmlvYnJhZGE=");
   const Update_User = localStorage.getItem("VXN1YXJpbyBpZGVudGlmaWNhZG8gcGFyYSBhY3R1YWxpemFy");
 
-  /*------------------- variables --------------------- */
-
-
-
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-  // /*----------------------------------------------------------------------- encrypted password ----------------------------------------------------------*/
+/*----------------------------------------------------------------------- encrypted password ----------------------------------------------------------*/
 
   const bufferABase64 = buffer => btoa(String.fromCharCode(...new Uint8Array(buffer)));
   const base64ABuffer = buffer => Uint8Array.from(atob(buffer), c => c.charCodeAt(0));
@@ -113,46 +110,29 @@ function App() {
 
   /*------------------------------------------------------------------ Login ----------------------------------------------------------------------------*/
 
-
-  /*validaciones login*/
+  //-----------------------------------------------------------------------------
+  // ----------------------------- validation user ---------------------------------
   const [messagesLogin, setmessagesLogin] = useState("")
   const [alertUserLogin, setalertUserLogin] = useState(false)
   const [alertUserLoginPassword, setalertUserLoginPassword] = useState(false)
   const [alertHome, setalertHome] = useState(false)
   const [alertConexionLogin, setalertConexionLogin] = useState(false)
-  // const [valiLogin, setvaliLogin] = useState(false)
-  // const [valiLoginAdmin, setvaliLoginAdmin] = useState(false)
-
   const [userLogin, setuserLogin] = useState("")
   const [passwordUser, setpasswordUser] = useState("")
-
   const onChangeUserLogin = ({ currentTarget }) => setuserLogin(currentTarget.value.toLowerCase());
   const onChangePasswordLogin = ({ currentTarget }) => setpasswordUser(currentTarget.value);
 
-  /*datos de usuario*/
-  // const [idUser, setidUser] = useState(null)
-  // const [usernameUser, setusernameUser] = useState("")
-  // const [emailUser, setemailUser] = useState("")
-  // const [password, setpassword] = useState("")
-
-
   const getApi = async () => {
-
     axios.get('https://apisupervisor-production.up.railway.app/Api/users')
       .then(function (response) {
-        // handle success
         response.data.map(async (data) => {
 
           const desencriptado = await desencriptar(contraseñaDesencriptar, data.password);
           if (userLogin === data.email && passwordUser === desencriptado) {
-
-
             setalertHome(true);
-
             localStorage.setItem("CRmoaBwT2p2r6", data._id);
-            localStorage.setItem("Q29kZVBz", data.password);
+            localStorage.setItem("Y29udHJhc2XDsWEgZW5jcmlwdGFkYSB5IG1hbmlvYnJhZGE=", data.password);
             localStorage.setItem("Q29kZVZlcmlmeWNhdGlvbg==", true)
-
 
             setTimeout(function () {
               Swal.fire({
@@ -179,21 +159,13 @@ function App() {
                 }
               })
             }, 2000);
-
-          }
-
-          else if (userLogin !== data.email && passwordUser !== desencriptado) {
-
+          } else if (userLogin !== data.email && passwordUser !== desencriptado) {
             setmessagesLogin("usuario no registrado")
             setalertConexionLogin(false)
           } else if (userLogin !== data.email || passwordUser !== desencriptado) {
-
             setmessagesLogin("contraseña o email incorrectos")
             setalertConexionLogin(false)
           }
-
-          // return console.log("Error in system");
-
         });
       })
       .catch(function (error) {
@@ -201,7 +173,6 @@ function App() {
         console.log(error);
         setmessagesLogin(error.message);
       })
-
   }
 
   const ClickLogin = (e) => {
@@ -210,15 +181,11 @@ function App() {
       setalertHome(true);
       setmessagesLogin("Bienvenido admin")
       localStorage.setItem("CodeValid_A", true);
-      // setvaliLoginAdmin(true)
 
     } else if (userLogin !== "admin@gmail.com" || passwordUser !== "admin1234") {
       getApi()
     }
-
-
   }
-
   const [shown2, setShown2] = useState(false);
   const switchShown2 = (event) => {
     setShown2(!shown2)
@@ -241,7 +208,9 @@ function App() {
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
 
   /*------------------------------------------------------------------ Register ----------------------------------------------------------------------------*/
-  /*inicio validaciones register*/
+
+  //-----------------------------------------------------------------------------
+  // ----------------------------- validation user ---------------------------------
   const [alertUser, setalertUser] = useState(false)
   const [alertConexion, setalertConexion] = useState(false)
   const [validUsername, setvalidUsername] = useState('');
@@ -260,7 +229,6 @@ function App() {
 
   const postApi = async (e) => {
     e.preventDefault()
-
     const encriptado = await encriptar(contraseñaEncriptar, passwordRegister);
 
     if (usernameRegister.indexOf('`') !== -1 || usernameRegister.indexOf('.') !== -1 || usernameRegister.indexOf('@') !== -1 || usernameRegister.indexOf('!') !== -1 || usernameRegister.indexOf('%') !== -1 || usernameRegister.indexOf('$') !== -1 || (emailRegister.indexOf('.') === -1 || emailRegister.indexOf('@') === -1 || /\s/.test(emailRegister))) {
@@ -302,8 +270,6 @@ function App() {
         .catch(function (error) {
           //  handle error
           setmessages(error.message)
-
-
           Swal.fire({
             title: 'Oh no. ah ocurrido un error, intenta de nuevo o mas tarde',
             icon: 'error',
@@ -335,10 +301,7 @@ function App() {
       setmessages("")
       setalertUser(false)
       setalertConexion(false)
-
-
     }
-
     setvalidUsername(usernameRegister)
     setvalidemail(emailRegister)
     console.log(messages);
@@ -349,21 +312,19 @@ function App() {
 
 
 
-  //-----------------------------------------------------------------------------
-  // --------------------------- show the component -----------------------------
+  //------------------------------------------------------------------------------------------------------------------------------------------
+  // ----------------------------------------------------------------- show the component -----------------------------------------------------
 
 
   // --------------------------- conmponent Account ----------------------------
   const Show = () => {
     document.getElementById("Info_Account").style.display = 'flex'
     document.getElementById("Update_Info_Account").style.display = 'none'
-    document.getElementById("Update_Info_Password").style.display = 'none'
+    // document.getElementById("Update_Info_Password").style.display = 'none'
     document.getElementById("select_info").className = "select_info";
     document.getElementById("select_text").className = "select_text";
     document.getElementById("select_text_").className = "select_text_";
-
   }
-
   const Show2 = () => {
     document.getElementById("Info_Account").style.display = 'none'
     document.getElementById("Update_Info_Account").style.display = 'flex'
@@ -371,9 +332,7 @@ function App() {
     document.getElementById("select_info").className = "select_text";
     document.getElementById("select_text").className = "select_info";
     document.getElementById("select_text_").className = "select_text";
-
   }
-
   const Show3 = () => {
     document.getElementById("Info_Account").style.display = 'none'
     document.getElementById("Update_Info_Password").style.display = 'flex'
@@ -381,21 +340,42 @@ function App() {
     document.getElementById("select_text").className = "select_text";
     document.getElementById("select_info").className = "select_text";
     document.getElementById("select_text_").className = "select_info";
-
   }
 
   // ----------------------------- component All_Users -------------------------
-  const Show4 = () => {
-    document.getElementById("content_all_edit_").className = "content_all_edit";
-    document.getElementById("content_edit").className = "content_edit_";
+  const Show_ = () => {
+    document.getElementById("btn_opacity").className = "block";
+    document.getElementById("ocult_form").style.display = "flex";
+    document.getElementById("text_edit").className = "block";
+  }
+  const Show_2 = () => {
+    document.getElementById("btn_opacity").className = "block";
+    document.getElementById("ocult_form2").style.display = "flex";
+    document.getElementById("text_edit").className = "block";
+  }
+  const Show_3 = () => {
+    document.getElementById("btn_opacity").className = "block";
+    document.getElementById("ocult_form3").style.display = "flex";
+    document.getElementById("text_edit").className = "block";
+  }
+  const Show_4 = () => {
+    document.getElementById("btn_opacity").className = "block";
+    document.getElementById("ocult_form4").style.display = "flex";
+    document.getElementById("text_edit").className = "block";
   }
 
   const Close4 = () => {
     document.getElementById("content_all_edit_").className = "content_all_edit_";
     document.getElementById("content_edit").className = "content_edit";
+    document.getElementById("btn_opacity").className = "see";
+    document.getElementById("text_edit").className = "see_";
+    document.getElementById("ocult_form").style.display = "none";
+    document.getElementById("ocult_form2").style.display = "none";
+    document.getElementById("ocult_form3").style.display = "none";
+    document.getElementById("ocult_form4").style.display = "none";
   }
-  //-----------------------------------------------------------------------------
-  //  ------------------ finish show the component ------------------------------
+
+
 
 
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -408,7 +388,7 @@ function App() {
   }
 
   //-----------------------------------------------------------------------------
-  // ----------------------------- get one user ---------------------------------
+  // ----------------------------- get your user ---------------------------------
 
   const [codeUser, setCodeUser] = useState([]);
 
@@ -416,6 +396,18 @@ function App() {
   useEffect(() => {
     axios.get(baseURL).then((response) => {
       setCodeUser(response.data)
+    });
+  }, []);
+
+  //-----------------------------------------------------------------------------
+  // ----------------------------- get one user ---------------------------------
+
+  const [codeUserOne, setCodeUserOne] = useState([]);
+
+  const baseURLOne = `https://apisupervisor-production.up.railway.app/Api/users/${Update_User}`;
+  useEffect(() => {
+    axios.get(baseURLOne).then((response) => {
+      setCodeUserOne(response.data)
     });
   }, []);
 
@@ -431,32 +423,302 @@ function App() {
     });
   }, []);
 
+  //-----------------------------------------------------------------------------
+  // ----------------------------- delete one user ---------------------------------
+
+  const delApi = async (event) => {
+    event.preventDefault();
+    const response_ = await axios.delete(`https://apisupervisor-production.up.railway.app/Api/users/${Update_User}`);
+  
+    Swal.fire({
+      title: `Se ha eliminado este usuario con exito`,
+      // icon: 'info',
+      backdrop: '#ffffff00',
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      width: 560,
+      allowOutsideClick: true,
+      timer: 2800,
+      // timerProgressBar: true,
+      stopKeydownPropagation: true,
+      showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+      },
+      customClass: {
+          popup: 'Content_Swall_',
+          container: 'Content_Swal_All'
+      }
+  })
+  };
+
+   //-----------------------------------------------------------------------------
+  // ----------------------------- delete one user ---------------------------------
+
+  const delallApi = async (event) => {
+    event.preventDefault();
+    const response_ = await axios.delete(`https://apisupervisor-production.up.railway.app/Api/users`);
+  
+    Swal.fire({
+      title: `Se ha eliminado este usuario con exito`,
+      // icon: 'info',
+      backdrop: '#ffffff00',
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      width: 560,
+      allowOutsideClick: true,
+      timer: 2800,
+      // timerProgressBar: true,
+      stopKeydownPropagation: true,
+      showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+      },
+      customClass: {
+          popup: 'Content_Swall_',
+          container: 'Content_Swal_All'
+      }
+  })
+  };
 
   //-----------------------------------------------------------------------------
   // ----------------------------- uptade users ---------------------------------
-  const [usernameUp, setUsernameUp] = useState("")
-  const [emailUp, setEmailUp] = useState("")
-  const [stateUp, setStateUp] = useState("")
+  const [usernameUp, setUsernameUp] = useState("");
+  const [emailUp, setEmailUp] = useState("");
+  const [Loading, setLoading] = useState("");
+  const [stateUp, setStateUp] = useState("");
   const onChangeU = ({ currentTarget }) => setUsernameUp(currentTarget.value);
   const onChangeE = ({ currentTarget }) => setEmailUp(currentTarget.value);
   const onChangeS = ({ currentTarget }) => setStateUp(currentTarget.value.toLowerCase());
 
-  const putApi = (e) => {
-    axios.put(`https://apisupervisor-production.up.railway.app/Api/users/${Update_User}`, {
+
+  const putApi = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    const data = {
       "name": usernameUp,
       "email": emailUp,
       "preference": stateUp,
-
+    };
+    const response_ = await axios.put(`https://apisupervisor-production.up.railway.app/Api/users/${Update_User}`, data);
+    setLoading(false);
+    //---------------------------------- result ----------------------------------
+    document.getElementById("content_all_edit_").className = "content_all_edit_";
+    document.getElementById("content_edit").className = "content_edit";
+    setUsernameUp("")
+    setEmailUp("")
+    setStateUp("")
+    // mensaje in console
+    console.log(response_.data, "All is okay... ");
+    // mensaje sweetAlert
+    Swal.fire({
+      title: 'Has actualizado a este usuario presiona (recargar) para ver los cambios',
+      html: '<a href="/All-options/r/Usecaso" class="BtnAlert_Ancla">Recargar<ion-icon  class="Icon_Alert" name="chevron-forward-outline"></ion-icon></a>',
+      icon: 'success',
+      backdrop: '#ffffff00',
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      width: 860,
+      allowOutsideClick: true,
+      timer: 9000,
+      timerProgressBar: true,
+      stopKeydownPropagation: true,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      },
+      customClass: {
+        popup: 'Content_Swall_',
+        container: 'Content_Swal_All'
+      }
     })
-    .catch(function (error) {
-      // handle error
-      setmessages(error.message)
-    });
+  };
+
+  //------------------------------------------ only name ------------------------------- 
+  
+  const putApiName = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    const data = {
+      "name": usernameUp
+    };
+    const response_ = await axios.put(`https://apisupervisor-production.up.railway.app/Api/users/${Update_User}`, data);
+    setLoading(false);
+    //---------------------------------- result ----------------------------------
+    document.getElementById("content_all_edit_").className = "content_all_edit_";
+    document.getElementById("content_edit").className = "content_edit";
     setUsernameUp("")
     setEmailUp("")
     setStateUp("")
 
+    // mensaje in console
+    console.log(response_.data, "All is okay... ");
+    // mensaje sweetAlert
+    Swal.fire({
+      title: 'Has actualizado a este usuario presiona (recargar) para ver los cambios',
+      html: '<a href="/All-options/r/Usecaso" class="BtnAlert_Ancla">Recargar<ion-icon  class="Icon_Alert" name="chevron-forward-outline"></ion-icon></a>',
+      icon: 'success',
+      backdrop: '#ffffff00',
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      width: 860,
+      allowOutsideClick: true,
+      timer: 9000,
+      timerProgressBar: true,
+      stopKeydownPropagation: true,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      },
+      customClass: {
+        popup: 'Content_Swall_',
+        container: 'Content_Swal_All'
+      }
+    })
+  };
+  
+  //------------------------------------------ only email ------------------------------- 
+  const putApiEmail = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    const data = {
+      "email": emailUp
+    };
+    const response_ = await axios.put(`https://apisupervisor-production.up.railway.app/Api/users/${Update_User}`, data);
+    setLoading(false);
+
+    //---------------------------------- result ----------------------------------
+    document.getElementById("content_all_edit_").className = "content_all_edit_";
+    document.getElementById("content_edit").className = "content_edit";
+    setUsernameUp("")
+    setEmailUp("")
+    setStateUp("")
+    // mensaje in console
+    console.log(response_.data, "All is okay... ");
+    // mensaje sweetAlert
+    Swal.fire({
+      title: 'Has actualizado a este usuario presiona (recargar) para ver los cambios',
+      html: '<a href="/All-options/r/Usecaso" class="BtnAlert_Ancla">Recargar<ion-icon  class="Icon_Alert" name="chevron-forward-outline"></ion-icon></a>',
+      icon: 'success',
+      backdrop: '#ffffff00',
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      width: 860,
+      allowOutsideClick: true,
+      timer: 9000,
+      timerProgressBar: true,
+      stopKeydownPropagation: true,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      },
+      customClass: {
+        popup: 'Content_Swall_',
+        container: 'Content_Swal_All'
+      }
+    })
+  };
+
+  //------------------------------------------ only roll ------------------------------- 
+  const putApiRoll = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    const data = {
+      "preference": stateUp
+    };
+    const response_ = await axios.put(`https://apisupervisor-production.up.railway.app/Api/users/${Update_User}`, data);
+    setLoading(false);
+    //---------------------------------- result ----------------------------------
+    document.getElementById("content_all_edit_").className = "content_all_edit_";
+    document.getElementById("content_edit").className = "content_edit";
+    setUsernameUp("")
+    setEmailUp("")
+    setStateUp("")
+    // mensaje in console
+    console.log(response_.data, "All is okay... ");
+    // mensaje sweetAlert
+    Swal.fire({
+      title: 'Has actualizado a este usuario presiona (recargar) para ver los cambios',
+      html: '<a href="/All-options/r/Usecaso" class="BtnAlert_Ancla">Recargar<ion-icon  class="Icon_Alert" name="chevron-forward-outline"></ion-icon></a>',
+      icon: 'success',
+      backdrop: '#ffffff00',
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      width: 860,
+      allowOutsideClick: true,
+      timer: 9000,
+      timerProgressBar: true,
+      stopKeydownPropagation: true,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      },
+      customClass: {
+        popup: 'Content_Swall_',
+        container: 'Content_Swal_All'
+      }
+    })
+  };
+
+
+  //-----------------------------------------------------------------------------
+  // ----------------------------- uptade you user ------------------------------
+
+  // const [upUser_Pass, setUpUser_Pass] = useState("");
+  // const [usernameUp_acc, setUsernameUp_acc] = useState("");
+  // const [emailUp_acc, setEmailUp_acc] = useState("");
+  // const [verificatitonPass, setVerificatitonPass] = useState("");
+  // const onChangeU_acc = ({ currentTarget }) => setUsernameUp_acc(currentTarget.value);
+  // const onChangeE_acc = ({ currentTarget }) => setEmailUp_acc(currentTarget.value.toLowerCase());
+  // const onChangeP_acc = ({ currentTarget }) => setVerificatitonPass(currentTarget.value);
+
+
+
+
+  //-----------------------------------------------------------------------------
+  // ----------------------------- search user ----------------------------------
+
+  const [text, setText] = useState('');
+  const [characters, setCharacters] = useState([])
+
+  const inputLoad = (event) => {
+    setText(event.target.value)
+    // console.log(texto);
   }
+    /*--------------------------------------*/
+    const baseURL__ = `https://apisupervisor-production.up.railway.app/Api/users`;
+    useEffect(() => {
+      axios.get(baseURL__).then((response) => {
+        setCharacters(response.data)
+      });
+    }, []);
+
+  const inputCharacters = characters.filter((character) => character.name.toLowerCase().includes(text.toLowerCase()))
+
+
+
+
+
+
+
 
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -542,9 +804,9 @@ function App() {
         <Route path="/All-options/r/oWncaso2" element={valiLogin ? <Data codeUser={codeUser} Delecte={Delecte} Disable={Disable} Disable_btn={Disable_btn} id_User={id_User} /> : <Error_404 />} />
         <Route path="/login/r/owncaso" element={valiLogin ? <Navigate replace to="/All-options/r/oWncaso2" /> : <Login NShow={NShow} alertUserLoginPassword={alertUserLoginPassword} setalertUserLoginPassword={setalertUserLoginPassword} setalertConexionLogin={setalertConexionLogin} alertConexionLogin={alertConexionLogin} alertUserLogin={alertUserLogin} setalertUserLogin={setalertUserLogin} messagesLogin={messagesLogin} onClick2={onClick2} switchShown2={switchShown2} shown2={shown2} userLogin={userLogin} ClickLogin={ClickLogin} passwordUser={passwordUser} onChangePasswordLogin={onChangePasswordLogin} onChangeUserLogin={onChangeUserLogin} />} />
         <Route path="/Register/r/R3gcaso" element={userId ? <Navigate replace to="/login/r/owncaso" /> : <Register alertConexion={alertConexion} setalertConexion={setalertConexion} alertUser={alertUser} setalertUser={setalertUser} setmessages={setmessages} messages={messages} validemail={validemail} validUsername={validUsername} confrimPasword={confrimPasword} onChangeconfrimPasword={onChangeconfrimPasword} postApi={postApi} emailRegister={emailRegister} passwordRegister={passwordRegister} usernameRegister={usernameRegister} onChangeemailRegister={onChangeemailRegister} onChangepasswordRegister={onChangepasswordRegister} onChangeusernameRegister={onChangeusernameRegister} />} />
-        <Route path="/Account/r/Acc-caso" element={valiLogin ? <Account codeUser={codeUser} Show={Show} Show2={Show2} Show3={Show3}/> : <Error_404 />} />
-        <Route path="/All-options/r/Usecaso" element={valiLogin ? <All_Users contenUsers={contenUsers} codeUser={codeUser} Show4={Show4} Close={Close4} id_User={id_User}  putApi={putApi} usernameUp={usernameUp} emailUp={emailUp} stateUp={stateUp} onChangeU={onChangeU} onChangeE={onChangeE} onChangeS={onChangeS}/> : <Error_404 />} />
-
+        <Route path="/Account/r/Acc-caso" element={valiLogin ? <Account codeUser={codeUser} Show={Show} Show2={Show2} Show3={Show3} usernameUp={usernameUp} emailUp={emailUp} stateUp={stateUp} onChangeU={onChangeU} onChangeE={onChangeE} /> : <Error_404 />} />
+        <Route path="/All-options/r/Usecaso" element={valiLogin ? <All_Users inputCharacters={inputCharacters} inputLoad={inputLoad} textalter={text} setText={setText}  delApi={delApi} delallApi={delallApi} contenUsers={contenUsers} Update_User={Update_User} codeUser={codeUser} Show_={Show_} Show_2={Show_2} Show_3={Show_3} Show_4={Show_4} Close={Close4} id_User={id_User} putApi={putApi} putApiRoll={putApiRoll} putApiEmail={putApiEmail} putApiName={putApiName} usernameUp={usernameUp} emailUp={emailUp} stateUp={stateUp} onChangeU={onChangeU} onChangeE={onChangeE} onChangeS={onChangeS} /> : <Error_404 />} />
+        <Route path="/All-options/r/invcaso" element={valiLogin ? <Inventary  /> : <Error_404 />} />
 
         {/* logic Props contetnt */}
         <Route path="/All-options/r/Bicaso" element={<PowerBi />} />

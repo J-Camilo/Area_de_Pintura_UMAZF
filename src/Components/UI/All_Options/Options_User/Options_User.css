@@ -48,7 +48,6 @@
     width: 100%;
 }
 
-.btn_DataBase,
 .btn_Forms {
     width: 15rem;
     height: 23rem;
@@ -74,6 +73,7 @@
 }
 
 .btn_powerBi,
+.btn_DataBase,
 .btn_Users,
 .btn_Acount {
     background-color: rgba(255, 97, 97, 0.575);width: 15rem;

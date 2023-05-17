@@ -182,6 +182,7 @@ h1 {
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    /* display: flex; */
 }
 
 .Content_text {

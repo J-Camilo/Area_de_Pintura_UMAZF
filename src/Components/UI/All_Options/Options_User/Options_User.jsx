@@ -30,10 +30,10 @@ export const Options_User = (props) => {
                         <p>Usuarios</p></div>
                     </Link> : null }
 
-                    {props.codeUser.preference === "master" || props.codeUser.preference === "admin" 
-                     ? <Link to="/All-options/r/oWncaso2" className="text"><div className="btn_DataBase" onClick={props.Disable_btn}>
+                    {props.codeUser.preference === "master" || props.codeUser.preference === "admin" || props.codeUser.preference === "supervisor"
+                     ? <Link to="/All-options/r/invcaso" className="text"><div className="btn_DataBase" >
                         <TbCloudDataConnection className="Icons" />
-                        <p>Bases de datos</p></div>
+                        <p>Inventario</p></div>
                     </Link> : null }
                     <a href="/Account/r/Acc-caso" className="text"><div className="btn_Acount">
                         <RiAccountPinCircleLine className="Icons" />
