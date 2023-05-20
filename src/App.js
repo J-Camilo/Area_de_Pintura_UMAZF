@@ -36,7 +36,7 @@ function App() {
 
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*----------------------------------------------------------------------- encrypted password ----------------------------------------------------------*/
+  /*----------------------------------------------------------------------- encrypted password ----------------------------------------------------------*/
 
   const bufferABase64 = buffer => btoa(String.fromCharCode(...new Uint8Array(buffer)));
   const base64ABuffer = buffer => Uint8Array.from(atob(buffer), c => c.charCodeAt(0));
@@ -365,6 +365,7 @@ function App() {
   }
 
   const Close4 = () => {
+    // users
     document.getElementById("content_all_edit_").className = "content_all_edit_";
     document.getElementById("content_edit").className = "content_edit";
     document.getElementById("btn_opacity").className = "see";
@@ -375,6 +376,16 @@ function App() {
     document.getElementById("ocult_form4").style.display = "none";
   }
 
+  const Close5 = () => {
+    // inventary
+    document.getElementById("content_all_edit_2").className = "content_all_edit_2";
+    document.getElementById("content_edit2").className = "content_edit2";
+  }
+  const Close6 = () => {
+    // inventary
+    document.getElementById("content_all_edit_3").className = "content_all_edit_3";
+    document.getElementById("content_edit3").className = "content_edit3";
+  }
 
 
 
@@ -429,7 +440,7 @@ function App() {
   const delApi = async (event) => {
     event.preventDefault();
     const response_ = await axios.delete(`https://apisupervisor-production.up.railway.app/Api/users/${Update_User}`);
-  
+
     Swal.fire({
       title: `Se ha eliminado este usuario con exito`,
       // icon: 'info',
@@ -443,25 +454,25 @@ function App() {
       // timerProgressBar: true,
       stopKeydownPropagation: true,
       showClass: {
-          popup: 'animate__animated animate__fadeInDown'
+        popup: 'animate__animated animate__fadeInDown'
       },
       hideClass: {
-          popup: 'animate__animated animate__fadeOutUp'
+        popup: 'animate__animated animate__fadeOutUp'
       },
       customClass: {
-          popup: 'Content_Swall_',
-          container: 'Content_Swal_All'
+        popup: 'Content_Swall_',
+        container: 'Content_Swal_All'
       }
-  })
+    })
   };
 
-   //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
   // ----------------------------- delete one user ---------------------------------
 
   const delallApi = async (event) => {
     event.preventDefault();
     const response_ = await axios.delete(`https://apisupervisor-production.up.railway.app/Api/users`);
-  
+
     Swal.fire({
       title: `Se ha eliminado este usuario con exito`,
       // icon: 'info',
@@ -475,16 +486,16 @@ function App() {
       // timerProgressBar: true,
       stopKeydownPropagation: true,
       showClass: {
-          popup: 'animate__animated animate__fadeInDown'
+        popup: 'animate__animated animate__fadeInDown'
       },
       hideClass: {
-          popup: 'animate__animated animate__fadeOutUp'
+        popup: 'animate__animated animate__fadeOutUp'
       },
       customClass: {
-          popup: 'Content_Swall_',
-          container: 'Content_Swal_All'
+        popup: 'Content_Swall_',
+        container: 'Content_Swal_All'
       }
-  })
+    })
   };
 
   //-----------------------------------------------------------------------------
@@ -544,7 +555,7 @@ function App() {
   };
 
   //------------------------------------------ only name ------------------------------- 
-  
+
   const putApiName = async (event) => {
     event.preventDefault();
     setLoading(true);
@@ -588,7 +599,7 @@ function App() {
       }
     })
   };
-  
+
   //------------------------------------------ only email ------------------------------- 
   const putApiEmail = async (event) => {
     event.preventDefault();
@@ -703,13 +714,13 @@ function App() {
     setText(event.target.value)
     // console.log(texto);
   }
-    /*--------------------------------------*/
-    const baseURL__ = `https://apisupervisor-production.up.railway.app/Api/users`;
-    useEffect(() => {
-      axios.get(baseURL__).then((response) => {
-        setCharacters(response.data)
-      });
-    }, []);
+  /*--------------------------------------*/
+  const baseURL__ = `https://apisupervisor-production.up.railway.app/Api/users`;
+  useEffect(() => {
+    axios.get(baseURL__).then((response) => {
+      setCharacters(response.data)
+    });
+  }, []);
 
   const inputCharacters = characters.filter((character) => character.name.toLowerCase().includes(text.toLowerCase()))
 
@@ -805,8 +816,8 @@ function App() {
         <Route path="/login/r/owncaso" element={valiLogin ? <Navigate replace to="/All-options/r/oWncaso2" /> : <Login NShow={NShow} alertUserLoginPassword={alertUserLoginPassword} setalertUserLoginPassword={setalertUserLoginPassword} setalertConexionLogin={setalertConexionLogin} alertConexionLogin={alertConexionLogin} alertUserLogin={alertUserLogin} setalertUserLogin={setalertUserLogin} messagesLogin={messagesLogin} onClick2={onClick2} switchShown2={switchShown2} shown2={shown2} userLogin={userLogin} ClickLogin={ClickLogin} passwordUser={passwordUser} onChangePasswordLogin={onChangePasswordLogin} onChangeUserLogin={onChangeUserLogin} />} />
         <Route path="/Register/r/R3gcaso" element={userId ? <Navigate replace to="/login/r/owncaso" /> : <Register alertConexion={alertConexion} setalertConexion={setalertConexion} alertUser={alertUser} setalertUser={setalertUser} setmessages={setmessages} messages={messages} validemail={validemail} validUsername={validUsername} confrimPasword={confrimPasword} onChangeconfrimPasword={onChangeconfrimPasword} postApi={postApi} emailRegister={emailRegister} passwordRegister={passwordRegister} usernameRegister={usernameRegister} onChangeemailRegister={onChangeemailRegister} onChangepasswordRegister={onChangepasswordRegister} onChangeusernameRegister={onChangeusernameRegister} />} />
         <Route path="/Account/r/Acc-caso" element={valiLogin ? <Account codeUser={codeUser} Show={Show} Show2={Show2} Show3={Show3} usernameUp={usernameUp} emailUp={emailUp} stateUp={stateUp} onChangeU={onChangeU} onChangeE={onChangeE} /> : <Error_404 />} />
-        <Route path="/All-options/r/Usecaso" element={valiLogin ? <All_Users inputCharacters={inputCharacters} inputLoad={inputLoad} textalter={text} setText={setText}  delApi={delApi} delallApi={delallApi} contenUsers={contenUsers} Update_User={Update_User} codeUser={codeUser} Show_={Show_} Show_2={Show_2} Show_3={Show_3} Show_4={Show_4} Close={Close4} id_User={id_User} putApi={putApi} putApiRoll={putApiRoll} putApiEmail={putApiEmail} putApiName={putApiName} usernameUp={usernameUp} emailUp={emailUp} stateUp={stateUp} onChangeU={onChangeU} onChangeE={onChangeE} onChangeS={onChangeS} /> : <Error_404 />} />
-        <Route path="/All-options/r/invcaso" element={valiLogin ? <Inventary  /> : <Error_404 />} />
+        <Route path="/All-options/r/Usecaso" element={valiLogin ? <All_Users inputCharacters={inputCharacters} inputLoad={inputLoad} textalter={text} setText={setText} delApi={delApi} delallApi={delallApi} contenUsers={contenUsers} Update_User={Update_User} codeUser={codeUser} Show_={Show_} Show_2={Show_2} Show_3={Show_3} Show_4={Show_4} Close={Close4} id_User={id_User} putApi={putApi} putApiRoll={putApiRoll} putApiEmail={putApiEmail} putApiName={putApiName} usernameUp={usernameUp} emailUp={emailUp} stateUp={stateUp} onChangeU={onChangeU} onChangeE={onChangeE} onChangeS={onChangeS} /> : <Error_404 />} />
+        <Route path="/All-options/r/invcaso" element={valiLogin ? <Inventary codeUser={codeUser} Close={Close5} Close_={Close6} /> : <Error_404 />} />
 
         {/* logic Props contetnt */}
         <Route path="/All-options/r/Bicaso" element={<PowerBi />} />

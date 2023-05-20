@@ -56,18 +56,19 @@ export const All_Users = (props) => {
                 <Waves />
             </div>
 
-            <div className="content_users">
+            <div className="content_users_">
                 {/* buscador de personas por el nombre */}
-                <Search styles="content_search" Id="Character" Value={props.text} OnChange={props.inputLoad} Placeholder="Busca el nombre de esa persona" />
+                <Search styles="content_search_" Id="Character" Value={props.text} OnChange={props.inputLoad} Placeholder="Busca el nombre de esa persona" />
             </div>
-
 
             {props.codeUser._id === props.id_User
                 ? dataUsers.map((data) => (
                     <> {data._id === props.id_User
-                        ? null
-                        : <div className="content_api_users" id="content_api_users" key={data._id}>
+                        ? <div className="content_api_user" id="content_api_users" key={data._id}>
+                            <p><b>Tu: {data.name}</b></p>
+                        </div>
 
+                        : <div className="content_api_users" id="content_api_users" key={data._id}>
                             <p><b>{data.name}</b></p>
                             <p>{data.email}</p>
                             <p><b>Usuario: </b>{data.preference ? data.preference : <>Normal</>}</p>
@@ -84,7 +85,6 @@ export const All_Users = (props) => {
                 : <div className="content_api_users">
                     <p>El contenito no se puede mostrar en este momento</p>
                 </div>
-
             }
 
 
