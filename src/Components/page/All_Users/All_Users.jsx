@@ -4,7 +4,6 @@ import Swal from 'sweetalert2';
 import "./All_Users.css"
 
 /*------------------ components ------------------- */
-import { Footer } from "../../UI/Footer/Footer";
 import { Waves } from "../../UI/Waves/Waves";
 import { Link } from "react-router-dom";
 import { Fond_Animated } from "../../UI/Fond_Animated/Fond_Animated";
@@ -181,7 +180,6 @@ export const All_Users = (props) => {
                     </div>
                 </div>
             </div>
-            <Footer />
         </>
     )
 }

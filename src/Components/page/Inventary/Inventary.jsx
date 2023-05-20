@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 // ------------------------- components -----------------
 import { Waves } from '../../UI/Waves/Waves'
 import { Search } from '../../UI/Search/Search'
+import { Fond_Animated } from '../../UI/Fond_Animated/Fond_Animated'
 
 
 export const Inventary = () => {
@@ -23,12 +24,14 @@ export const Inventary = () => {
                 </div>
                 <Waves />
             </div>
-
+            <Fond_Animated />
 
             <div className='Content_nav-product'>
-                <div>Estado</div>
-                <Search Id="Character_product" styles="search_product" Placeholder="Busca tu producto" />
-                <div>Marca</div>
+                <div className="Content_nav-inter">
+                    <div>Estado</div>
+                    <Search Id="Character_product" styles="search_product" Placeholder="Busca tu producto" />
+                    <div>Marca</div>
+                </div>
             </div>
         </>
     )

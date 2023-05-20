@@ -1,15 +1,14 @@
 .Content_nav-product {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    flex-direction: row;
     width: 80%;
     border-radius: 1.5rem;
     border: solid red 2px;
+    background-color: rgb(255, 87, 87);
     height: 6rem;
     margin: 50px auto;
     font-size: 1.5rem;
-    background-color: rgb(226, 223, 223);
 }
 
 #Character_product {
@@ -25,4 +24,15 @@
     display: contents;
     font-size: 1.3rem;
 
+}
+
+.Content_nav-inter {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    background-color: white;
+    width: 95%;
+    border-radius: 1.5rem;
+    height: 4rem;
 }

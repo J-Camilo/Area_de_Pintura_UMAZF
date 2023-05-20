@@ -158,7 +158,7 @@ h1 {
 }
 
 .Info_Account {
-    background-color: rgb(226, 223, 223);
+    background-color: rgb(226 223 223 / 59%);
     border-radius: .9rem;
     padding: 1rem;
     flex-direction: column;

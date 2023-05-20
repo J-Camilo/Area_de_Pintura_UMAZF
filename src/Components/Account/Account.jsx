@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 /*------------------- components --------------- */
 import { Waves } from '../UI/Waves/Waves';
+import { Fond_Animated } from "../UI/Fond_Animated/Fond_Animated";
 // import { Troubleshoot } from "@mui/icons-material";
 
 export const Account = (props) => {
@@ -22,10 +23,11 @@ export const Account = (props) => {
                 </div>
                 <Waves />
             </div>
+            <Fond_Animated />
             <div className='All_Account'>
                 <div className="options_Account">
                     <div className="Content_Img">
-                        <h1>hola</h1>
+                        <h1>[imagen]</h1>
                     </div>
                     <div className="Content_option_account">
                         <p className="select_info" id="select_info" onClick={props.Show}>Infomación Personal</p>
