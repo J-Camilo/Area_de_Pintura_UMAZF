@@ -20,6 +20,7 @@ import { All_Users } from './Components/page/All_Users/All_Users';
 import { PowerBi } from './Components/page/PowerBi/PowerBi';
 import { Aprobation } from './Components/page/PowerBi/Aprobation';
 import { Inventary } from './Components/page/Inventary/Inventary';
+import { Forms } from './Components/page/Forms/Forms';
 
 
 
@@ -822,6 +823,8 @@ function App() {
         {/* logic Props contetnt */}
         <Route path="/All-options/r/Bicaso" element={<PowerBi />} />
         <Route path="/All-options/r/Adcaso" element={<Aprobation />} />
+
+        <Route path="/All-options/r/Focaso" element={<Forms />} />
 
 
         {/* Protect routers */}

@@ -27,12 +27,12 @@ export const Account = (props) => {
             <div className='All_Account'>
                 <div className="options_Account">
                     <div className="Content_Img">
-                        <h1>[imagen]</h1>
+                        <ion-icon name="person-circle-outline" className='IconAcount'></ion-icon>
                     </div>
                     <div className="Content_option_account">
                         <p className="select_info" id="select_info" onClick={props.Show}>Infomación Personal</p>
                         <p className="select_text" id="select_text" onClick={props.Show2}>Actualizar datos</p>
-                        <p className="select_text_" id="select_text_" onClick={props.Show3}>Cambiar contraseña</p>
+                        {/* <p className="select_text_" id="select_text_" onClick={props.Show3}>Cambiar contraseña</p> */}
                     </div>
                 </div>
 
@@ -96,7 +96,7 @@ export const Account = (props) => {
                         <form onSubmit={props.updateData}>
                             <div className="inputbox_2">
                                 <ion-icon name="person-outline"></ion-icon>
-                                <input className='Input_text' type="name" required minLength="5" placeholder='Nombre' value={props.usernameUp} onChange={props.onChangeU}  />
+                                <input className='Input_text' type="name" required minLength="5" placeholder='Nombre' value={props.usernameUp} onChange={props.onChangeU} />
                             </div>
                             <div className="inputbox_2">
                                 <ion-icon name="person-outline"></ion-icon>
