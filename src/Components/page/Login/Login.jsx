@@ -39,7 +39,7 @@ export const Login = (props) => {
     <>
     <Fond_Animated />
       <div className="header">
-        <Nav Text="Iniciar Sesión" sty="Counter_header" contentAll="inner-header flex" />
+      <Nav nav_styles="header_acc" nav_three_style="Counter_header_acc"   img_alt="logo" logo_styles="Logo"   h1_styles_frist="Text_major" text_frist="Iniciar Sessión" /> 
         <Waves />
       </div>
 
