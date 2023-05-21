@@ -16,13 +16,13 @@ import { Fond_Animated } from '../../UI/Fond_Animated/Fond_Animated'
 export const Inventary = (props) => {
 
     const add = (e) => {
-        JSON.stringify(localStorage.setItem("aWQgcGFyYSBhZ3JlZ2FyIGNhdGVnb3LDrWEgZGUgZXN0YWRv1", e.target.value))
+        // JSON.stringify(localStorage.setItem("aWQgcGFyYSBhZ3JlZ2FyIGNhdGVnb3LDrWEgZGUgZXN0YWRv1", e.target.value))
         document.getElementById("content_all_edit_2").className = "content_all_edit2";
         document.getElementById("content_edit2").className = "content_edit_2";
     }
 
     const add_ = (e) => {
-        JSON.stringify(localStorage.setItem("aWQgcGFyYSBhZ3JlZ2FyIGNhdGVnb3LDrWEgZGUgZXN0YWRv1", e.target.value))
+        // JSON.stringify(localStorage.setItem("aWQgcGFyYSBhZ3JlZ2FyIGNhdGVnb3LDrWEgZGUgZXN0YWRv1", e.target.value))
         document.getElementById("content_all_edit_3").className = "content_all_edit3";
         document.getElementById("content_edit3").className = "content_edit_3";
     }
@@ -48,6 +48,7 @@ export const Inventary = (props) => {
     }
     return (
         <>
+            <Fond_Animated />
             <div className="header_acc">
                 <div className="inner-header_acc flex_acc">
                     <div className="Counter_header_acc" >
@@ -58,7 +59,6 @@ export const Inventary = (props) => {
                 </div>
                 <Waves />
             </div>
-            <Fond_Animated />
 
             <div className='Content_nav-product'>
                 <div className="Content_nav-inter">

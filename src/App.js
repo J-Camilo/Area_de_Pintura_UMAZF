@@ -388,6 +388,12 @@ function App() {
     document.getElementById("content_edit3").className = "content_edit3";
   }
 
+  const Close7 = () => {
+    // froms
+    document.getElementById("content_all_edit_4").className = "content_all_edit_4";
+    document.getElementById("content_edit4").className = "content_edit4";
+  }
+
 
 
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -824,7 +830,7 @@ function App() {
         <Route path="/All-options/r/Bicaso" element={<PowerBi />} />
         <Route path="/All-options/r/Adcaso" element={<Aprobation />} />
 
-        <Route path="/All-options/r/Focaso" element={<Forms />} />
+        <Route path="/All-options/r/Focaso" element={<Forms codeUser={codeUser} Close={Close7}/>} />
 
 
         {/* Protect routers */}
