@@ -70,17 +70,18 @@ export const Options_forms = (props) => {
                             <p>¿Cual sera el nuevo fromulario?</p>
 
                             <form action="">
+                            {/* onChangeIconF={props.onChangeIconF} onChangeNameF={props.onChangeNameF} onChangePostF={props.nChangePostF} iconForms={props.iconForms} nameForm={props.nameForm} postform={props.postform} */}
                                 <div className="inputbox_2">
                                     <ion-icon name="compass-outline"></ion-icon>
-                                    <input className='Input_text' type="name" required minLength="5" placeholder='Escribe el nombre del formulario' value="" onChange="" />
+                                    <input className='Input_text' type="name" required minLength="5" placeholder='Escribe el nombre del formulario' value={props.nameForm} onChange={props.onChangeNameF} />
                                 </div>
                                 <div className="inputbox_2">
                                     <ion-icon name="link-outline"></ion-icon>
-                                    <input className='Input_text' type="name" required minLength="5" placeholder='Pega el link de ese formulario de microsoft' value="" onChange="" />
+                                    <input className='Input_text' type="name" required minLength="5" placeholder='Pega el link de ese formulario de microsoft' value={props.postform} onChange={props.onChangePostF} />
                                 </div>
                                 <div className="inputbox_2">
                                     <ion-icon name="pricetag-outline"></ion-icon>
-                                    <input className='Input_text' type="name" minLength="5" placeholder='agregar un icono (opcional)' value="" onChange="" />
+                                    <input className='Input_text' type="name" minLength="5" placeholder='agregar un icono (opcional)' value={props.iconForms} onChange={props.onChangeIconF} />
                                 </div>
                                 <input type="submit" value="Agregar" className="btn_send_" />
                             </form>

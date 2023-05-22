@@ -32,6 +32,7 @@ export const Account = (props) => {
                     <div className="Content_option_account">
                         <p className="select_info" id="select_info" onClick={props.Show}>Infomación Personal</p>
                         <p className="select_text" id="select_text" onClick={props.Show2}>Actualizar datos</p>
+                        <p className="select_text" id="select_text">Más opciones pronto</p>
                         {/* <p className="select_text_" id="select_text_" onClick={props.Show3}>Cambiar contraseña</p> */}
                     </div>
                 </div>
@@ -93,7 +94,7 @@ export const Account = (props) => {
                 <div className="Update_Info_Account" id="Update_Info_Account">
                     <h1 className='Text_account'><b>Actualizar Información</b></h1>
                     <div className="Content_text">
-                        <form onSubmit={props.updateData}>
+                        <form onSubmit={props.UpdateYourUser}>
                             <div className="inputbox_2">
                                 <ion-icon name="person-outline"></ion-icon>
                                 <input className='Input_text' type="name" required minLength="5" placeholder='Nombre' value={props.usernameUp} onChange={props.onChangeU} />
@@ -104,7 +105,8 @@ export const Account = (props) => {
                             </div>
                             <div className="inputbox_2">
                                 <ion-icon name="lock-closed-outline"></ion-icon>
-                                <input className='Input_text' type="password" required minLength="5" placeholder='Ingresa tu contraseña para verificar' />
+                                {/* verificatitonPass={verificatitonPass} onChangeP_acc={onChangeP_acc} */}
+                                <input className='Input_text' type="password" required minLength="5" placeholder='Ingresa tu contraseña para verificar' value={props.verificatitonPass} onChange={props.onChangeP_acc}/>
                             </div>
                             <input type="submit" value="Actualizar" className="btn_send_" />
                         </form>

@@ -141,6 +141,8 @@ h1 {
     margin: 0px 20px 0px 0px;
     height: 23.5rem;
     width: 16rem;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
 }
 
 .Content_option_account {
@@ -165,16 +167,20 @@ h1 {
     padding: 1rem;
     flex-direction: column;
     animation: content_show 1s forwards;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
 }
 
 .Update_Info_Account {
-    background-color: rgb(226, 223, 223);
+    background-color: rgb(225 221 221 / 56%);
     width: 40rem;
     border-radius: .9rem;
     display: none;
     flex-direction: column;
     padding: 1rem;
     animation: content_show 1s forwards;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
 }
 
 .Update_Info_Password {

@@ -2,7 +2,6 @@ import React from 'react'
 
 /*------------------ components ------------------- */
 import { Footer } from '../../UI/Footer/Footer';
-import { Nav } from '../../UI/Nav/Nav';
 import Logo from "../../Images/Interface/Logo.png"
 
 //------------------ componets ---------------------------
@@ -32,7 +31,7 @@ export const Forms = (props) => {
 
 
 
-            <Options_forms  Close={props.Close} codeUser={props.codeUser}/>
+            <Options_forms onChangeIconF={props.onChangeIconF} onChangeNameF={props.onChangeNameF} onChangePostF={props.onChangePostF} iconForms={props.iconForms} nameForm={props.nameForm} postform={props.postform}  Close={props.Close} codeUser={props.codeUser}/>
 
             <Footer />
         </>

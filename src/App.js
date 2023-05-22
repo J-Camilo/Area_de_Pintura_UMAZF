@@ -28,16 +28,19 @@ import { Forms } from './Components/page/Forms/Forms';
 function App() {
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /* -------------------------------------------------- LocalStorage ---------------------------------------------------- */
+  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
+
   const valiLogin = localStorage.getItem("Q29kZVZlcmlmeWNhdGlvbg==");
   const userId = localStorage.getItem("CRQsDul8xCamE");
   const id_User = localStorage.getItem("CRmoaBwT2p2r6");
   const NShow = localStorage.getItem("CRQsDul8xCamE");
-  const pas_ = localStorage.getItem("Y29udHJhc2XDsWEgZW5jcmlwdGFkYSB5IG1hbmlvYnJhZGE=");
   const Update_User = localStorage.getItem("VXN1YXJpbyBpZGVudGlmaWNhZG8gcGFyYSBhY3R1YWxpemFy");
 
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*----------------------------------------------------------------------- encrypted password ----------------------------------------------------------*/
+  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
+  /*------------------------------------------------------------------------------------------------------------------------------------------------*/
 
   const bufferABase64 = buffer => btoa(String.fromCharCode(...new Uint8Array(buffer)));
   const base64ABuffer = buffer => Uint8Array.from(atob(buffer), c => c.charCodeAt(0));
@@ -112,7 +115,11 @@ function App() {
   /*------------------------------------------------------------------ Login ----------------------------------------------------------------------------*/
 
   //-----------------------------------------------------------------------------
-  // ----------------------------- validation user ---------------------------------
+  //-----------------------------------------------------------------------------
+  // ----------------------------- validation user ------------------------------
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
+
   const [messagesLogin, setmessagesLogin] = useState("")
   const [alertUserLogin, setalertUserLogin] = useState(false)
   const [alertUserLoginPassword, setalertUserLoginPassword] = useState(false)
@@ -211,7 +218,11 @@ function App() {
   /*------------------------------------------------------------------ Register ----------------------------------------------------------------------------*/
 
   //-----------------------------------------------------------------------------
-  // ----------------------------- validation user ---------------------------------
+  //-----------------------------------------------------------------------------
+  // ----------------------------- validation user ------------------------------
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
+
   const [alertUser, setalertUser] = useState(false)
   const [alertConexion, setalertConexion] = useState(false)
   const [validUsername, setvalidUsername] = useState('');
@@ -316,15 +327,20 @@ function App() {
   //------------------------------------------------------------------------------------------------------------------------------------------
   // ----------------------------------------------------------------- show the component -----------------------------------------------------
 
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
+  // --------------------------- conmponent Account -----------------------------
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
 
-  // --------------------------- conmponent Account ----------------------------
+
   const Show = () => {
     document.getElementById("Info_Account").style.display = 'flex'
     document.getElementById("Update_Info_Account").style.display = 'none'
     // document.getElementById("Update_Info_Password").style.display = 'none'
     document.getElementById("select_info").className = "select_info";
     document.getElementById("select_text").className = "select_text";
-    document.getElementById("select_text_").className = "select_text_";
+    // document.getElementById("select_text_").className = "select_text_";
   }
   const Show2 = () => {
     document.getElementById("Info_Account").style.display = 'none'
@@ -332,7 +348,7 @@ function App() {
     document.getElementById("Update_Info_Password").style.display = 'none'
     document.getElementById("select_info").className = "select_text";
     document.getElementById("select_text").className = "select_info";
-    document.getElementById("select_text_").className = "select_text";
+    // document.getElementById("select_text_").className = "select_text";
   }
   const Show3 = () => {
     document.getElementById("Info_Account").style.display = 'none'
@@ -343,7 +359,12 @@ function App() {
     document.getElementById("select_text_").className = "select_info";
   }
 
-  // ----------------------------- component All_Users -------------------------
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
+  // ----------------------------- component All_Users --------------------------
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
+
   const Show_ = () => {
     document.getElementById("btn_opacity").className = "block";
     document.getElementById("ocult_form").style.display = "flex";
@@ -404,9 +425,11 @@ function App() {
   const Delecte = () => {
     localStorage.clear();
   }
-
   //-----------------------------------------------------------------------------
-  // ----------------------------- get your user ---------------------------------
+  //-----------------------------------------------------------------------------
+  // ----------------------------- get your user --------------------------------
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
 
   const [codeUser, setCodeUser] = useState([]);
 
@@ -418,7 +441,10 @@ function App() {
   }, []);
 
   //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
   // ----------------------------- get one user ---------------------------------
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
 
   const [codeUserOne, setCodeUserOne] = useState([]);
 
@@ -428,9 +454,11 @@ function App() {
       setCodeUserOne(response.data)
     });
   }, []);
-
   //-----------------------------------------------------------------------------
-  // ----------------------------- get all users ---------------------------------
+  //-----------------------------------------------------------------------------
+  // ----------------------------- get all users --------------------------------
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
 
   const [contenUsers, setContenUsers] = useState([]);
 
@@ -442,7 +470,10 @@ function App() {
   }, []);
 
   //-----------------------------------------------------------------------------
-  // ----------------------------- delete one user ---------------------------------
+  //-----------------------------------------------------------------------------
+  // ----------------------------- delete one user ------------------------------
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
 
   const delApi = async (event) => {
     event.preventDefault();
@@ -474,7 +505,11 @@ function App() {
   };
 
   //-----------------------------------------------------------------------------
-  // ----------------------------- delete one user ---------------------------------
+  //-----------------------------------------------------------------------------
+  // ----------------------------- delete one user ------------------------------
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
+
 
   const delallApi = async (event) => {
     event.preventDefault();
@@ -504,9 +539,12 @@ function App() {
       }
     })
   };
-
+  //-----------------------------------------------------------------------------
   //-----------------------------------------------------------------------------
   // ----------------------------- uptade users ---------------------------------
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
+
   const [usernameUp, setUsernameUp] = useState("");
   const [emailUp, setEmailUp] = useState("");
   const [Loading, setLoading] = useState("");
@@ -561,7 +599,11 @@ function App() {
     })
   };
 
-  //------------------------------------------ only name ------------------------------- 
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
+  //----------------------------------- only name ------------------------------- 
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
 
   const putApiName = async (event) => {
     event.preventDefault();
@@ -607,7 +649,12 @@ function App() {
     })
   };
 
-  //------------------------------------------ only email ------------------------------- 
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
+  //---------------------------------- only email -------------------------------
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
+
   const putApiEmail = async (event) => {
     event.preventDefault();
     setLoading(true);
@@ -652,7 +699,12 @@ function App() {
     })
   };
 
-  //------------------------------------------ only roll ------------------------------- 
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
+  //----------------------------------- only roll ------------------------------- 
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
+
   const putApiRoll = async (event) => {
     event.preventDefault();
     setLoading(true);
@@ -696,23 +748,113 @@ function App() {
     })
   };
 
-
+  //-----------------------------------------------------------------------------
   //-----------------------------------------------------------------------------
   // ----------------------------- uptade you user ------------------------------
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
 
-  // const [upUser_Pass, setUpUser_Pass] = useState("");
-  // const [usernameUp_acc, setUsernameUp_acc] = useState("");
-  // const [emailUp_acc, setEmailUp_acc] = useState("");
-  // const [verificatitonPass, setVerificatitonPass] = useState("");
-  // const onChangeU_acc = ({ currentTarget }) => setUsernameUp_acc(currentTarget.value);
-  // const onChangeE_acc = ({ currentTarget }) => setEmailUp_acc(currentTarget.value.toLowerCase());
-  // const onChangeP_acc = ({ currentTarget }) => setVerificatitonPass(currentTarget.value);
+  const [passDescrip, setPassDescrip] = useState("");
+  const [verificatitonPass, setVerificatitonPass] = useState("");
+  const onChangeP_acc = ({ currentTarget }) => setVerificatitonPass(currentTarget.value);
+
+  (async function () {
+    const encrypted = await desencriptar(contraseñaEncriptar, localStorage.getItem("Y29udHJhc2XDsWEgZW5jcmlwdGFkYSB5IG1hbmlvYnJhZGE="));
+    setPassDescrip(encrypted)
+  })();
+
+  // subir los datos 
+  const  UpdateYourUser = async (event) => {
+    event.preventDefault();
+    const data = {
+      "name": usernameUp,
+      "email": emailUp
+    };
+    if (passDescrip === verificatitonPass) {
+      const response_ = await axios.put(`https://apisupervisor-production.up.railway.app/Api/users/${id_User}`, data);
+
+      setUsernameUp("")
+      setEmailUp("")
+      setVerificatitonPass("")
+      console.log(response_.data, "All is okay... ");
+      Swal.fire({
+        title: 'Has actualizado tu usuario (recargar) para ver los cambios',
+        html: '<a href="/Account/r/Acc-caso" class="BtnAlert_Ancla">Recargar<ion-icon  class="Icon_Alert" name="chevron-forward-outline"></ion-icon></a>',
+        icon: 'success',
+        backdrop: '#ffffff00',
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        width: 860,
+        allowOutsideClick: true,
+        timer: 9000,
+        timerProgressBar: true,
+        stopKeydownPropagation: true,
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        },
+        customClass: {
+          popup: 'Content_Swall_',
+          container: 'Content_Swal_All'
+        }
+      });
+    } else {
+      Swal.fire({
+        title: 'Contraseña incorrecta',
+        text: 'Vuelve a intentarlo',
+        icon: 'error',
+        showCancelButton: false,
+        showConfirmButton: false,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Aceptar',
+        buttonsStyling: false,
+      })
+
+      setVerificatitonPass("")
+    }
+  }
 
 
+  //--------------------------------------------------------------------------------
+  //--------------------------------------------------------------------------------
+  // ----------------------------- post forms --------------------------------------
+  //--------------------------------------------------------------------------------
+  //--------------------------------------------------------------------------------
+  const [postform, setPostform] = useState("");
+  const [nameForm, setNameForm] = useState("");
+  const [iconForms, setIiconForms] = useState("");
+  const onChangePostF = ({ currentTarget }) => setPostform(currentTarget.value);
+  const onChangeNameF = ({ currentTarget }) => setNameForm(currentTarget.value);
+  const onChangeIconF = ({ currentTarget }) => setIiconForms(currentTarget.value);
+
+  //logic post for forms
+  //--------------------
+  //--------------------
+  //--------------------
+  //--------------------
+
+  //--------------------------------------------------------------------------------
+  //--------------------------------------------------------------------------------
+  // ----------------------------- delecte forms -----------------------------------
+  //--------------------------------------------------------------------------------
+  //--------------------------------------------------------------------------------
+
+  //logic post for forms
+  //--------------------
+  //--------------------
+  //--------------------
+  //--------------------
 
 
   //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
   // ----------------------------- search user ----------------------------------
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
 
   const [text, setText] = useState('');
   const [characters, setCharacters] = useState([])
@@ -822,7 +964,7 @@ function App() {
         <Route path="/All-options/r/oWncaso2" element={valiLogin ? <Data codeUser={codeUser} Delecte={Delecte} Disable={Disable} Disable_btn={Disable_btn} id_User={id_User} /> : <Error_404 />} />
         <Route path="/login/r/owncaso" element={valiLogin ? <Navigate replace to="/All-options/r/oWncaso2" /> : <Login NShow={NShow} alertUserLoginPassword={alertUserLoginPassword} setalertUserLoginPassword={setalertUserLoginPassword} setalertConexionLogin={setalertConexionLogin} alertConexionLogin={alertConexionLogin} alertUserLogin={alertUserLogin} setalertUserLogin={setalertUserLogin} messagesLogin={messagesLogin} onClick2={onClick2} switchShown2={switchShown2} shown2={shown2} userLogin={userLogin} ClickLogin={ClickLogin} passwordUser={passwordUser} onChangePasswordLogin={onChangePasswordLogin} onChangeUserLogin={onChangeUserLogin} />} />
         <Route path="/Register/r/R3gcaso" element={userId ? <Navigate replace to="/login/r/owncaso" /> : <Register alertConexion={alertConexion} setalertConexion={setalertConexion} alertUser={alertUser} setalertUser={setalertUser} setmessages={setmessages} messages={messages} validemail={validemail} validUsername={validUsername} confrimPasword={confrimPasword} onChangeconfrimPasword={onChangeconfrimPasword} postApi={postApi} emailRegister={emailRegister} passwordRegister={passwordRegister} usernameRegister={usernameRegister} onChangeemailRegister={onChangeemailRegister} onChangepasswordRegister={onChangepasswordRegister} onChangeusernameRegister={onChangeusernameRegister} />} />
-        <Route path="/Account/r/Acc-caso" element={valiLogin ? <Account codeUser={codeUser} Show={Show} Show2={Show2} Show3={Show3} usernameUp={usernameUp} emailUp={emailUp} stateUp={stateUp} onChangeU={onChangeU} onChangeE={onChangeE} /> : <Error_404 />} />
+        <Route path="/Account/r/Acc-caso" element={valiLogin ? <Account UpdateYourUser={UpdateYourUser} codeUser={codeUser} Show={Show} Show2={Show2} Show3={Show3} usernameUp={usernameUp} emailUp={emailUp} stateUp={stateUp} verificatitonPass={verificatitonPass} onChangeP_acc={onChangeP_acc} onChangeU={onChangeU} onChangeE={onChangeE} /> : <Error_404 />} />
         <Route path="/All-options/r/Usecaso" element={valiLogin ? <All_Users inputCharacters={inputCharacters} inputLoad={inputLoad} textalter={text} setText={setText} delApi={delApi} delallApi={delallApi} contenUsers={contenUsers} Update_User={Update_User} codeUser={codeUser} Show_={Show_} Show_2={Show_2} Show_3={Show_3} Show_4={Show_4} Close={Close4} id_User={id_User} putApi={putApi} putApiRoll={putApiRoll} putApiEmail={putApiEmail} putApiName={putApiName} usernameUp={usernameUp} emailUp={emailUp} stateUp={stateUp} onChangeU={onChangeU} onChangeE={onChangeE} onChangeS={onChangeS} /> : <Error_404 />} />
         <Route path="/All-options/r/invcaso" element={valiLogin ? <Inventary codeUser={codeUser} Close={Close5} Close_={Close6} /> : <Error_404 />} />
 
@@ -830,7 +972,7 @@ function App() {
         <Route path="/All-options/r/Bicaso" element={<PowerBi />} />
         <Route path="/All-options/r/Adcaso" element={<Aprobation />} />
 
-        <Route path="/All-options/r/Focaso" element={<Forms codeUser={codeUser} Close={Close7}/>} />
+        <Route path="/All-options/r/Focaso" element={<Forms onChangeIconF={onChangeIconF} onChangeNameF={onChangeNameF} onChangePostF={onChangePostF} iconForms={iconForms} nameForm={nameForm} postform={postform} codeUser={codeUser} Close={Close7} />} />
 
 
         {/* Protect routers */}
