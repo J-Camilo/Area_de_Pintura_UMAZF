@@ -402,17 +402,22 @@ function App() {
     // inventary
     document.getElementById("content_all_edit_2").className = "content_all_edit_2";
     document.getElementById("content_edit2").className = "content_edit2";
+    setTextUp("")
   }
   const Close6 = () => {
     // inventary
     document.getElementById("content_all_edit_3").className = "content_all_edit_3";
     document.getElementById("content_edit3").className = "content_edit3";
+    setTextUp("")
   }
 
   const Close7 = () => {
     // froms
     document.getElementById("content_all_edit_4").className = "content_all_edit_4";
     document.getElementById("content_edit4").className = "content_edit4";
+    setPostform("")
+    setNameForm("")
+    setIiconForms("")
   }
 
 
@@ -506,7 +511,7 @@ function App() {
 
   //-----------------------------------------------------------------------------
   //-----------------------------------------------------------------------------
-  // ----------------------------- delete one user ------------------------------
+  // ----------------------------- delete all user ------------------------------
   //-----------------------------------------------------------------------------
   //-----------------------------------------------------------------------------
 
@@ -764,7 +769,7 @@ function App() {
   })();
 
   // subir los datos 
-  const  UpdateYourUser = async (event) => {
+  const UpdateYourUser = async (event) => {
     event.preventDefault();
     const data = {
       "name": usernameUp,
@@ -832,22 +837,96 @@ function App() {
   const onChangeIconF = ({ currentTarget }) => setIiconForms(currentTarget.value);
 
   //logic post for forms
-  //--------------------
-  //--------------------
-  //--------------------
-  //--------------------
+  // subir los datos 
+  const addForms = async (event) => {
+    event.preventDefault();
+    const data = {
+      "name": nameForm,
+      "link": postform,
+      "icon": iconForms
+    };
+    const response_ = await axios.post('https://apiproducts-production-f466.up.railway.app/Api/forms', data);
 
+
+    //---------------------------------- result ----------------------------------
+    document.getElementById("content_all_edit_4").className = "content_all_edit_4";
+    document.getElementById("content_edit4").className = "content_edit4";
+    
+    setPostform("")
+    setNameForm("")
+    setIiconForms("")
+    console.log(response_.data, "All is okay... ");
+    Swal.fire({
+      title: 'Has agregado con exito el formulario (recargar) para ver los cambios',
+      html: '<a href="/All-options/r/Focaso" class="BtnAlert_Ancla">Recargar<ion-icon  class="Icon_Alert" name="chevron-forward-outline"></ion-icon></a>',
+      icon: 'success',
+      backdrop: '#ffffff00',
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      width: 860,
+      allowOutsideClick: true,
+      timer: 9000,
+      timerProgressBar: true,
+      stopKeydownPropagation: true,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      },
+      customClass: {
+        popup: 'Content_Swall_',
+        container: 'Content_Swal_All'
+      }
+    }
+    );
+
+  }
+
+  const [dataForms, setDataForms] = useState([])
+
+  const baseURLForms = 'https://apiproducts-production-f466.up.railway.app/Api/forms';
+  useEffect(() => {
+    axios.get(baseURLForms).then((response) => {
+      setDataForms(response.data)
+    });
+  }, []);
   //--------------------------------------------------------------------------------
   //--------------------------------------------------------------------------------
   // ----------------------------- delecte forms -----------------------------------
   //--------------------------------------------------------------------------------
   //--------------------------------------------------------------------------------
 
-  //logic post for forms
-  //--------------------
-  //--------------------
-  //--------------------
-  //--------------------
+  //logic delete for forms
+  const delform = async (event) => {
+    event.preventDefault();
+    const response_ = await axios.delete(`https://apiproducts-production-f466.up.railway.app/Api/forms/${Update_User}`);
+
+    Swal.fire({
+      title: `Se ha eliminado este usuario con exito`,
+      // icon: 'info',
+      backdrop: '#ffffff00',
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      width: 560,
+      allowOutsideClick: true,
+      timer: 2800,
+      // timerProgressBar: true,
+      stopKeydownPropagation: true,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      },
+      customClass: {
+        popup: 'Content_Swall_',
+        container: 'Content_Swal_All'
+      }
+    })
+  };
 
 
   //-----------------------------------------------------------------------------
@@ -861,7 +940,7 @@ function App() {
 
   const inputLoad = (event) => {
     setText(event.target.value)
-    // console.log(texto);
+    // console.log(text);
   }
   /*--------------------------------------*/
   const baseURL__ = `https://apisupervisor-production.up.railway.app/Api/users`;
@@ -880,6 +959,9 @@ function App() {
   //--------------------------------------------------------------------------------
   //--------------------------------------------------------------------------------
 
+  const [textUp, setTextUp] = useState("");
+  const onChangeUpText = ({ currentTarget }) => setTextUp(currentTarget.value);
+
 
   //logic post for brand
   //--------------------
@@ -887,7 +969,7 @@ function App() {
   //--------------------
   //--------------------
 
-  
+
   //logic post for state
   //--------------------
   //--------------------
@@ -898,7 +980,6 @@ function App() {
 
 
 
-  
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -991,7 +1072,7 @@ function App() {
         <Route path="/All-options/r/Bicaso" element={<PowerBi />} />
         <Route path="/All-options/r/Adcaso" element={<Aprobation />} />
 
-        <Route path="/All-options/r/Focaso" element={<Forms onChangeIconF={onChangeIconF} onChangeNameF={onChangeNameF} onChangePostF={onChangePostF} iconForms={iconForms} nameForm={nameForm} postform={postform} codeUser={codeUser} Close={Close7} />} />
+        <Route path="/All-options/r/Focaso" element={<Forms delform={delform} dataForms={dataForms} addForms={addForms} onChangeIconF={onChangeIconF} onChangeNameF={onChangeNameF} onChangePostF={onChangePostF} iconForms={iconForms} nameForm={nameForm} postform={postform} codeUser={codeUser} Close={Close7} />} />
 
 
         {/* Protect routers */}

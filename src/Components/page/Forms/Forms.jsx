@@ -16,7 +16,6 @@ export const Forms = (props) => {
     return (
         <>
             {/* <Nav nav_styles="header_acc" nav_three_style="Counter_header_acc"   img_alt="logo" logo_styles="Logo"   h1_styles_frist="Text_major" text_frist="Formularios"  url='/All-options/r/oWncaso2' link_style="text"   h1_styles="Text_major" text_seg="Volver"/> */}
-            <Fond_Animated />
 
             <div className="header_acc">
                 <div className="inner-header_acc flex_acc">
@@ -29,9 +28,10 @@ export const Forms = (props) => {
                 <Waves />
             </div>
 
+            <Fond_Animated />
 
 
-            <Options_forms onChangeIconF={props.onChangeIconF} onChangeNameF={props.onChangeNameF} onChangePostF={props.onChangePostF} iconForms={props.iconForms} nameForm={props.nameForm} postform={props.postform}  Close={props.Close} codeUser={props.codeUser}/>
+            <Options_forms delform={props.delform} dataForms={props.dataForms} addForms={props.addForms} onChangeIconF={props.onChangeIconF} onChangeNameF={props.onChangeNameF} onChangePostF={props.onChangePostF} iconForms={props.iconForms} nameForm={props.nameForm} postform={props.postform}  Close={props.Close} codeUser={props.codeUser}/>
 
             <Footer />
         </>
