@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Logo from "../../Images/Interface/Logo.png"
 import "./Inventary.css"
 
@@ -6,6 +6,7 @@ import "./Inventary.css"
 import { Link } from 'react-router-dom'
 import { AiOutlineDelete } from "react-icons/ai"
 import Swal from 'sweetalert2';
+import axios from 'axios'
 
 // ------------------------- components -----------------
 import { Waves } from '../../UI/Waves/Waves'
@@ -14,6 +15,39 @@ import { Fond_Animated } from '../../UI/Fond_Animated/Fond_Animated'
 
 
 export const Inventary = (props) => {
+
+    const [listData, setlistData] = useState([])
+    const [buscadorData, setbuscadorData] = useState("")
+
+    const onchangeDataBuscador=(e)=>{
+        setbuscadorData(e.target.value)
+        console.log(buscadorData);
+    }
+
+    const apiConsumo = () => {
+        axios.get('https://apiproducts-production-f466.up.railway.app/Api/products')
+            .then(function (response) {
+                // handle success
+                setlistData(response.data)
+                console.log(response.data);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .finally(function () {
+                // always executed
+            });
+    }
+
+    useEffect(() => {
+        apiConsumo()
+
+        return () => {
+            console.log("desmonto componente");
+        }
+    }, [])
+
 
     const add = (e) => {
         // JSON.stringify(localStorage.setItem("aWQgcGFyYSBhZ3JlZ2FyIGNhdGVnb3LDrWEgZGUgZXN0YWRv1", e.target.value))
@@ -67,7 +101,7 @@ export const Inventary = (props) => {
                             {/*aqui debe ir el map*/}
                             <div className='content_user'>
                                 {/* <li>1 <AiOutlineDelete className='Delete_op' onClick={(e) => { delete_User(e) }} value={data._id}/></li> */}
-                                <li>1 {props.codeUser.preference === "admin" || props.codeUser.preference === "master" ? <AiOutlineDelete className='Delete_op' />: null }</li>
+                                <li>1 {props.codeUser.preference === "admin" || props.codeUser.preference === "master" ? <AiOutlineDelete className='Delete_op' /> : null}</li>
                                 {/* <button className='btn_post_state' onClick={(e) => { add(e) }} value={data._id}>+</button> */}
                                 {props.codeUser.preference === "master" || props.codeUser.preference === "admin" || props.codeUser.preference === "supervisor" ? <button className='btn_post_state' onClick={add} >+</button> : null}
 
@@ -76,7 +110,7 @@ export const Inventary = (props) => {
                         {/*aqui debe ir el el buscador*/}
 
                         <div>
-                            <Search Id="Character_product" styles="search_product" Placeholder="Busca tu producto" />
+                            <Search OnChange={(e)=>onchangeDataBuscador(e)} Id="Character_product" styles="search_product" Placeholder="Busca tu producto" />
                         </div>
                         <li>
                             Marca
@@ -84,11 +118,11 @@ export const Inventary = (props) => {
                             {/*aqui debe ir el map*/}
                             <div className='content_user'>
                                 {/* <li>1 <AiOutlineDelete className='Delete_op' onClick={(e) => { delete_User(e) }} value={data._id}/></li> */}
-                                <li>hola {props.codeUser.preference === "admin" || props.codeUser.preference === "master" ? <AiOutlineDelete className='Delete_op' />: null } </li>
+                                <li>hola {props.codeUser.preference === "admin" || props.codeUser.preference === "master" ? <AiOutlineDelete className='Delete_op' /> : null} </li>
                                 {/* <button className='btn_post_state' onClick={(e) => { add(e) }} value={data._id}>+</button> */}
                                 {props.codeUser.preference === "master" || props.codeUser.preference === "admin" || props.codeUser.preference === "supervisor" ? <button className='btn_post_state' onClick={add_} >+</button> : null}
                             </div>
-                        </li>   
+                        </li>
                     </div>
                 </div>
                 <div className="content_all_edit_2" id="content_all_edit_2">
@@ -135,32 +169,21 @@ export const Inventary = (props) => {
                 </div>
             </div>
 
-
-            {/* {props.codeUser._id === props.id_User
-                ? product.map((data) => (
-                    <> {data._id === props.id_User
-                        ? <div className="content_api_user" id="content_api_users" key={data._id}>
-                            <p><b>Tu: {data.name}</b></p>
+            {
+                listData.map((data) => (
+                    <>  <div className="content_api_users" id="content_api_users" key={data._id}>
+                        <p><b>{data.name}</b></p>
+                        <p>{data.brand}</p>
+                        <p><b>Cantidad: {data.amount} </b></p>
+                        <div className="Content_options_users">
+                            <div><button className="Delete" onClick={(e) => { delete_User(e) }} value={data._id}>Eliminar</button></div>
                         </div>
+                    </div>
 
-                        : <div className="content_api_users" id="content_api_users" key={data._id}>
-                            <p><b>{data.name}</b></p>
-                            <p>{data.email}</p>
-                            <p><b>Usuario: </b>{data.preference ? data.preference : <>Normal</>}</p>
-                            <div className="Content_options_users">
-                                <div><button className="Delete" onClick={(e) => { delete_User(e) }} value={data._id}>Eliminar</button></div>
-                                <div><button className="Edit" onClick={(e) => { add(e) }} value={data._id}>Editar</button></div>
-                            </div>
-                        </div>
-                    }
                     </>
                 )
                 )
-
-                : <div className="content_api_users">
-                    <p>El contenito no se puede mostrar en este momento</p>
-                </div>
-            } */}
+            }
         </>
     )
 }
