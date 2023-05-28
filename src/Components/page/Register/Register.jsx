@@ -36,7 +36,6 @@ export const Register = (props) => {
             <Fond_Animated />
             <div className="header">
             <Nav nav_styles="header_acc" nav_three_style="Counter_header_acc"   img_alt="logo" logo_styles="Logo"   h1_styles_frist="Text_major" text_frist="Registrarse" /> 
-                <Waves />
             </div>
 
             <div className="Content_3">
