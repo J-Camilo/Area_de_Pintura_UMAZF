@@ -16,37 +16,44 @@ import { Fond_Animated } from '../../UI/Fond_Animated/Fond_Animated'
 
 export const Inventary = (props) => {
 
+    //manejo de estados para data y buscador
     const [listData, setlistData] = useState([])
     const [buscadorData, setbuscadorData] = useState("")
 
-    const onchangeDataBuscador=(e)=>{
+    //funcion para cambio de estado del buscador
+    const onchangeDataBuscador = (e) => {
         setbuscadorData(e.target.value)
         console.log(buscadorData);
     }
 
+    //funcion para consumo de la api
     const apiConsumo = () => {
         axios.get('https://apiproducts-production-f466.up.railway.app/Api/products')
             .then(function (response) {
-                // handle success
-                setlistData(response.data)
-                console.log(response.data);
+                // si hay data en el buscador la filtra de lo contrario solo lista
+                if (buscadorData !== "") {
+                   const dataFilter= response.data.filter(data=>data.name.toLowerCase().includes(buscadorData.toLowerCase()) || data.brand.toLowerCase().includes(buscadorData.toLowerCase()))
+                    setlistData(dataFilter)
+                } else {
+                    setlistData(response.data)
+                }
+
             })
             .catch(function (error) {
                 // handle error
                 console.log(error);
             })
-            .finally(function () {
-                // always executed
-            });
+    
     }
 
+    
     useEffect(() => {
         apiConsumo()
 
         return () => {
             console.log("desmonto componente");
         }
-    }, [])
+    }, [buscadorData])
 
 
     const add = (e) => {
@@ -110,7 +117,7 @@ export const Inventary = (props) => {
                         {/*aqui debe ir el el buscador*/}
 
                         <div>
-                            <Search OnChange={(e)=>onchangeDataBuscador(e)} Id="Character_product" styles="search_product" Placeholder="Busca tu producto" />
+                            <Search OnChange={(e) => onchangeDataBuscador(e)} Id="Character_product" styles="search_product" Placeholder="Busca tu producto" />
                         </div>
                         <li>
                             Marca
