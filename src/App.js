@@ -441,37 +441,46 @@ function App() {
     setAmountProduct("")
     setBrandProduct("")
     setLimitProduct("")
+
+    document.getElementById("btn_opacity").className = "see";
+    document.getElementById("text_edit_").className = "see_";
+    document.getElementById("ocult_form_").style.display = "none";
+    document.getElementById("ocult_form_2").style.display = "none";
+    document.getElementById("ocult_form_3").style.display = "none";
+    document.getElementById("ocult_form_4").style.display = "none";
+    document.getElementById("ocult_form_5").style.display = "none";
+    document.getElementById("ocult_form_6").style.display = "none";
   }
 
   const Show__ = () => {
     document.getElementById("btn_opacity").className = "block";
     document.getElementById("ocult_form_").style.display = "flex";
-    document.getElementById("text_edit").className = "block";
+    document.getElementById("text_edit_").className = "block";
   }
   const Show__2 = () => {
     document.getElementById("btn_opacity").className = "block";
     document.getElementById("ocult_form_2").style.display = "flex";
-    document.getElementById("text_edit").className = "block";
+    document.getElementById("text_edit_").className = "block";
   }
   const Show__3 = () => {
     document.getElementById("btn_opacity").className = "block";
     document.getElementById("ocult_form_3").style.display = "flex";
-    document.getElementById("text_edit").className = "block";
+    document.getElementById("text_edit_").className = "block";
   }
   const Show__4 = () => {
     document.getElementById("btn_opacity").className = "block";
     document.getElementById("ocult_form_4").style.display = "flex";
-    document.getElementById("text_edit").className = "block";
+    document.getElementById("text_edit_").className = "block";
   }
   const Show__5 = () => {
     document.getElementById("btn_opacity").className = "block";
     document.getElementById("ocult_form_5").style.display = "flex";
-    document.getElementById("text_edit").className = "block";
+    document.getElementById("text_edit_").className = "block";
   }
   const Show__6 = () => {
     document.getElementById("btn_opacity").className = "block";
     document.getElementById("ocult_form_6").style.display = "flex";
-    document.getElementById("text_edit").className = "block";
+    document.getElementById("text_edit_").className = "block";
   }
 
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -1194,7 +1203,7 @@ function App() {
         <Route path="/Register/r/R3gcaso" element={userId ? <Navigate replace to="/login/r/owncaso" /> : <Register alertConexion={alertConexion} setalertConexion={setalertConexion} alertUser={alertUser} setalertUser={setalertUser} setmessages={setmessages} messages={messages} validemail={validemail} validUsername={validUsername} confrimPasword={confrimPasword} onChangeconfrimPasword={onChangeconfrimPasword} postApi={postApi} emailRegister={emailRegister} passwordRegister={passwordRegister} usernameRegister={usernameRegister} onChangeemailRegister={onChangeemailRegister} onChangepasswordRegister={onChangepasswordRegister} onChangeusernameRegister={onChangeusernameRegister} />} />
         <Route path="/Account/r/Acc-caso" element={valiLogin ? <Account UpdateYourUser={UpdateYourUser} codeUser={codeUser} Show={Show} Show2={Show2} Show3={Show3} usernameUp={usernameUp} emailUp={emailUp} stateUp={stateUp} verificatitonPass={verificatitonPass} onChangeP_acc={onChangeP_acc} onChangeU={onChangeU} onChangeE={onChangeE} /> : <Error_404 />} />
         <Route path="/All-options/r/Usecaso" element={valiLogin ? <All_Users inputCharacters={inputCharacters} inputLoad={inputLoad} textalter={text} setText={setText} delApi={delApi} delallApi={delallApi} contenUsers={contenUsers} Update_User={Update_User} codeUser={codeUser} Show_={Show_} Show_2={Show_2} Show_3={Show_3} Show_4={Show_4} Close={Close4} id_User={id_User} putApi={putApi} putApiRoll={putApiRoll} putApiEmail={putApiEmail} putApiName={putApiName} usernameUp={usernameUp} emailUp={emailUp} stateUp={stateUp} onChangeU={onChangeU} onChangeE={onChangeE} onChangeS={onChangeS} /> : <Error_404 />} />
-        <Route path="/All-options/r/invcaso" element={valiLogin ? <Inventary postProduct={postProduct}  onChangeUpLimitProduct={onChangeUpLimitProduct} onChangeUpAmountProduct={onChangeUpAmountProduct} onChangeUpBrandProduct={onChangeUpBrandProduct} onChangeUpStateProduct={onChangeUpStateProduct} onChangeUpNameProduct={onChangeUpNameProduct} nameProduct={nameProduct} brandProduct={brandProduct} stateProduct={stateProduct} amountProduct={amountProduct} limitProduct={limitProduct} don_tSee={don_tSee} See={See} userId={userId} codeUser={codeUser} Close={Close5} Close_={Close6} /> : <Error_404 />} />
+        <Route path="/All-options/r/invcaso" element={valiLogin ? <Inventary Show__={Show__} Show__2={Show__2} Show__3={Show__3} Show__4={Show__4} Show__5={Show__5} Show__6={Show__6} postProduct={postProduct}  onChangeUpLimitProduct={onChangeUpLimitProduct} onChangeUpAmountProduct={onChangeUpAmountProduct} onChangeUpBrandProduct={onChangeUpBrandProduct} onChangeUpStateProduct={onChangeUpStateProduct} onChangeUpNameProduct={onChangeUpNameProduct} nameProduct={nameProduct} brandProduct={brandProduct} stateProduct={stateProduct} amountProduct={amountProduct} limitProduct={limitProduct} don_tSee={don_tSee} See={See} userId={userId} codeUser={codeUser} Close={Close5} Close_={Close6} /> : <Error_404 />} />
 
         {/* logic Props contetnt */}
         <Route path="/All-options/r/Bicaso" element={<PowerBi />} />

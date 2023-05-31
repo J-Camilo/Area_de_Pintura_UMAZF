@@ -22,7 +22,7 @@ export const Forms = (props) => {
                     <div className="Counter_header_acc" >
                         <img src={Logo} alt="Logo_acc" srcSet="" className="Logo" />
                         <h1 className="Text_major">Formularios</h1>
-                        <Link to="/All-options/r/oWncaso2" className="text"><h1 className="Text_major">Volver</h1></Link>
+                        <Link to="/" className="text"><h1 className="Text_major">Volver</h1></Link>
                     </div>
                 </div>
                 <Waves />

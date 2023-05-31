@@ -235,21 +235,121 @@ export const Inventary = (props) => {
             <div className="content_all_edit_5" id="content_all_edit_5">
                 <div className="content_edit5" id="content_edit5">
                     <div className="Content_text_5">
-                        <div className="text_edit" id="text_edit">
-                            <p>Estas editando a este producto</p>
+                        <div className="text_edit_" id="text_edit_">
+                            <p>Estas editando este producto</p>
                             <p>Que quieres editar</p>
                         </div>
 
-                        {/* <div id="ocult_form4"> */}
-                            <div className="btn_opacity" id="btn_opacity">
-                                <button className="btn_send_2" onClick={props.Show__}>Nombre</button>
-                                <button className="btn_send_2" onClick={props.Show__2}>Estado</button>
-                                <button className="btn_send_2" onClick={props.Show__3}>Marca</button>
-                                <button className="btn_send_2" onClick={props.Show__4}>Limite</button>
-                                <button className="btn_send_2" onClick={props.Show__5}>Cantidad</button>
-                                <button className="btn_send_2" onClick={props.Show__6}>General</button>
+                        <div className="btn_opacity" id="btn_opacity">
+                            <button className="btn_send_2" onClick={props.Show__}>Nombre</button>
+                            <button className="btn_send_2" onClick={props.Show__2}>Marca</button>
+                            <button className="btn_send_2" onClick={props.Show__3}>Estado</button>
+                            <button className="btn_send_2" onClick={props.Show__4}>Cantidad</button>
+                            <button className="btn_send_2" onClick={props.Show__5}>Limite</button>
+                            <button className="btn_send_2" onClick={props.Show__6}>General</button>
+                        </div>
+
+                        <div id="ocult_form_">
+                            <div className="text_edit" id="text_edit">
+                                <p>Estas editando el Nombre de este producto</p>
                             </div>
-                        {/* </div> */}
+                            <form >
+                                <div className="inputbox_2">
+                                    <ion-icon name="text-outline"></ion-icon>
+                                    <input className='Input_text' type="name" required minLength="5" placeholder='Nombre' value={props.nameProduct} onChange={props.onChangeUpNameProduct} />
+                                </div>
+                                <input type="submit" value="Agregar" className='btn_send_' />
+                            </form>
+                        </div>
+
+                        <div id="ocult_form_2">
+                            <div className="text_edit" id="text_edit">
+                                <p>Estas editando la Marca de este producto</p>
+                            </div>
+                            <form >
+                                <div className="inputbox_2">
+                                    <ion-icon name="bookmark-outline"></ion-icon>
+                                    <input className='Input_text' type="text" required minLength="3" placeholder="Marca" value={props.brandProduct} onChange={props.onChangeUpBrandProduct} />
+                                </div>
+                                <input type="submit" value="Agregar" className='btn_send_' />
+                            </form>
+                        </div>
+
+                        <div id="ocult_form_3">
+                            <div className="text_edit" id="text_edit">
+                                <div className="text_edit">
+                                    <p>Tipos de Estados hablilitados</p>
+                                    <table>
+                                        <td>directo</td>
+                                        <td>otro</td>
+                                        <td>indirecto</td>
+                                    </table>
+                                </div>
+                            </div>
+                            <form >
+                                <div className="inputbox_2">
+                                    <ion-icon name="star-outline"></ion-icon>
+                                    <input className='Input_text' type="text" required minLength="5" placeholder="Estado" value={props.stateProduct} onChange={props.onChangeUpStateProduct} />
+                                </div>
+                                <input type="submit" value="Agregar" className='btn_send_' />
+                            </form>
+                        </div>
+
+                        <div id="ocult_form_4">
+                            <div className="text_edit" id="text_edit">
+                                <p>Estas editando la cantidad disponible de este producto</p>
+                            </div>
+                            <form >
+                                <div className="inputbox_2">
+                                    <ion-icon name="add-circle-outline"></ion-icon>
+                                    <input className='Input_text' type="text" required placeholder="Cantidad en Bodega" value={props.amountProduct} onChange={props.onChangeUpAmountProduct} />
+                                </div>
+                                <input type="submit" value="Agregar" className='btn_send_' />
+                            </form>
+                        </div>
+
+                        <div id="ocult_form_5">
+                            <div className="text_edit" id="text_edit">
+                                <p>Estas editando su limite</p>
+                                <p>Estos ayudara a darte el aviso del producto que esta por debajo de ese limite</p>
+                            </div>
+                            <form >
+                                <div className="inputbox_2">
+                                    <ion-icon name="alert-outline"></ion-icon>
+                                    <input className='Input_text' type="text" required placeholder='Que limite quieres que se active la alerta' value={props.limitProduct} onChange={props.onChangeUpLimitProduct} />
+                                </div>
+                                <input type="submit" value="Agregar" className='btn_send_' />
+                            </form>
+                        </div>
+
+                        <div id="ocult_form_6">
+                            <form>
+                                <div className="inputbox_2">
+                                    <ion-icon name="text-outline"></ion-icon>
+                                    <input className='Input_text' type="name" required minLength="5" placeholder='Nombre' value={props.nameProduct} onChange={props.onChangeUpNameProduct} />
+                                </div>
+                                <div className="inputbox_2">
+                                    <ion-icon name="bookmark-outline"></ion-icon>
+                                    <input className='Input_text' type="text" required minLength="3" placeholder="Marca" value={props.brandProduct} onChange={props.onChangeUpBrandProduct} />
+                                </div>
+                                <div className="inputbox_2">
+                                    <ion-icon name="star-outline"></ion-icon>
+                                    <input className='Input_text' type="text" required minLength="5" placeholder="Estado" value={props.stateProduct} onChange={props.onChangeUpStateProduct} />
+                                </div>
+                                <div className="inputbox_2">
+                                    <ion-icon name="add-circle-outline"></ion-icon>
+                                    <input className='Input_text' type="text" required placeholder="Cantidad en Bodega" value={props.amountProduct} onChange={props.onChangeUpAmountProduct} />
+                                </div>
+                                <div className="inputbox_2">
+                                    <ion-icon name="alert-outline"></ion-icon>
+                                    <input className='Input_text' type="text" required placeholder='Que limite quieres que se active la alerta' value={props.limitProduct} onChange={props.onChangeUpLimitProduct} />
+                                </div>
+
+                                <input type="submit" value="Agregar" className='btn_send_' />
+                            </form>
+                        </div>
+
+
                     </div>
                     <div className="Content_close">
                         <button className="btn_send_close" onClick={props.don_tSee} >Salir de el editor</button>

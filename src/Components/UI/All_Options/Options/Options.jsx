@@ -28,10 +28,10 @@ export const Options = (props) => {
                         </div>
                         </a>
                     : <>
-                        <div className="btn">
+                        <Link to="/All-options/r/Focaso" className="text"><div className="btn">
                             <BsTools className="Icons" />
                             <p>Operario</p></div>
-
+                        </Link>
                         <Link to="/login/r/owncaso" className="text"><div className="btn3">
                             <MdSupervisorAccount className="Icons" />
                             <p>Iniciar Sesión</p></div>
