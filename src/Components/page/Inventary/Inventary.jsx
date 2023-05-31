@@ -19,6 +19,7 @@ export const Inventary = (props) => {
     //manejo de estados para data y buscador
     const [listData, setlistData] = useState([])
     const [buscadorData, setbuscadorData] = useState("")
+    const [dataFilters, setdataFilters] = useState({})
 
     //funcion para cambio de estado del buscador
     const onchangeDataBuscador = (e) => {
@@ -30,6 +31,7 @@ export const Inventary = (props) => {
     const apiConsumo = () => {
         axios.get('https://apiproducts-production-f466.up.railway.app/Api/products')
             .then(function (response) {
+                console.log(buscadorData);
                 // si hay data en el buscador la filtra de lo contrario solo lista
                 if (buscadorData !== "") {
                    const dataFilter= response.data.filter(data=>data.name.toLowerCase().includes(buscadorData.toLowerCase()) || data.brand.toLowerCase().includes(buscadorData.toLowerCase()))
