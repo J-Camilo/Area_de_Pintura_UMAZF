@@ -35,6 +35,9 @@ function App() {
   const id_User = localStorage.getItem("CRmoaBwT2p2r6");
   const NShow = localStorage.getItem("CRQsDul8xCamE");
   const Update_User = localStorage.getItem("VXN1YXJpbyBpZGVudGlmaWNhZG8gcGFyYSBhY3R1YWxpemFy");
+  // const id_product = localStorage.getItem("");
+  const id_forms = localStorage.getItem("SUQgcGFyYSBlbGltaW5hciBlbCBmb3JtdWxhcmlv");
+
 
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -420,7 +423,56 @@ function App() {
     setIiconForms("")
   }
 
+  /// -------------------------- inventary ----------------------------------
+  const See = () => {
+    document.getElementById("content_all_edit_6").className = "content_all_edit6";
+    document.getElementById("content_edit6").className = "content_edit_6";
+  }
 
+  const don_tSee = () => {
+    document.getElementById("content_all_edit_6").className = "content_all_edit_6";
+    document.getElementById("content_edit6").className = "content_edit6";
+
+    document.getElementById("content_all_edit_5").className = "content_all_edit_5";
+    document.getElementById("content_edit5").className = "content_edit5";
+    // clean input
+    setNameProduct("")
+    setStateProduct("")
+    setAmountProduct("")
+    setBrandProduct("")
+    setLimitProduct("")
+  }
+
+  const Show__ = () => {
+    document.getElementById("btn_opacity").className = "block";
+    document.getElementById("ocult_form_").style.display = "flex";
+    document.getElementById("text_edit").className = "block";
+  }
+  const Show__2 = () => {
+    document.getElementById("btn_opacity").className = "block";
+    document.getElementById("ocult_form_2").style.display = "flex";
+    document.getElementById("text_edit").className = "block";
+  }
+  const Show__3 = () => {
+    document.getElementById("btn_opacity").className = "block";
+    document.getElementById("ocult_form_3").style.display = "flex";
+    document.getElementById("text_edit").className = "block";
+  }
+  const Show__4 = () => {
+    document.getElementById("btn_opacity").className = "block";
+    document.getElementById("ocult_form_4").style.display = "flex";
+    document.getElementById("text_edit").className = "block";
+  }
+  const Show__5 = () => {
+    document.getElementById("btn_opacity").className = "block";
+    document.getElementById("ocult_form_5").style.display = "flex";
+    document.getElementById("text_edit").className = "block";
+  }
+  const Show__6 = () => {
+    document.getElementById("btn_opacity").className = "block";
+    document.getElementById("ocult_form_6").style.display = "flex";
+    document.getElementById("text_edit").className = "block";
+  }
 
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -851,7 +903,7 @@ function App() {
     //---------------------------------- result ----------------------------------
     document.getElementById("content_all_edit_4").className = "content_all_edit_4";
     document.getElementById("content_edit4").className = "content_edit4";
-    
+
     setPostform("")
     setNameForm("")
     setIiconForms("")
@@ -901,8 +953,9 @@ function App() {
   //logic delete for forms
   const delform = async (event) => {
     event.preventDefault();
-    const response_ = await axios.delete(`https://apiproducts-production-f466.up.railway.app/Api/forms/${Update_User}`);
+    const response_ = await axios.delete(`https://apiproducts-production-f466.up.railway.app/Api/forms/${id_forms}`);
 
+    console.log(response_.data);
     Swal.fire({
       title: `Se ha eliminado este usuario con exito`,
       // icon: 'info',
@@ -959,6 +1012,72 @@ function App() {
   //--------------------------------------------------------------------------------
   //--------------------------------------------------------------------------------
 
+  const [nameProduct, setNameProduct] = useState("");
+  const [brandProduct, setBrandProduct] = useState("");
+  const [stateProduct, setStateProduct] = useState("");
+  const [amountProduct, setAmountProduct] = useState("");
+  const [limitProduct, setLimitProduct] = useState("");
+  const onChangeUpNameProduct = ({ currentTarget }) => setNameProduct(currentTarget.value);
+  const onChangeUpBrandProduct = ({ currentTarget }) => setBrandProduct(currentTarget.value);
+  const onChangeUpStateProduct = ({ currentTarget }) => setStateProduct(currentTarget.value);
+  const onChangeUpAmountProduct = ({ currentTarget }) => setAmountProduct(currentTarget.value);
+  const onChangeUpLimitProduct = ({ currentTarget }) => setLimitProduct(currentTarget.value);
+
+  //post a product
+  const postProduct = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    const data = {
+      "name": nameProduct,
+      "brand": brandProduct,
+      "amount": amountProduct,
+      "state": stateProduct,
+      "limit": limitProduct
+    };
+    const response_ = await axios.post(`https://apiproducts-production-f466.up.railway.app/Api/products`, data);
+    setLoading(false);
+    //---------------------------------- result ----------------------------------
+    document.getElementById("content_all_edit_6").className = "content_all_edit_6";
+    document.getElementById("content_edit6").className = "content_edit6";
+
+    // clean input
+    setNameProduct("")
+    setStateProduct("")
+    setAmountProduct("")
+    setBrandProduct("")
+    setLimitProduct("")
+    // mensaje in console
+
+    console.log(response_.data, "All is okay... ");
+    // mensaje sweetAlert or handle 
+    Swal.fire({
+      title: 'Has agregado un prducto nuevo presiona (recargar) para ver los cambios',
+      html: '<a href="/All-options/r/invcaso" class="BtnAlert_Ancla">Recargar<ion-icon  class="Icon_Alert" name="chevron-forward-outline"></ion-icon></a>',
+      icon: 'success',
+      backdrop: '#ffffff00',
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      width: 860,
+      allowOutsideClick: true,
+      timer: 9000,
+      timerProgressBar: true,
+      stopKeydownPropagation: true,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      },
+      customClass: {
+        popup: 'Content_Swall_',
+        container: 'Content_Swal_All'
+      }
+    })
+  };
+
+
+  //text for post brand and state
   const [textUp, setTextUp] = useState("");
   const onChangeUpText = ({ currentTarget }) => setTextUp(currentTarget.value);
 
@@ -976,9 +1095,18 @@ function App() {
   //--------------------
   //--------------------
 
+  //--------------------------------------------------------------------------------
+  //--------------------------------------------------------------------------------
+  //---------------- -------------- alert of product -------------------------------
+  //--------------------------------------------------------------------------------
+  //--------------------------------------------------------------------------------
 
+  // // let amount_product = 18
+  // const onTimeProduct = () => { 
 
-
+  // }
+  // // start 1 min
+  // setInterval(onTimeProduct, 60000);  
 
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -1066,7 +1194,7 @@ function App() {
         <Route path="/Register/r/R3gcaso" element={userId ? <Navigate replace to="/login/r/owncaso" /> : <Register alertConexion={alertConexion} setalertConexion={setalertConexion} alertUser={alertUser} setalertUser={setalertUser} setmessages={setmessages} messages={messages} validemail={validemail} validUsername={validUsername} confrimPasword={confrimPasword} onChangeconfrimPasword={onChangeconfrimPasword} postApi={postApi} emailRegister={emailRegister} passwordRegister={passwordRegister} usernameRegister={usernameRegister} onChangeemailRegister={onChangeemailRegister} onChangepasswordRegister={onChangepasswordRegister} onChangeusernameRegister={onChangeusernameRegister} />} />
         <Route path="/Account/r/Acc-caso" element={valiLogin ? <Account UpdateYourUser={UpdateYourUser} codeUser={codeUser} Show={Show} Show2={Show2} Show3={Show3} usernameUp={usernameUp} emailUp={emailUp} stateUp={stateUp} verificatitonPass={verificatitonPass} onChangeP_acc={onChangeP_acc} onChangeU={onChangeU} onChangeE={onChangeE} /> : <Error_404 />} />
         <Route path="/All-options/r/Usecaso" element={valiLogin ? <All_Users inputCharacters={inputCharacters} inputLoad={inputLoad} textalter={text} setText={setText} delApi={delApi} delallApi={delallApi} contenUsers={contenUsers} Update_User={Update_User} codeUser={codeUser} Show_={Show_} Show_2={Show_2} Show_3={Show_3} Show_4={Show_4} Close={Close4} id_User={id_User} putApi={putApi} putApiRoll={putApiRoll} putApiEmail={putApiEmail} putApiName={putApiName} usernameUp={usernameUp} emailUp={emailUp} stateUp={stateUp} onChangeU={onChangeU} onChangeE={onChangeE} onChangeS={onChangeS} /> : <Error_404 />} />
-        <Route path="/All-options/r/invcaso" element={valiLogin ? <Inventary codeUser={codeUser} Close={Close5} Close_={Close6} /> : <Error_404 />} />
+        <Route path="/All-options/r/invcaso" element={valiLogin ? <Inventary postProduct={postProduct}  onChangeUpLimitProduct={onChangeUpLimitProduct} onChangeUpAmountProduct={onChangeUpAmountProduct} onChangeUpBrandProduct={onChangeUpBrandProduct} onChangeUpStateProduct={onChangeUpStateProduct} onChangeUpNameProduct={onChangeUpNameProduct} nameProduct={nameProduct} brandProduct={brandProduct} stateProduct={stateProduct} amountProduct={amountProduct} limitProduct={limitProduct} don_tSee={don_tSee} See={See} userId={userId} codeUser={codeUser} Close={Close5} Close_={Close6} /> : <Error_404 />} />
 
         {/* logic Props contetnt */}
         <Route path="/All-options/r/Bicaso" element={<PowerBi />} />

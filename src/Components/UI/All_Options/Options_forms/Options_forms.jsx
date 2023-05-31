@@ -13,7 +13,7 @@ export const Options_forms = (props) => {
     }
 
     const delete_User = (e) => {
-        JSON.stringify(localStorage.setItem("VXN1YXJpbyBpZGVudGlmaWNhZG8gcGFyYSBhY3R1YWxpemFy", e.target.value))
+        JSON.stringify(localStorage.setItem("SUQgcGFyYSBlbGltaW5hciBlbCBmb3JtdWxhcmlv", e.target.value))
         Swal.fire({
             title: '¿Estas seguro de eliminar este formulario?',
             text: "No prodras revertir esto",

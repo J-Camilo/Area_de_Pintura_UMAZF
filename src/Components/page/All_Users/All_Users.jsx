@@ -62,9 +62,9 @@ export const All_Users = (props) => {
             </div>
 
             {props.codeUser._id === props.id_User
-                ? dataUsers.map((data) => (
+                ? dataUsers.map((data, key) => (
                     <> {data._id === props.id_User
-                        ? <div className="content_api_user" id="content_api_users" key={data._id}>
+                        ? <div className="content_api_user" id="content_api_users" key={key}>
                             <p><b>Tu: {data.name}</b></p>
                         </div>
 
