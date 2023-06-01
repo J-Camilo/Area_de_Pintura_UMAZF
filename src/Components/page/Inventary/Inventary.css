@@ -7,13 +7,15 @@
   border: solid red 2px;
   background-color: rgb(255, 87, 87);
   height: 6rem;
-  margin: 50px auto;
+  margin: 26px auto;
   font-size: 1.5rem;
 }
 
 .contentPostProduct {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .btnPost {
@@ -34,8 +36,38 @@
   transition: all 300ms ease-in;
 }
 
-.content_api_users_color {
+.content_api_users_color_advertency {
   background-color: rgba(255, 0, 0, 0.76);
+  color: aliceblue;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 1rem;
+  margin: auto;
+  margin-top: 20px;
+  font-size: 1.3rem;
+  animation: content_api 1s forwards;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(2px);
+}
+
+.content_api_users_color_good {
+  background-color: rgba(44, 255, 54, 0.76);
+  color: aliceblue;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 1rem;
+  margin: auto;
+  margin-top: 20px;
+  font-size: 1.3rem;
+  animation: content_api 1s forwards;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(2px);
+}
+
+.content_api_users_color_alert {
+  background-color: rgba(238, 255, 0, 0.925);
   color: aliceblue;
   display: flex;
   justify-content: space-around;
@@ -385,7 +417,7 @@ ol {
 @keyframes content_edit_product {
   from {
     opacity: 0;
-    width: 5px;
+    width: 6rem;
 
   }
 

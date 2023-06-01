@@ -31,7 +31,7 @@ export const Inventary = (props) => {
     const apiConsumo = () => {
         axios.get('https://apiproducts-production-f466.up.railway.app/Api/products')
             .then(function (response) {
-                console.log(buscadorData);
+                // console.log(buscadorData);
                 // si hay data en el buscador la filtra de lo contrario solo lista
                 if (buscadorData !== "") {
                     const dataFilter = response.data.filter(data => data.name.toLowerCase().includes(buscadorData.toLowerCase()) || data.brand.toLowerCase().includes(buscadorData.toLowerCase()))
@@ -91,7 +91,7 @@ export const Inventary = (props) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 /* logic  */
-                // props.delApi(e);
+                props.delOneProduct(e);
             }
         })
     }
@@ -190,6 +190,7 @@ export const Inventary = (props) => {
             {/* btn post of product */}
             {props.codeUser.preference === "master" || props.codeUser.preference === "admin" || props.codeUser.preference === "supervisor"
                 ? < div className="contentPostProduct">
+                    <p>¿No encuentras el producto que buscabas?</p>
                     <button className='btnPost' onClick={props.See}>Agregar nuevo producto + </button>
                 </div >
                 : null
@@ -200,7 +201,7 @@ export const Inventary = (props) => {
                 props.codeUser._id
                     ? listData.map((data, key) => (
                         <>  {data.limit >= data.amount
-                            ? < div className="content_api_users_color" id="content_api_users" key={key}>
+                            ? < div className="content_api_users_color_alert" id="content_api_users" key={key}>
                                 <p><b>{data.name}</b></p>
                                 <p>{data.brand}</p>
                                 <p><b>Cantidad: {data.amount} </b></p>
@@ -214,7 +215,7 @@ export const Inventary = (props) => {
                                     </div>
                                     : null}
                             </div >
-                            : < div className="content_api_users" id="content_api_users" key={key}>
+                            : < div className="content_api_users_color_good" id="content_api_users" key={key}>
                                 <p><b>{data.name}</b></p>
                                 <p>{data.brand}</p>
                                 <p><b>Cantidad: {data.amount} </b></p>
@@ -282,7 +283,7 @@ export const Inventary = (props) => {
                             <form onSubmit={props.putBrandProduct}>
                                 <div className="inputbox_2">
                                     <ion-icon name="bookmark-outline"></ion-icon>
-                                    <input className='Input_text' type="text" required minLength="3" placeholder="Marca" value={props.brandProduct} onChange={props.onChangeUpBrandProduct} />
+                                    <input className='Input_text' type="text" required minLength="2" placeholder="Marca" value={props.brandProduct} onChange={props.onChangeUpBrandProduct} />
                                 </div>
                                 <input type="submit" value="Agregar" className='btn_send_' />
                             </form>
@@ -351,7 +352,7 @@ export const Inventary = (props) => {
                                 </div>
                                 <div className="inputbox_2">
                                     <ion-icon name="bookmark-outline"></ion-icon>
-                                    <input className='Input_text' type="text" required minLength="3" placeholder="Marca" value={props.brandProduct} onChange={props.onChangeUpBrandProduct} />
+                                    <input className='Input_text' type="text" required minLength="2" placeholder="Marca" value={props.brandProduct} onChange={props.onChangeUpBrandProduct} />
                                 </div>
                                 <div className="inputbox_2">
                                     <ion-icon name="star-outline"></ion-icon>

@@ -605,6 +605,7 @@ function App() {
       }
     })
   };
+
   //-----------------------------------------------------------------------------
   //-----------------------------------------------------------------------------
   // ----------------------------- uptade users ---------------------------------
@@ -966,7 +967,7 @@ function App() {
 
     console.log(response_.data);
     Swal.fire({
-      title: `Se ha eliminado este usuario con exito`,
+      title: `Se ha eliminado este formulario con exito`,
       // icon: 'info',
       backdrop: '#ffffff00',
       toast: true,
@@ -1031,6 +1032,44 @@ function App() {
   const onChangeUpStateProduct = ({ currentTarget }) => setStateProduct(currentTarget.value);
   const onChangeUpAmountProduct = ({ currentTarget }) => setAmountProduct(currentTarget.value);
   const onChangeUpLimitProduct = ({ currentTarget }) => setLimitProduct(currentTarget.value);
+
+
+ //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
+  // ----------------------------- delete all user ------------------------------
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
+
+
+  const delOneProduct = async (event) => {
+    event.preventDefault();
+    const response_ = await axios.delete(`https://apiproducts-production-f466.up.railway.app/Api/products/${id_product}`);
+
+    Swal.fire({
+      title: `Se ha eliminado este producto con exito`,
+      // icon: 'info',
+      backdrop: '#ffffff00',
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      width: 560,
+      allowOutsideClick: true,
+      timer: 2800,
+      // timerProgressBar: true,
+      stopKeydownPropagation: true,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      },
+      customClass: {
+        popup: 'Content_Swall_',
+        container: 'Content_Swal_All'
+      }
+    })
+  };
+
 
   //post a product
   const postProduct = async (event) => {
@@ -1418,7 +1457,7 @@ const alertPost = () => {
         <Route path="/Register/r/R3gcaso" element={userId ? <Navigate replace to="/login/r/owncaso" /> : <Register alertConexion={alertConexion} setalertConexion={setalertConexion} alertUser={alertUser} setalertUser={setalertUser} setmessages={setmessages} messages={messages} validemail={validemail} validUsername={validUsername} confrimPasword={confrimPasword} onChangeconfrimPasword={onChangeconfrimPasword} postApi={postApi} emailRegister={emailRegister} passwordRegister={passwordRegister} usernameRegister={usernameRegister} onChangeemailRegister={onChangeemailRegister} onChangepasswordRegister={onChangepasswordRegister} onChangeusernameRegister={onChangeusernameRegister} />} />
         <Route path="/Account/r/Acc-caso" element={valiLogin ? <Account UpdateYourUser={UpdateYourUser} codeUser={codeUser} Show={Show} Show2={Show2} Show3={Show3} usernameUp={usernameUp} emailUp={emailUp} stateUp={stateUp} verificatitonPass={verificatitonPass} onChangeP_acc={onChangeP_acc} onChangeU={onChangeU} onChangeE={onChangeE} /> : <Error_404 />} />
         <Route path="/All-options/r/Usecaso" element={valiLogin ? <All_Users inputCharacters={inputCharacters} inputLoad={inputLoad} textalter={text} setText={setText} delApi={delApi} delallApi={delallApi} contenUsers={contenUsers} Update_User={Update_User} codeUser={codeUser} Show_={Show_} Show_2={Show_2} Show_3={Show_3} Show_4={Show_4} Close={Close4} id_User={id_User} putApi={putApi} putApiRoll={putApiRoll} putApiEmail={putApiEmail} putApiName={putApiName} usernameUp={usernameUp} emailUp={emailUp} stateUp={stateUp} onChangeU={onChangeU} onChangeE={onChangeE} onChangeS={onChangeS} /> : <Error_404 />} />
-        <Route path="/All-options/r/invcaso" element={valiLogin ? <Inventary putNameProduct={putNameProduct} putBrandProduct={putBrandProduct} putAmountProduct={putAmountProduct} putStateProduct={putStateProduct} putLimitProduct={putLimitProduct} putGeneralProduct={putGeneralProduct}     Show__={Show__} Show__2={Show__2} Show__3={Show__3} Show__4={Show__4} Show__5={Show__5} Show__6={Show__6}    postProduct={postProduct} onChangeUpLimitProduct={onChangeUpLimitProduct} onChangeUpAmountProduct={onChangeUpAmountProduct} onChangeUpBrandProduct={onChangeUpBrandProduct} onChangeUpStateProduct={onChangeUpStateProduct} onChangeUpNameProduct={onChangeUpNameProduct} nameProduct={nameProduct} brandProduct={brandProduct} stateProduct={stateProduct} amountProduct={amountProduct} limitProduct={limitProduct} don_tSee={don_tSee} See={See} userId={userId} codeUser={codeUser} Close={Close5} Close_={Close6} /> : <Error_404 />} />
+        <Route path="/All-options/r/invcaso" element={valiLogin ? <Inventary delOneProduct={delOneProduct} putNameProduct={putNameProduct} putBrandProduct={putBrandProduct} putAmountProduct={putAmountProduct} putStateProduct={putStateProduct} putLimitProduct={putLimitProduct} putGeneralProduct={putGeneralProduct}     Show__={Show__} Show__2={Show__2} Show__3={Show__3} Show__4={Show__4} Show__5={Show__5} Show__6={Show__6}    postProduct={postProduct} onChangeUpLimitProduct={onChangeUpLimitProduct} onChangeUpAmountProduct={onChangeUpAmountProduct} onChangeUpBrandProduct={onChangeUpBrandProduct} onChangeUpStateProduct={onChangeUpStateProduct} onChangeUpNameProduct={onChangeUpNameProduct} nameProduct={nameProduct} brandProduct={brandProduct} stateProduct={stateProduct} amountProduct={amountProduct} limitProduct={limitProduct} don_tSee={don_tSee} See={See} userId={userId} codeUser={codeUser} Close={Close5} Close_={Close6} /> : <Error_404 />} />
 
         {/* logic Props contetnt */}
         <Route path="/All-options/r/Bicaso" element={<PowerBi />} />
