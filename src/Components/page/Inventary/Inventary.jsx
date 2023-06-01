@@ -140,6 +140,9 @@ export const Inventary = (props) => {
                         </li>
                     </div>
                 </div>
+
+                {/* ---------------------------------- edit state ---------------------------------- */}
+
                 <div className="content_all_edit_2" id="content_all_edit_2">
                     <div className="content_edit2" id="content_edit2">
                         <div className="Content_text_2">
@@ -161,7 +164,7 @@ export const Inventary = (props) => {
                     </div>
                 </div>
 
-                {/* -------------------------------------------------------------------- */}
+                {/* ---------------------------------- edit brand ---------------------------------- */}
                 <div className="content_all_edit_3" id="content_all_edit_3">
                     <div className="content_edit3" id="content_edit3">
                         <div className="Content_text_2">
@@ -184,12 +187,15 @@ export const Inventary = (props) => {
                 </div>
             </div>
 
+            {/* btn post of product */}
             {props.codeUser.preference === "master" || props.codeUser.preference === "admin" || props.codeUser.preference === "supervisor"
                 ? < div className="contentPostProduct">
                     <button className='btnPost' onClick={props.See}>Agregar nuevo producto + </button>
                 </div >
                 : null
             }
+
+            {/* Card of product */}
             {
                 props.codeUser._id
                     ? listData.map((data, key) => (
@@ -228,6 +234,7 @@ export const Inventary = (props) => {
                         </>
                     )
                     )
+
                     : <div className="content_api_users">
                         <p>El contenito no se puede mostrar en este momento</p>
                     </div>
@@ -251,11 +258,13 @@ export const Inventary = (props) => {
                             <button className="btn_send_2" onClick={props.Show__6}>General</button>
                         </div>
 
+                        {/* ---------------------------------- Form for name ---------------------------------- */}
+
                         <div id="ocult_form_">
                             <div className="text_edit" id="text_edit">
                                 <p>Estas editando el Nombre de este producto</p>
                             </div>
-                            <form >
+                            <form onSubmit={props.putNameProduct}>
                                 <div className="inputbox_2">
                                     <ion-icon name="text-outline"></ion-icon>
                                     <input className='Input_text' type="name" required minLength="5" placeholder='Nombre' value={props.nameProduct} onChange={props.onChangeUpNameProduct} />
@@ -264,11 +273,13 @@ export const Inventary = (props) => {
                             </form>
                         </div>
 
+                        {/* ---------------------------------- Form for brand ---------------------------------- */}
+
                         <div id="ocult_form_2">
                             <div className="text_edit" id="text_edit">
                                 <p>Estas editando la Marca de este producto</p>
                             </div>
-                            <form >
+                            <form onSubmit={props.putBrandProduct}>
                                 <div className="inputbox_2">
                                     <ion-icon name="bookmark-outline"></ion-icon>
                                     <input className='Input_text' type="text" required minLength="3" placeholder="Marca" value={props.brandProduct} onChange={props.onChangeUpBrandProduct} />
@@ -276,6 +287,8 @@ export const Inventary = (props) => {
                                 <input type="submit" value="Agregar" className='btn_send_' />
                             </form>
                         </div>
+
+                        {/* ---------------------------------- Form for state ---------------------------------- */}
 
                         <div id="ocult_form_3">
                             <div className="text_edit" id="text_edit">
@@ -288,20 +301,22 @@ export const Inventary = (props) => {
                                     </table>
                                 </div>
                             </div>
-                            <form >
+                            <form onSubmit={props.putStateProduct}>
                                 <div className="inputbox_2">
                                     <ion-icon name="star-outline"></ion-icon>
-                                    <input className='Input_text' type="text" required minLength="5" placeholder="Estado" value={props.stateProduct} onChange={props.onChangeUpStateProduct} />
+                                    <input className='Input_text' type="text" required minLength="3" placeholder="Estado" value={props.stateProduct} onChange={props.onChangeUpStateProduct} />
                                 </div>
                                 <input type="submit" value="Agregar" className='btn_send_' />
                             </form>
                         </div>
 
+                        {/* ---------------------------------- Form for amount ---------------------------------- */}
+
                         <div id="ocult_form_4">
                             <div className="text_edit" id="text_edit">
                                 <p>Estas editando la cantidad disponible de este producto</p>
                             </div>
-                            <form >
+                            <form onSubmit={props.putAmountProduct}>
                                 <div className="inputbox_2">
                                     <ion-icon name="add-circle-outline"></ion-icon>
                                     <input className='Input_text' type="text" required placeholder="Cantidad en Bodega" value={props.amountProduct} onChange={props.onChangeUpAmountProduct} />
@@ -310,12 +325,14 @@ export const Inventary = (props) => {
                             </form>
                         </div>
 
+                        {/* ---------------------------------- Form for limit ---------------------------------- */}
+
                         <div id="ocult_form_5">
                             <div className="text_edit" id="text_edit">
                                 <p>Estas editando su limite</p>
                                 <p>Estos ayudara a darte el aviso del producto que esta por debajo de ese limite</p>
                             </div>
-                            <form >
+                            <form onSubmit={props.putLimitProduct}>
                                 <div className="inputbox_2">
                                     <ion-icon name="alert-outline"></ion-icon>
                                     <input className='Input_text' type="text" required placeholder='Que limite quieres que se active la alerta' value={props.limitProduct} onChange={props.onChangeUpLimitProduct} />
@@ -324,8 +341,10 @@ export const Inventary = (props) => {
                             </form>
                         </div>
 
+                        {/* ---------------------------------- Form for genearl (all) ---------------------------------- */}
+
                         <div id="ocult_form_6">
-                            <form>
+                            <form onSubmit={props.putGeneralProduct}>
                                 <div className="inputbox_2">
                                     <ion-icon name="text-outline"></ion-icon>
                                     <input className='Input_text' type="name" required minLength="5" placeholder='Nombre' value={props.nameProduct} onChange={props.onChangeUpNameProduct} />
