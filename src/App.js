@@ -10,7 +10,7 @@ import 'animate.css';
 
 
 /*----------------------- Components ---------------------- */
-import { Home } from "./Components/page/Home/Home";
+import { Home } from './Components/page/Home/Home';
 import { Login } from './Components/page/Login/Login';
 import { Register } from './Components/page/Register/Register';
 import { Data } from './Components/page/Data/Data';
@@ -21,7 +21,8 @@ import { PowerBi } from './Components/page/PowerBi/PowerBi';
 import { Aprobation } from './Components/page/PowerBi/Aprobation';
 import { Inventary } from './Components/page/Inventary/Inventary';
 import { Forms } from './Components/page/Forms/Forms';
-
+import { PaintedMotorcycles } from './Components/page/PowerBi/PaintedMotorcycles';
+import { LineShutdowns } from './Components/page/PowerBi/LineShutdowns';
 
 
 
@@ -1462,6 +1463,8 @@ const alertPost = () => {
         {/* logic Props contetnt */}
         <Route path="/All-options/r/Bicaso" element={<PowerBi />} />
         <Route path="/All-options/r/Adcaso" element={<Aprobation />} />
+        <Route path="/All-options/r/Pmcaso" element={<PaintedMotorcycles />} />
+        <Route path="/All-options/r/Lscaso" element={<LineShutdowns />} />
 
         <Route path="/All-options/r/Focaso" element={<Forms delform={delform} dataForms={dataForms} addForms={addForms} onChangeIconF={onChangeIconF} onChangeNameF={onChangeNameF} onChangePostF={onChangePostF} iconForms={iconForms} nameForm={nameForm} postform={postform} codeUser={codeUser} Close={Close7} />} />
 

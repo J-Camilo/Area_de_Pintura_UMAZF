@@ -9,14 +9,14 @@ import { Link } from "react-router-dom";
 import { Fond_Animated } from '../../UI/Fond_Animated/Fond_Animated';
 
 
-export const Aprobation = () => {
+export const LineShutdowns = () => {
     return (
         <>
             <div className="header2">
                 <div className="inner-header_acc flex_acc">
                     <div className="Counter_header_acc" >
                         <img src={Logo} alt="Logo_acc" srcSet="" className="Logo" />
-                        <h1 className="Text_major">Aprobación Directa</h1>
+                        <h1 className="Text_major">Paros de pintura</h1>
                         <Link to="/All-options/r/Bicaso" className="text"><h1 className="Text_major">Volver</h1></Link>
                     </div>
                 </div>
@@ -25,7 +25,7 @@ export const Aprobation = () => {
             <Fond_Animated />
 
             <div className='Content_data_powerbi'>
-                <iframe title="CONTROL DE CALIDAD" className='Data_powerBi' src="https://app.powerbi.com/reportEmbed?reportId=d5262d56-931c-4b29-958e-7e96b70bab4e&autoAuth=true&ctid=9414ead6-ae15-47b8-a23d-731c83fc6b53" frameBorder="0"  />
+                <iframe title="PAROS DE LINEA AREA PINTURA" className='Data_powerBi' src="https://app.powerbi.com/reportEmbed?reportId=624db371-f0ae-4dc1-bb47-61106cc6daca&autoAuth=true&ctid=9414ead6-ae15-47b8-a23d-731c83fc6b53" frameBorder="0" />
             </div>
 
             <div className='Content_data_powerbi'>

@@ -12,19 +12,20 @@ export const Power_bi = (props) => {
     <>
       <div className="Content_all_option_users">
         <div className="Content_options_Users">
-          <div className="btn_Forms">
+          <Link to="/All-options/r/Lscaso" className="text"><div className="btn_Forms">
             <GiStopwatch className="Icons" />
             <p>Paros en la linea</p></div>
+          </Link>
           <Link to="/All-options/r/Adcaso" className="text"><div className="btn_powerBi" >
             <AiOutlinePercentage className="Icons" />
             <p>Aprobación</p></div>
           </Link>
-          <a href="/Account/r/Acc-caso" className="text"><div className="btn_Acount">
+          <Link to="/All-options/r/Pmcaso" className="text"><div className="btn_Acount">
             <BsPaintBucket className="Icons" />
             <p>Motos pintadas</p></div>
-          </a>
-        </div>
+          </Link>
       </div>
+    </div >
     </>
   )
 }
