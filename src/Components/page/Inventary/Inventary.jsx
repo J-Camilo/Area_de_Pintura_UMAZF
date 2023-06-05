@@ -21,6 +21,8 @@ export const Inventary = (props) => {
   //manejo de estados para data y buscador
   const [listData, setlistData] = useState([]);
   const [buscadorData, setbuscadorData] = useState("");
+  const [marcaFilter, setmarcaFilter] = useState("");
+  const [estadoFilter, setestadoFilter] = useState("");
   const [dataFilters, setdataFilters] = useState({ marca: [], estado: [] });
 
   //funcion para cambio de estado del buscador
@@ -37,14 +39,67 @@ export const Inventary = (props) => {
         // console.log(buscadorData);
         // si hay data en el buscador la filtra de lo contrario solo lista
         if (buscadorData !== "") {
-          const dataFilter = response.data.filter(
-            (data) =>
-              data.name.toLowerCase().includes(buscadorData.toLowerCase()) ||
-              data.brand.toLowerCase().includes(buscadorData.toLowerCase())
-          );
-          setlistData(dataFilter);
+          if (marcaFilter !== "" || estadoFilter !== "") {
+            if (marcaFilter !== "" && estadoFilter !== "") {
+              const dataFilter = response.data.filter(
+                (data) =>
+                  data.name
+                    .toLowerCase()
+                    .includes(buscadorData.toLowerCase()) &&
+                  data.brand.toLowerCase() === marcaFilter.toLowerCase() &&
+                  data.state.toLowerCase() == estadoFilter.toLowerCase()
+              );
+              setlistData(dataFilter);
+            } else if (marcaFilter !== "") {
+              const dataFilter = response.data.filter(
+                (data) =>
+                  data.name
+                    .toLowerCase()
+                    .includes(buscadorData.toLowerCase()) &&
+                  data.brand.toLowerCase() == marcaFilter.toLowerCase()
+              );
+              setlistData(dataFilter);
+            } else if (estadoFilter !== "") {
+              const dataFilter = response.data.filter(
+                (data) =>
+                  data.name
+                    .toLowerCase()
+                    .includes(buscadorData.toLowerCase()) &&
+                  data.state.toLowerCase() == estadoFilter.toLowerCase()
+              );
+              setlistData(dataFilter);
+            }
+          } else {
+            const dataFilter = response.data.filter((data) =>
+              data.name.toLowerCase().includes(buscadorData.toLowerCase())
+            );
+            setlistData(dataFilter);
+          }
         } else {
-          setlistData(response.data);
+          if (marcaFilter !== "" || estadoFilter !== "") {
+            if (marcaFilter !== "" && estadoFilter !== "") {
+              const dataFilter = response.data.filter(
+                (data) =>
+                  data.brand.toLowerCase() === marcaFilter.toLowerCase() &&
+                  data.state.toLowerCase() == estadoFilter.toLowerCase()
+              );
+              setlistData(dataFilter);
+            } else if (marcaFilter !== "") {
+              const dataFilter = response.data.filter(
+                (data) =>
+                  data.brand.toLowerCase() == marcaFilter.toLowerCase()
+              );
+              setlistData(dataFilter);
+            } else if (estadoFilter !== "") {
+              const dataFilter = response.data.filter(
+                (data) =>
+                  data.state.toLowerCase() == estadoFilter.toLowerCase()
+              );
+              setlistData(dataFilter);
+            }
+          } else {
+            setlistData(response.data);
+          }
         }
       })
       .catch(function (error) {
@@ -67,7 +122,7 @@ export const Inventary = (props) => {
     return () => {
       console.log("desmonto componente");
     };
-  }, [buscadorData]);
+  }, [buscadorData,marcaFilter,estadoFilter]);
 
   const add = (e) => {
     document.getElementById("content_all_edit_2").className =
@@ -136,13 +191,20 @@ export const Inventary = (props) => {
         <div className="Content_nav-inter">
           <div className="nav">
             <li>
-              Estado
+              {estadoFilter === "" ? "Estado" : estadoFilter}
               {/*aqui debe ir el map*/}
               <div className="content_user">
                 {dataFilters.estado.map((data, key) => (
                   <>
                     {/* <li>1 <AiOutlineDelete className='Delete_op' onClick={(e) => { delete_User(e) }} value={data._id}/></li> */}
-                    <li key={key}>
+                    <li
+                      onClick={() =>
+                        estadoFilter === data
+                          ? setestadoFilter("")
+                          : setestadoFilter(data)
+                      }
+                      key={key}
+                    >
                       {data}{" "}
                       {props.codeUser.preference === "admin" ||
                       props.codeUser.preference === "master" ? (
@@ -172,12 +234,19 @@ export const Inventary = (props) => {
               />
             </div>
             <li>
-              Marca
+              {marcaFilter === "" ? "Marca" : marcaFilter}
               {/*aqui debe ir el map*/}
               <div className="content_user">
                 {/* <li>1 <AiOutlineDelete className='Delete_op' onClick={(e) => { delete_User(e) }} value={data._id}/></li> */}
                 {dataFilters.marca.map((data, key) => (
-                  <li key={key}>
+                  <li
+                    onClick={() =>
+                      marcaFilter === data
+                        ? setmarcaFilter("")
+                        : setmarcaFilter(data)
+                    }
+                    key={key}
+                  >
                     {data}
                     {props.codeUser.preference === "admin" ||
                     props.codeUser.preference === "master" ? (
