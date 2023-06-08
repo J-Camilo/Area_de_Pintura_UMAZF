@@ -28,7 +28,7 @@ export const Inventary = (props) => {
   //funcion para cambio de estado del buscador
   const onchangeDataBuscador = (e) => {
     setbuscadorData(e.target.value);
-    console.log(buscadorData);
+    // console.log(buscadorData);
   };
 
   //funcion para consumo de la api
@@ -47,7 +47,7 @@ export const Inventary = (props) => {
                     .toLowerCase()
                     .includes(buscadorData.toLowerCase()) &&
                   data.brand.toLowerCase() === marcaFilter.toLowerCase() &&
-                  data.state.toLowerCase() == estadoFilter.toLowerCase()
+                  data.state.toLowerCase() === estadoFilter.toLowerCase()
               );
               setlistData(dataFilter);
             } else if (marcaFilter !== "") {
@@ -56,7 +56,7 @@ export const Inventary = (props) => {
                   data.name
                     .toLowerCase()
                     .includes(buscadorData.toLowerCase()) &&
-                  data.brand.toLowerCase() == marcaFilter.toLowerCase()
+                  data.brand.toLowerCase() === marcaFilter.toLowerCase()
               );
               setlistData(dataFilter);
             } else if (estadoFilter !== "") {
@@ -65,7 +65,7 @@ export const Inventary = (props) => {
                   data.name
                     .toLowerCase()
                     .includes(buscadorData.toLowerCase()) &&
-                  data.state.toLowerCase() == estadoFilter.toLowerCase()
+                  data.state.toLowerCase() === estadoFilter.toLowerCase()
               );
               setlistData(dataFilter);
             }
@@ -81,19 +81,19 @@ export const Inventary = (props) => {
               const dataFilter = response.data.filter(
                 (data) =>
                   data.brand.toLowerCase() === marcaFilter.toLowerCase() &&
-                  data.state.toLowerCase() == estadoFilter.toLowerCase()
+                  data.state.toLowerCase() === estadoFilter.toLowerCase()
               );
               setlistData(dataFilter);
             } else if (marcaFilter !== "") {
               const dataFilter = response.data.filter(
                 (data) =>
-                  data.brand.toLowerCase() == marcaFilter.toLowerCase()
+                  data.brand.toLowerCase() === marcaFilter.toLowerCase()
               );
               setlistData(dataFilter);
             } else if (estadoFilter !== "") {
               const dataFilter = response.data.filter(
                 (data) =>
-                  data.state.toLowerCase() == estadoFilter.toLowerCase()
+                  data.state.toLowerCase() === estadoFilter.toLowerCase()
               );
               setlistData(dataFilter);
             }
@@ -119,10 +119,10 @@ export const Inventary = (props) => {
     getFilters();
     apiConsumo();
 
-    return () => {
-      console.log("desmonto componente");
-    };
-  }, [buscadorData,marcaFilter,estadoFilter]);
+    // return () => {
+    //   console.log("desmonto componente");
+    // };
+  }, [buscadorData, marcaFilter, estadoFilter]);
 
   const add = (e) => {
     document.getElementById("content_all_edit_2").className =
@@ -207,24 +207,25 @@ export const Inventary = (props) => {
                     >
                       {data}{" "}
                       {props.codeUser.preference === "admin" ||
-                      props.codeUser.preference === "master" ? (
+                        props.codeUser.preference === "master" ? (
                         <AiOutlineDelete className="Delete_op" />
                       ) : null}
                     </li>
-                    {/* <button className='btn_post_state' onClick={(e) => { add(e) }} value={data._id}>+</button> */}
+
                   </>
                 ))}
+                {props.codeUser.preference === "master" ||
+                  props.codeUser.preference === "admin" ||
+                  props.codeUser.preference === "supervisor" ? (
+                  <button className="btn_post_state" onClick={add}>
+                    +
+                  </button>
+                ) : null}
               </div>
-              {props.codeUser.preference === "master" ||
-              props.codeUser.preference === "admin" ||
-              props.codeUser.preference === "supervisor" ? (
-                <button className="btn_post_state" onClick={add}>
-                  +
-                </button>
-              ) : null}
-            </li>
-            {/*aqui debe ir el el buscador*/}
 
+            </li>
+
+            {/* el buscador*/}
             <div>
               <Search
                 OnChange={(e) => onchangeDataBuscador(e)}
@@ -237,7 +238,6 @@ export const Inventary = (props) => {
               {marcaFilter === "" ? "Marca" : marcaFilter}
               {/*aqui debe ir el map*/}
               <div className="content_user">
-                {/* <li>1 <AiOutlineDelete className='Delete_op' onClick={(e) => { delete_User(e) }} value={data._id}/></li> */}
                 {dataFilters.marca.map((data, key) => (
                   <li
                     onClick={() =>
@@ -249,21 +249,21 @@ export const Inventary = (props) => {
                   >
                     {data}
                     {props.codeUser.preference === "admin" ||
-                    props.codeUser.preference === "master" ? (
-                      <AiOutlineDelete className="Delete_op" />
+                      props.codeUser.preference === "master" ? (
+                      <AiOutlineDelete className='Delete_op' onClick={(e) => { delete_User(e) }} value={data._id} />
                     ) : null}
                   </li>
                 ))}
 
-                {/* <button className='btn_post_state' onClick={(e) => { add(e) }} value={data._id}>+</button> */}
+                {props.codeUser.preference === "master" ||
+                  props.codeUser.preference === "admin" ||
+                  props.codeUser.preference === "supervisor" ? (
+                  <button className="btn_post_state" onClick={add_}>
+                    +
+                  </button>
+                ) : null}
               </div>
-              {props.codeUser.preference === "master" ||
-              props.codeUser.preference === "admin" ||
-              props.codeUser.preference === "supervisor" ? (
-                <button className="btn_post_state" onClick={add_}>
-                  +
-                </button>
-              ) : null}
+
             </li>
           </div>
         </div>
@@ -336,8 +336,8 @@ export const Inventary = (props) => {
 
       {/* btn post of product */}
       {props.codeUser.preference === "master" ||
-      props.codeUser.preference === "admin" ||
-      props.codeUser.preference === "supervisor" ? (
+        props.codeUser.preference === "admin" ||
+        props.codeUser.preference === "supervisor" ? (
         <div className="contentPostProduct">
           <p>¿No encuentras el producto que buscabas?</p>
           <button className="btnPost" onClick={props.See}>
@@ -351,95 +351,141 @@ export const Inventary = (props) => {
         listData.map((data, key) => (
           <>
             {" "}
-            {data.limit >= data.amount ? (
-              <div
-                className="content_api_users_color_alert"
-                id="content_api_users"
-                key={key}
-              >
-                <p>
-                  <b>{data.name}</b>
-                </p>
-                <p>{data.brand}</p>
-                <p>
-                  <b>Cantidad: {data.amount} </b>
-                </p>
-                <p>{data.state}</p>
+            {data.alert >= data.amount
+              ? (
+                <div
+                  className="content_api_users_color_advertency"
+                  id="content_api_users"
+                  key={key} 
+                >
+                  <p>
+                    <b>{data.name}</b>
+                  </p>  
+                  <p>{data.brand}</p>
+                  <p>
+                    <b>Cantidad: {data.amount} </b>
+                  </p>
+                  <p>{data.state}</p>
 
-                {/* validation user */}
-                {props.codeUser.preference === "master" ||
-                props.codeUser.preference === "admin" ? (
-                  <div className="Content_options_users">
-                    <div>
-                      <button
-                        className="Delete"
-                        onClick={(e) => {
-                          delete_User(e);
-                        }}
-                        value={data._id}
-                      >
-                        Eliminar
-                      </button>
+                  {props.codeUser.preference === "master" ||
+                    props.codeUser.preference === "admin" ? (
+                    <div className="Content_options_users">
+                      <div>
+                        <button
+                          className="Delete"
+                          onClick={(e) => {
+                            delete_User(e);
+                          }}
+                          value={data._id}
+                        >
+                          Eliminar
+                        </button>
+                      </div>
+                      <div>
+                        <button
+                          className="Edit"
+                          onClick={(e) => {
+                            edit(e);
+                          }}
+                          value={data._id}
+                        >
+                          Editar
+                        </button>
+                      </div>
                     </div>
-                    <div>
-                      <button
-                        className="Edit"
-                        onClick={(e) => {
-                          edit(e);
-                        }}
-                        value={data._id}
-                      >
-                        Editar
-                      </button>
-                    </div>
-                  </div>
-                ) : null}
-              </div>
-            ) : (
-              <div
-                className="content_api_users_color_good"
-                id="content_api_users"
-                key={key}
-              >
-                <p>
-                  <b>{data.name}</b>
-                </p>
-                <p>{data.brand}</p>
-                <p>
-                  <b>Cantidad: {data.amount} </b>
-                </p>
-                <p>{data.state}</p>
+                  ) : null}
+                </div>
+              ) : data.limit >= data.amount
+                ? (
+                  <div
+                    className="content_api_users_color_alert"
+                    id="content_api_users"
+                    key={key}
+                  >
+                    <p>
+                      <b>{data.name}</b>
+                    </p>
+                    <p>{data.brand}</p>
+                    <p>
+                      <b>Cantidad: {data.amount} </b>
+                    </p>
+                    <p>{data.state}</p>
 
-                {/* validation user */}
-                {props.codeUser.preference === "master" ||
-                props.codeUser.preference === "admin" ? (
-                  <div className="Content_options_users">
-                    <div>
-                      <button
-                        className="Delete"
-                        onClick={(e) => {
-                          delete_User(e);
-                        }}
-                        value={data._id}
-                      >
-                        Eliminar
-                      </button>
-                    </div>
-                    <div>
-                      <button
-                        className="Edit"
-                        onClick={(e) => {
-                          edit(e);
-                        }}
-                        value={data._id}
-                      >
-                        Editar
-                      </button>
-                    </div>
+                    {props.codeUser.preference === "master" ||
+                      props.codeUser.preference === "admin" ? (
+                      <div className="Content_options_users">
+                        <div>
+                          <button
+                            className="Delete"
+                            onClick={(e) => {
+                              delete_User(e);
+                            }}
+                            value={data._id}
+                          >
+                            Eliminar
+                          </button>
+                        </div>
+                        <div>
+                          <button
+                            className="Edit"
+                            onClick={(e) => {
+                              edit(e);
+                            }}
+                            value={data._id}
+                          >
+                            Editar
+                          </button>
+                        </div>
+                      </div>
+                    ) : null}
                   </div>
-                ) : null}
-              </div>
-            )}
+
+                ) : (
+                  <div
+                    className="content_api_users_color_good"
+                    id="content_api_users"
+                    key={key}
+                  >
+                    <p>
+                      <b>{data.name}</b>
+                    </p>
+                    <p>{data.brand}</p>
+                    <p>
+                      <b>Cantidad: {data.amount} </b>
+                    </p>
+                    <p>{data.state}</p>
+
+                    {props.codeUser.preference === "master" ||
+                      props.codeUser.preference === "admin" ? (
+                      <div className="Content_options_users">
+                        <div>
+                          <button
+                            className="Delete"
+                            onClick={(e) => {
+                              delete_User(e);
+                            }}
+                            value={data._id}
+                          >
+                            Eliminar
+                          </button>
+                        </div>
+                        <div>
+                          <button
+                            className="Edit"
+                            onClick={(e) => {
+                              edit(e);
+                            }}
+                            value={data._id}
+                          >
+                            Editar
+                          </button>
+                        </div>
+                      </div>
+                    ) : null}
+                  </div>
+                )}
+
+
           </>
         ))
       ) : (
@@ -475,6 +521,32 @@ export const Inventary = (props) => {
               <button className="btn_send_2" onClick={props.Show__6}>
                 General
               </button>
+              <button className="btn_send_2" onClick={props.Show__7}>
+                Alerta
+              </button>
+            </div>
+            {/* ---------------------------------- Form for alert product ---------------------------------- */}
+
+            <div id="ocult_form_7">
+              <div className="text_edit" id="text_edit">
+                <p>Estos ayudara a darte el aviso del producto que esta por
+                  debajo de esa alerta y mandar un correo de inmediato</p>
+              </div>
+              <form onSubmit={props.putAlertProduct}>
+                <div className="inputbox_2">
+                  <ion-icon name="alert-outline"></ion-icon>
+                  <input
+                    className="Input_text"
+                    type="name"
+                    required
+                    minLength="1"
+                    placeholder="Numero"
+                    value={props.alert}
+                    onChange={props.onChangeUpAlertProduct}
+                  />
+                </div>
+                <input type="submit" value="Agregar" className="btn_send_" />
+              </form>
             </div>
 
             {/* ---------------------------------- Form for name ---------------------------------- */}
@@ -663,7 +735,18 @@ export const Inventary = (props) => {
                     onChange={props.onChangeUpLimitProduct}
                   />
                 </div>
-
+                <div className="inputbox_2">
+                  <ion-icon name="alert-outline"></ion-icon>
+                  <input
+                    className="Input_text"
+                    type="name"
+                    required
+                    minLength="1"
+                    placeholder="Numero para enviarte la alerta"
+                    value={props.alert}
+                    onChange={props.onChangeUpAlertProduct}
+                  />
+                </div>
                 <input type="submit" value="Agregar" className="btn_send_" />
               </form>
             </div>
@@ -741,7 +824,18 @@ export const Inventary = (props) => {
                     onChange={props.onChangeUpLimitProduct}
                   />
                 </div>
-
+                <div className="inputbox_2">
+                  <ion-icon name="alert-outline"></ion-icon>
+                  <input
+                    className="Input_text"
+                    type="name"
+                    required
+                    minLength="1"
+                    placeholder="Numero para enviarte la alerta"
+                    value={props.alert}
+                    onChange={props.onChangeUpAlertProduct}
+                  />
+                </div>
                 <input type="submit" value="Agregar" className="btn_send_" />
               </form>
             </div>

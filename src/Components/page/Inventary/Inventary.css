@@ -67,7 +67,7 @@
 }
 
 .content_api_users_color_alert {
-  background-color: rgba(238, 255, 0, 0.925);
+  background-color: rgba(255, 208, 0, 0.925);
   color: aliceblue;
   display: flex;
   justify-content: space-around;
@@ -483,7 +483,8 @@ ol {
 #ocult_form_3,
 #ocult_form_4,
 #ocult_form_5,
-#ocult_form_6 {
+#ocult_form_6,
+#ocult_form_7 {
   display: none;
   flex-direction: column;
 }

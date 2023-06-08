@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useState, useEffect } from 'react';
 import './App.css';
 
@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import axios from "axios";
 import Swal from 'sweetalert2';
 import 'animate.css';
-
+import emailjs from '@emailjs/browser';
 
 /*----------------------- Components ---------------------- */
 import { Home } from './Components/page/Home/Home';
@@ -451,6 +451,8 @@ function App() {
     document.getElementById("ocult_form_4").style.display = "none";
     document.getElementById("ocult_form_5").style.display = "none";
     document.getElementById("ocult_form_6").style.display = "none";
+    document.getElementById("ocult_form_7").style.display = "none";
+
   }
 
   const Show__ = () => {
@@ -483,7 +485,11 @@ function App() {
     document.getElementById("ocult_form_6").style.display = "flex";
     document.getElementById("text_edit_").className = "block";
   }
-
+  const Show__7 = () => {
+    document.getElementById("btn_opacity").className = "block";
+    document.getElementById("ocult_form_7").style.display = "flex";
+    document.getElementById("text_edit_").className = "block";
+  }
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -1028,14 +1034,16 @@ function App() {
   const [stateProduct, setStateProduct] = useState("");
   const [amountProduct, setAmountProduct] = useState("");
   const [limitProduct, setLimitProduct] = useState("");
+  const [alert, setAlert] = useState("");
   const onChangeUpNameProduct = ({ currentTarget }) => setNameProduct(currentTarget.value);
   const onChangeUpBrandProduct = ({ currentTarget }) => setBrandProduct(currentTarget.value);
   const onChangeUpStateProduct = ({ currentTarget }) => setStateProduct(currentTarget.value);
   const onChangeUpAmountProduct = ({ currentTarget }) => setAmountProduct(currentTarget.value);
   const onChangeUpLimitProduct = ({ currentTarget }) => setLimitProduct(currentTarget.value);
+  const onChangeUpAlertProduct = ({ currentTarget }) => setAlert(currentTarget.value);
 
 
- //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
   //-----------------------------------------------------------------------------
   // ----------------------------- delete all user ------------------------------
   //-----------------------------------------------------------------------------
@@ -1132,32 +1140,32 @@ function App() {
   //--------------------------------------------------------------------------------
 
 
-const alertPost = () => {
-  Swal.fire({
-    title: 'Has actualizado este producto presiona (recargar) para ver los cambios',
-    html: '<a href="/All-options/r/invcaso" class="BtnAlert_Ancla">Recargar<ion-icon  class="Icon_Alert" name="chevron-forward-outline"></ion-icon></a>',
-    icon: 'success',
-    backdrop: '#ffffff00',
-    toast: true,
-    position: 'top',
-    showConfirmButton: false,
-    width: 860,
-    allowOutsideClick: true,
-    timer: 9000,
-    timerProgressBar: true,
-    stopKeydownPropagation: true,
-    showClass: {
-      popup: 'animate__animated animate__fadeInDown'
-    },
-    hideClass: {
-      popup: 'animate__animated animate__fadeOutUp'
-    },
-    customClass: {
-      popup: 'Content_Swall_',
-      container: 'Content_Swal_All'
-    }
-  })
-}
+  const alertPost = () => {
+    Swal.fire({
+      title: 'Has actualizado este producto presiona (recargar) para ver los cambios',
+      html: '<a href="/All-options/r/invcaso" class="BtnAlert_Ancla">Recargar<ion-icon  class="Icon_Alert" name="chevron-forward-outline"></ion-icon></a>',
+      icon: 'success',
+      backdrop: '#ffffff00',
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      width: 860,
+      allowOutsideClick: true,
+      timer: 9000,
+      timerProgressBar: true,
+      stopKeydownPropagation: true,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      },
+      customClass: {
+        popup: 'Content_Swall_',
+        container: 'Content_Swal_All'
+      }
+    })
+  }
 
 
   //--------------------------------------------------------------------------------
@@ -1170,11 +1178,11 @@ const alertPost = () => {
     event.preventDefault();
     setLoading(true);
     const data = {
-        "name": nameProduct,
-        "brand": brandProduct,
-        "amount": amountProduct,
-        "state": stateProduct,
-        "limit": limitProduct
+      "name": nameProduct,
+      "brand": brandProduct,
+      "amount": amountProduct,
+      "state": stateProduct,
+      "limit": limitProduct
     };
     const response_ = await axios.put(`https://apiproducts-production-f466.up.railway.app/Api/products/${id_product}`, data);
     setLoading(false);
@@ -1206,7 +1214,7 @@ const alertPost = () => {
     event.preventDefault();
     setLoading(true);
     const data = {
-        "name": nameProduct
+      "name": nameProduct
     };
     const response_ = await axios.put(`https://apiproducts-production-f466.up.railway.app/Api/products/${id_product}`, data);
     setLoading(false);
@@ -1234,7 +1242,7 @@ const alertPost = () => {
     event.preventDefault();
     setLoading(true);
     const data = {
-        "state": stateProduct
+      "state": stateProduct
     };
     const response_ = await axios.put(`https://apiproducts-production-f466.up.railway.app/Api/products/${id_product}`, data);
     setLoading(false);
@@ -1262,7 +1270,7 @@ const alertPost = () => {
     event.preventDefault();
     setLoading(true);
     const data = {
-        "amount": amountProduct
+      "amount": amountProduct
     };
     const response_ = await axios.put(`https://apiproducts-production-f466.up.railway.app/Api/products/${id_product}`, data);
     setLoading(false);
@@ -1290,7 +1298,7 @@ const alertPost = () => {
     event.preventDefault();
     setLoading(true);
     const data = {
-        "brand": brandProduct
+      "brand": brandProduct
     };
     const response_ = await axios.put(`https://apiproducts-production-f466.up.railway.app/Api/products/${id_product}`, data);
     setLoading(false);
@@ -1318,7 +1326,7 @@ const alertPost = () => {
     event.preventDefault();
     setLoading(true);
     const data = {
-        "limit": limitProduct
+      "limit": limitProduct
     };
     const response_ = await axios.put(`https://apiproducts-production-f466.up.railway.app/Api/products/${id_product}`, data);
     setLoading(false);
@@ -1334,6 +1342,34 @@ const alertPost = () => {
     // mensaje sweetAlert
     alertPost()
   };
+
+  //--------------------------------------------------------------------------------
+  //--------------------------------------------------------------------------------
+  //------------------------ put limit product -------------------------------------
+  //--------------------------------------------------------------------------------
+  //--------------------------------------------------------------------------------
+
+  const putAlertProduct = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    const data = {
+      "alert": alert
+    };
+    const response_ = await axios.put(`https://apiproducts-production-f466.up.railway.app/Api/products/${id_product}`, data);
+    setLoading(false);
+    //---------------------------------- result ----------------------------------
+    document.getElementById("content_all_edit_5").className = "content_all_edit_5";
+    document.getElementById("content_edit5").className = "content_edit5";
+
+    // clean input
+    setLimitProduct("")
+
+    // mensaje in console
+    console.log(response_.data, "All is okay... ");
+    // mensaje sweetAlert
+    alertPost()
+  };
+
 
   //--------------------------------------------------------------------------------
   //--------------------------------------------------------------------------------
@@ -1365,12 +1401,7 @@ const alertPost = () => {
   //--------------------------------------------------------------------------------
   //--------------------------------------------------------------------------------
 
-  // // let amount_product = 18
-  // const onTimeProduct = () => { 
 
-  // }
-  // // start 1 min
-  // setInterval(onTimeProduct, 60000);  
 
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -1458,7 +1489,7 @@ const alertPost = () => {
         <Route path="/Register/r/R3gcaso" element={userId ? <Navigate replace to="/login/r/owncaso" /> : <Register alertConexion={alertConexion} setalertConexion={setalertConexion} alertUser={alertUser} setalertUser={setalertUser} setmessages={setmessages} messages={messages} validemail={validemail} validUsername={validUsername} confrimPasword={confrimPasword} onChangeconfrimPasword={onChangeconfrimPasword} postApi={postApi} emailRegister={emailRegister} passwordRegister={passwordRegister} usernameRegister={usernameRegister} onChangeemailRegister={onChangeemailRegister} onChangepasswordRegister={onChangepasswordRegister} onChangeusernameRegister={onChangeusernameRegister} />} />
         <Route path="/Account/r/Acc-caso" element={valiLogin ? <Account UpdateYourUser={UpdateYourUser} codeUser={codeUser} Show={Show} Show2={Show2} Show3={Show3} usernameUp={usernameUp} emailUp={emailUp} stateUp={stateUp} verificatitonPass={verificatitonPass} onChangeP_acc={onChangeP_acc} onChangeU={onChangeU} onChangeE={onChangeE} /> : <Error_404 />} />
         <Route path="/All-options/r/Usecaso" element={valiLogin ? <All_Users inputCharacters={inputCharacters} inputLoad={inputLoad} textalter={text} setText={setText} delApi={delApi} delallApi={delallApi} contenUsers={contenUsers} Update_User={Update_User} codeUser={codeUser} Show_={Show_} Show_2={Show_2} Show_3={Show_3} Show_4={Show_4} Close={Close4} id_User={id_User} putApi={putApi} putApiRoll={putApiRoll} putApiEmail={putApiEmail} putApiName={putApiName} usernameUp={usernameUp} emailUp={emailUp} stateUp={stateUp} onChangeU={onChangeU} onChangeE={onChangeE} onChangeS={onChangeS} /> : <Error_404 />} />
-        <Route path="/All-options/r/invcaso" element={valiLogin ? <Inventary delOneProduct={delOneProduct} putNameProduct={putNameProduct} putBrandProduct={putBrandProduct} putAmountProduct={putAmountProduct} putStateProduct={putStateProduct} putLimitProduct={putLimitProduct} putGeneralProduct={putGeneralProduct}     Show__={Show__} Show__2={Show__2} Show__3={Show__3} Show__4={Show__4} Show__5={Show__5} Show__6={Show__6}    postProduct={postProduct} onChangeUpLimitProduct={onChangeUpLimitProduct} onChangeUpAmountProduct={onChangeUpAmountProduct} onChangeUpBrandProduct={onChangeUpBrandProduct} onChangeUpStateProduct={onChangeUpStateProduct} onChangeUpNameProduct={onChangeUpNameProduct} nameProduct={nameProduct} brandProduct={brandProduct} stateProduct={stateProduct} amountProduct={amountProduct} limitProduct={limitProduct} don_tSee={don_tSee} See={See} userId={userId} codeUser={codeUser} Close={Close5} Close_={Close6} /> : <Error_404 />} />
+        <Route path="/All-options/r/invcaso" element={valiLogin ? <Inventary onChangeUpText={onChangeUpText} alert={alert} onChangeUpAlertProduct={onChangeUpAlertProduct} putAlertProduct={putAlertProduct} delOneProduct={delOneProduct} putNameProduct={putNameProduct} putBrandProduct={putBrandProduct} putAmountProduct={putAmountProduct} putStateProduct={putStateProduct} putLimitProduct={putLimitProduct} putGeneralProduct={putGeneralProduct} Show__={Show__} Show__2={Show__2} Show__3={Show__3} Show__4={Show__4} Show__5={Show__5} Show__6={Show__6} Show__7={Show__7} postProduct={postProduct} onChangeUpLimitProduct={onChangeUpLimitProduct} onChangeUpAmountProduct={onChangeUpAmountProduct} onChangeUpBrandProduct={onChangeUpBrandProduct} onChangeUpStateProduct={onChangeUpStateProduct} onChangeUpNameProduct={onChangeUpNameProduct} nameProduct={nameProduct} brandProduct={brandProduct} stateProduct={stateProduct} amountProduct={amountProduct} limitProduct={limitProduct} don_tSee={don_tSee} See={See} userId={userId} codeUser={codeUser} Close={Close5} Close_={Close6} /> : <Error_404 />} />
 
         {/* logic Props contetnt */}
         <Route path="/All-options/r/Bicaso" element={<PowerBi />} />
