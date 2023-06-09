@@ -29,3 +29,18 @@ export async function dataFilterEstado() {
             })
     return dataFilterEstado;
 }
+
+export async function dataProducts() {
+    var dataProducts=[]
+    await axios.get('https://apiproducts-production-f466.up.railway.app/Api/products')
+            .then(function (response) {
+                response.data.forEach(data=>{
+                    dataProducts.push(data)
+                })
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+    return dataProducts;
+}

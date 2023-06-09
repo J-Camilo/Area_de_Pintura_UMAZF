@@ -8,6 +8,7 @@ import axios from "axios";
 import Swal from 'sweetalert2';
 import 'animate.css';
 import emailjs from '@emailjs/browser';
+import { dataProducts } from './Logic/dataFilters/DataFilters';
 
 /*----------------------- Components ---------------------- */
 import { Home } from './Components/page/Home/Home';
@@ -1475,6 +1476,82 @@ function App() {
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+  //--------------------------------------------------------------------------------
+  //--------------------------------------------------------------------------------
+  //----------------------- Alert email --------------------------------------------
+  //--------------------------------------------------------------------------------
+  //--------------------------------------------------------------------------------
+  async function logData() {
+    const products = await dataProducts();
+    const productsAlert = products.filter(data => data.amount < data.limit);
+    const productsAlertString = localStorage.getItem('productsAlertData');
+    const productsAlertLocalStorage = JSON.parse(productsAlertString);
+    if (productsAlertLocalStorage) {
+      var dataRepeat = []
+      productsAlert.forEach(data => {
+        const dataFilter = productsAlertLocalStorage.filter(data2 => data2.brand === data.brand && data2.amount === data.amount && data2.limit === data.limit)
+        dataRepeat.push(dataFilter);
+      })
+
+      if (dataRepeat.length !== productsAlertLocalStorage.length) {
+        localStorage.setItem('productsAlertData', JSON.stringify(productsAlert));
+        var productsMensaje = "";
+
+        productsAlert.forEach(data => {
+          const mensaje = `Nombre: ${data.name} - Proveedor: ${data.brand} - Cantidad: ${data.amount} - Límite: ${data.amount} ||`;
+          if (productsMensaje === "") {
+            productsMensaje = mensaje;
+          } else {
+            productsMensaje += "\n" + mensaje;
+          }
+        });
+
+        var templateParams = {
+          menssage: productsMensaje
+        };
+
+        emailjs.send('service_qt4mhvc', 'template_evypyif', templateParams, 'vkVJPUlzJgRDDHA_6')
+          .then(function (response) {
+            console.log('SUCCESS!', response.status, response.text);
+          }, function (error) {
+            console.log('FAILED...', error);
+          });
+      }
+    } else {
+      localStorage.setItem('productsAlertData', JSON.stringify(productsAlert));
+      var productsMensaje = "";
+
+      productsAlert.forEach(data => {
+        const mensaje = `Nombre: ${data.name} - Proveedor: ${data.brand} - Cantidad: ${data.amount} - Límite: ${data.amount} ||`;
+        if (productsMensaje === "") {
+          productsMensaje = mensaje;
+        } else {
+          productsMensaje += "\n" + mensaje;
+        }
+      });
+
+      var templateParams = {
+        menssage: productsMensaje
+      };
+
+      emailjs.send('service_qt4mhvc', 'template_evypyif', templateParams, 'vkVJPUlzJgRDDHA_6')
+        .then(function (response) {
+          console.log('SUCCESS!', response.status, response.text);
+        }, function (error) {
+          console.log('FAILED...', error);
+        });
+
+    }
+  }
+
+
+
+  useEffect(() => {
+
+    logData()
+
+  }, [])
 
   return (
     <BrowserRouter>
