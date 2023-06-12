@@ -39,6 +39,8 @@ function App() {
   const Update_User = localStorage.getItem("VXN1YXJpbyBpZGVudGlmaWNhZG8gcGFyYSBhY3R1YWxpemFy");
   const id_product = localStorage.getItem("aWQgcGFyYSBhZ3JlZ2FyIGNhdGVnb3LDrWEgZGUgZXN0YWRv1");
   const id_forms = localStorage.getItem("SUQgcGFyYSBlbGltaW5hciBlbCBmb3JtdWxhcmlv");
+  const id_options = localStorage.getItem("ZWxpbWluYXIgb3BjaW9uZXMgZGUgZmlsdHJhZG8NCg0K");
+  const id_email = localStorage.getItem("Email");
 
 
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -146,6 +148,7 @@ function App() {
             localStorage.setItem("CRmoaBwT2p2r6", data._id);
             localStorage.setItem("Y29udHJhc2XDsWEgZW5jcmlwdGFkYSB5IG1hbmlvYnJhZGE=", data.password);
             localStorage.setItem("Q29kZVZlcmlmeWNhdGlvbg==", true)
+            localStorage.setItem("Email", userLogin)
 
             setTimeout(function () {
               Swal.fire({
@@ -526,8 +529,11 @@ function App() {
   useEffect(() => {
     axios.get(baseURLOne).then((response) => {
       setCodeUserOne(response.data)
+      console.log(response.data.email)
     });
   }, []);
+
+
   //-----------------------------------------------------------------------------
   //-----------------------------------------------------------------------------
   // ----------------------------- get all users --------------------------------
@@ -1380,30 +1386,146 @@ function App() {
 
   //text for post brand and state
   const [textUp, setTextUp] = useState("");
-  const onChangeUpText = ({ currentTarget }) => setTextUp(currentTarget.value);
+  const onChangeUpText = ({ currentTarget }) => setTextUp(currentTarget.value.toLowerCase());
+
+  //logic post okay
+  const alertPostG = () => {
+    Swal.fire({
+      title: 'Has añadido correctamente presiona (Recargar) para ver los cambios',
+      html: '<a href="/All-options/r/invcaso" class="BtnAlert_Ancla">Recargar<ion-icon  class="Icon_Alert" name="chevron-forward-outline"></ion-icon></a>',
+      icon: 'success',
+      backdrop: '#ffffff00',
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      width: 860,
+      allowOutsideClick: true,
+      timer: 9000,
+      timerProgressBar: true,
+      stopKeydownPropagation: true,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      },
+      customClass: {
+        popup: 'Content_Swall_',
+        container: 'Content_Swal_All'
+      }
+    })
+  }
+  const alertDelG = () => {
+    Swal.fire({
+      title: 'Has Eliminado correctamente presiona (Recargar) para ver los cambios',
+      html: '<a href="/All-options/r/invcaso" class="BtnAlert_Ancla">Recargar<ion-icon  class="Icon_Alert" name="chevron-forward-outline"></ion-icon></a>',
+      icon: 'success',
+      backdrop: '#ffffff00',
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      width: 860,
+      allowOutsideClick: true,
+      timer: 9000,
+      timerProgressBar: true,
+      stopKeydownPropagation: true,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      },
+      customClass: {
+        popup: 'Content_Swall_',
+        container: 'Content_Swal_All'
+      }
+    })
+  };
+
 
 
   //logic post for brand
   //--------------------
-  //--------------------
-  //--------------------
-  //--------------------
+  const putBrand = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    const data = {
+      "brand": textUp
+    };
+    const response_ = await axios.post(`https://apiproducts-production-f466.up.railway.app/Api/brand`, data);
+    setLoading(false);
+    //---------------------------------- result ----------------------------------
+    document.getElementById("content_all_edit_3").className = "content_all_edit_3";
+    document.getElementById("content_edit3").className = "content_edit3";
+
+    // clean input
+    setTextUp("")
+
+    // mensaje in console
+    console.log(response_.data, "All is okay... ");
+    // mensaje sweetAlert
+    alertPostG();
+  };
+  const delBrandPut = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    const response_ = await axios.delete(`https://apiproducts-production-f466.up.railway.app/Api/brand/${id_options}`);
+    setLoading(false);
+    //---------------------------------- result ----------------------------------
+    document.getElementById("content_all_edit_3").className = "content_all_edit_3";
+    document.getElementById("content_edit3").className = "content_edit3";
+
+    // clean input
+    setTextUp("")
+
+    // mensaje in console
+    console.log(response_.data, "All is okay... ");
+    // mensaje sweetAlert
+    alertDelG();
+  };
 
 
   //logic post for state
   //--------------------
-  //--------------------
-  //--------------------
-  //--------------------
+  const putState = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    const data = {
+      "state": textUp
+    };
+    const response_ = await axios.post(`https://apiproducts-production-f466.up.railway.app/Api/state`, data);
+    setLoading(false);
+    //---------------------------------- result ----------------------------------
+    document.getElementById("content_all_edit_2").className = "content_all_edit_2";
+    document.getElementById("content_edit2").className = "content_edit2";
 
-  //--------------------------------------------------------------------------------
-  //--------------------------------------------------------------------------------
-  //---------------- -------------- alert of product -------------------------------
-  //--------------------------------------------------------------------------------
-  //--------------------------------------------------------------------------------
+    // clean input
+    setTextUp("")
 
+    // mensaje in console
+    console.log(response_.data, "All is okay... ");
+    // mensaje sweetAlert
+    alertPostG();
+  };
 
+  const delStatePut = async (event) => {
+    event.preventDefault();
+    setLoading(true);
 
+    const response_ = await axios.delete(`https://apiproducts-production-f466.up.railway.app/Api/state/${id_options}`);
+    setLoading(false);
+    //---------------------------------- result ----------------------------------
+    document.getElementById("content_all_edit_2").className = "content_all_edit_2";
+    document.getElementById("content_edit2").className = "content_edit2";
+
+    // clean input
+    setTextUp("")
+
+    // mensaje in console
+    console.log(response_.data, "All is okay... ");
+    // mensaje sweetAlert
+    alertDelG();
+  };
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -1467,7 +1589,7 @@ function App() {
 
 
 
-  /* ------------------------------------------------------------------------ finish dinamy islan --------------------------------------------------------------  */
+  /* ------------------------------------------------------------------------ finish dinamyc island --------------------------------------------------------------  */
 
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -1477,11 +1599,14 @@ function App() {
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
   /*------------------------------------------------------------------------------------------------------------------------------------------------*/
 
+
   //--------------------------------------------------------------------------------
   //--------------------------------------------------------------------------------
-  //----------------------- Alert email --------------------------------------------
+  //---------------- -------------- alert of product -------------------------------
   //--------------------------------------------------------------------------------
   //--------------------------------------------------------------------------------
+
+
   async function logData() {
     const products = await dataProducts();
     const productsAlert = products.filter(data => data.amount < data.limit);
@@ -1508,10 +1633,11 @@ function App() {
         });
 
         var templateParams = {
-          menssage: productsMensaje
+          message: productsMensaje,
+          email: id_email
         };
 
-        emailjs.send('service_qt4mhvc', 'template_evypyif', templateParams, 'vkVJPUlzJgRDDHA_6')
+        emailjs.send('service_ls14agk', 'template_maq7jr2', templateParams, 'vkVJPUlzJgRDDHA_6')
           .then(function (response) {
             console.log('SUCCESS!', response.status, response.text);
           }, function (error) {
@@ -1535,7 +1661,7 @@ function App() {
         menssage: productsMensaje
       };
 
-      emailjs.send('service_qt4mhvc', 'template_evypyif', templateParams, 'vkVJPUlzJgRDDHA_6')
+      emailjs.send('service_ls14agk', 'template_maq7jr2', templateParams, 'vkVJPUlzJgRDDHA_6')
         .then(function (response) {
           console.log('SUCCESS!', response.status, response.text);
         }, function (error) {
@@ -1544,7 +1670,6 @@ function App() {
 
     }
   }
-
 
 
   useEffect(() => {
@@ -1566,7 +1691,7 @@ function App() {
         <Route path="/Register/r/R3gcaso" element={userId ? <Navigate replace to="/login/r/owncaso" /> : <Register alertConexion={alertConexion} setalertConexion={setalertConexion} alertUser={alertUser} setalertUser={setalertUser} setmessages={setmessages} messages={messages} validemail={validemail} validUsername={validUsername} confrimPasword={confrimPasword} onChangeconfrimPasword={onChangeconfrimPasword} postApi={postApi} emailRegister={emailRegister} passwordRegister={passwordRegister} usernameRegister={usernameRegister} onChangeemailRegister={onChangeemailRegister} onChangepasswordRegister={onChangepasswordRegister} onChangeusernameRegister={onChangeusernameRegister} />} />
         <Route path="/Account/r/Acc-caso" element={valiLogin ? <Account UpdateYourUser={UpdateYourUser} codeUser={codeUser} Show={Show} Show2={Show2} Show3={Show3} usernameUp={usernameUp} emailUp={emailUp} stateUp={stateUp} verificatitonPass={verificatitonPass} onChangeP_acc={onChangeP_acc} onChangeU={onChangeU} onChangeE={onChangeE} /> : <Error_404 />} />
         <Route path="/All-options/r/Usecaso" element={valiLogin ? <All_Users inputCharacters={inputCharacters} inputLoad={inputLoad} textalter={text} setText={setText} delApi={delApi} delallApi={delallApi} contenUsers={contenUsers} Update_User={Update_User} codeUser={codeUser} Show_={Show_} Show_2={Show_2} Show_3={Show_3} Show_4={Show_4} Close={Close4} id_User={id_User} putApi={putApi} putApiRoll={putApiRoll} putApiEmail={putApiEmail} putApiName={putApiName} usernameUp={usernameUp} emailUp={emailUp} stateUp={stateUp} onChangeU={onChangeU} onChangeE={onChangeE} onChangeS={onChangeS} /> : <Error_404 />} />
-        <Route path="/All-options/r/invcaso" element={valiLogin ? <Inventary onChangeUpText={onChangeUpText} alert={alert} onChangeUpAlertProduct={onChangeUpAlertProduct} putAlertProduct={putAlertProduct} delOneProduct={delOneProduct} putNameProduct={putNameProduct} putBrandProduct={putBrandProduct} putAmountProduct={putAmountProduct} putStateProduct={putStateProduct} putLimitProduct={putLimitProduct} putGeneralProduct={putGeneralProduct} Show__={Show__} Show__2={Show__2} Show__3={Show__3} Show__4={Show__4} Show__5={Show__5} Show__6={Show__6} Show__7={Show__7} postProduct={postProduct} onChangeUpLimitProduct={onChangeUpLimitProduct} onChangeUpAmountProduct={onChangeUpAmountProduct} onChangeUpBrandProduct={onChangeUpBrandProduct} onChangeUpStateProduct={onChangeUpStateProduct} onChangeUpNameProduct={onChangeUpNameProduct} nameProduct={nameProduct} brandProduct={brandProduct} stateProduct={stateProduct} amountProduct={amountProduct} limitProduct={limitProduct} don_tSee={don_tSee} See={See} userId={userId} codeUser={codeUser} Close={Close5} Close_={Close6} /> : <Error_404 />} />
+        <Route path="/All-options/r/invcaso" element={valiLogin ? <Inventary delStatePut={delStatePut} delBrandPut={delBrandPut} putBrand={putBrand} putState={putState} textUp={textUp} onChangeUpText={onChangeUpText} alert={alert} onChangeUpAlertProduct={onChangeUpAlertProduct} putAlertProduct={putAlertProduct} delOneProduct={delOneProduct} putNameProduct={putNameProduct} putBrandProduct={putBrandProduct} putAmountProduct={putAmountProduct} putStateProduct={putStateProduct} putLimitProduct={putLimitProduct} putGeneralProduct={putGeneralProduct} Show__={Show__} Show__2={Show__2} Show__3={Show__3} Show__4={Show__4} Show__5={Show__5} Show__6={Show__6} Show__7={Show__7} postProduct={postProduct} onChangeUpLimitProduct={onChangeUpLimitProduct} onChangeUpAmountProduct={onChangeUpAmountProduct} onChangeUpBrandProduct={onChangeUpBrandProduct} onChangeUpStateProduct={onChangeUpStateProduct} onChangeUpNameProduct={onChangeUpNameProduct} nameProduct={nameProduct} brandProduct={brandProduct} stateProduct={stateProduct} amountProduct={amountProduct} limitProduct={limitProduct} don_tSee={don_tSee} See={See} userId={userId} codeUser={codeUser} Close={Close5} Close_={Close6} /> : <Error_404 />} />
 
         {/* logic Props contetnt */}
         <Route path="/All-options/r/Bicaso" element={<PowerBi />} />

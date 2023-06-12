@@ -171,6 +171,54 @@ export const Inventary = (props) => {
       }
     });
   };
+
+  const delete_options = (e) => {
+    JSON.stringify(
+      localStorage.setItem(
+        "ZWxpbWluYXIgb3BjaW9uZXMgZGUgZmlsdHJhZG8NCg0K",
+        e.target.value
+      )
+    );
+    Swal.fire({
+      title: "¿Estas seguro de eliminar esto?",
+      text: "No prodras revertir esto tendras que agreaarlo de nuevo",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, quiero eliminarlo!",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        /* logic  */
+        props.delBrandPut(e);
+      }
+    });
+  };
+
+  const delete_options_2 = (e) => {
+    JSON.stringify(
+      localStorage.setItem(
+        "ZWxpbWluYXIgb3BjaW9uZXMgZGUgZmlsdHJhZG8NCg0K",
+        e.target.value
+      )
+    );
+    Swal.fire({
+      title: "¿Estas seguro de eliminar esto?",
+      text: "No prodras revertir esto tendras que agreaarlo de nuevo",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, quiero eliminarlo!",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        /* logic  */
+        props.delStatePut(e);
+      }
+    });
+  };
   return (
     <>
       <div className="header_acc">
@@ -196,7 +244,6 @@ export const Inventary = (props) => {
               <div className="content_user">
                 {dataFilters.estado.map((data, key) => (
                   <>
-                    {/* <li>1 <AiOutlineDelete className='Delete_op' onClick={(e) => { delete_User(e) }} value={data._id}/></li> */}
                     <li
                       onClick={() =>
                         estadoFilter === data
@@ -206,10 +253,11 @@ export const Inventary = (props) => {
                       key={key}
                     >
                       {data}{" "}
-                      {props.codeUser.preference === "admin" ||
+                      {/* {props.codeUser.preference === "admin" ||
                         props.codeUser.preference === "master" ? (
-                        <AiOutlineDelete className="Delete_op" />
-                      ) : null}
+                        <AiOutlineDelete className='Delete_op' onClick={(e) => { delete_options_2(e) }} value={data._id}/>
+
+                      ) : null} */}
                     </li>
 
                   </>
@@ -248,10 +296,10 @@ export const Inventary = (props) => {
                     key={key}
                   >
                     {data}
-                    {props.codeUser.preference === "admin" ||
+                    {/* {props.codeUser.preference === "admin" ||
                       props.codeUser.preference === "master" ? (
-                      <AiOutlineDelete className='Delete_op' onClick={(e) => { delete_User(e) }} value={data._id} />
-                    ) : null}
+                      <AiOutlineDelete className='Delete_op' onClick={(e) => { delete_options(e) }} value={data._id} />
+                    ) : null} */}
                   </li>
                 ))}
 
@@ -276,7 +324,7 @@ export const Inventary = (props) => {
               <div className="text_edit" id="text_edit">
                 <p>Estas editando la seccion de estados</p>
                 <p>¿Cual sera el nuevo estado?</p>
-                <form action="">
+                <form onSubmit={props.putState}>
                   <div className="inputbox_2">
                     <ion-icon name="compass-outline"></ion-icon>
                     <input
@@ -285,8 +333,8 @@ export const Inventary = (props) => {
                       required
                       minLength="5"
                       placeholder="Escribe el estado"
-                      value=""
-                      onChange=""
+                      value={props.textUp}
+                      onChange={props.onChangeUpText}
                     />
                   </div>
                   <input type="submit" value="Agregar" className="btn_send_" />
@@ -308,17 +356,17 @@ export const Inventary = (props) => {
               <div className="text_edit" id="text_edit">
                 <p>Estas editando la seccion de Marcas</p>
                 <p>¿Cual sera la nueva marca?</p>
-                <form action="">
+                <form onSubmit={props.putBrand}>
                   <div className="inputbox_2">
                     <ion-icon name="bookmark-outline"></ion-icon>
                     <input
                       className="Input_text"
                       type="name"
                       required
-                      minLength="5"
+                      minLength="2"
                       placeholder="Escribe la marca"
-                      value=""
-                      onChange=""
+                      value={props.textUp}
+                      onChange={props.onChangeUpText}
                     />
                   </div>
                   <input type="submit" value="Agregar" className="btn_send_" />
@@ -730,7 +778,7 @@ export const Inventary = (props) => {
                     className="Input_text"
                     type="text"
                     required
-                    placeholder="Que limite quieres que se active la alerta"
+                    placeholder="Que limite quieres que se active la alerta amarilla"
                     value={props.limitProduct}
                     onChange={props.onChangeUpLimitProduct}
                   />
@@ -742,7 +790,7 @@ export const Inventary = (props) => {
                     type="name"
                     required
                     minLength="1"
-                    placeholder="Numero para enviarte la alerta"
+                    placeholder="Que limite quieres que se active la alerta roja"
                     value={props.alert}
                     onChange={props.onChangeUpAlertProduct}
                   />
@@ -819,7 +867,7 @@ export const Inventary = (props) => {
                     className="Input_text"
                     type="text"
                     required
-                    placeholder="Que limite quieres que se active la alerta"
+                    placeholder="Que limite quieres que se active la alerta amarilla"
                     value={props.limitProduct}
                     onChange={props.onChangeUpLimitProduct}
                   />
@@ -831,7 +879,7 @@ export const Inventary = (props) => {
                     type="name"
                     required
                     minLength="1"
-                    placeholder="Numero para enviarte la alerta"
+                    placeholder="Que limite quieres que se active la alerta roja"
                     value={props.alert}
                     onChange={props.onChangeUpAlertProduct}
                   />
