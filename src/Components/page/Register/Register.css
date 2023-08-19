@@ -11,28 +11,25 @@
     display: flex;
     justify-content: space-evenly;
     width: 72rem;
-    /* position: absolute; */
     display: flex;
     align-items: center;
-    /* margin-top: 10rem; */
-    padding: .9rem; 
 }
 
 
 
 
 .btn_content {
-    animation:btn_content 400ms forwards;
+    animation: btn_content 400ms forwards;
 }
 
-.btn_content{
+.btn_content {
     width: 17rem;
     height: 23rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border-radius:1.8rem;
+    border-radius: 1.8rem;
     color: #fc5b5b;
 }
 
@@ -41,26 +38,26 @@
 @keyframes btn_content {
     from {
         opacity: 1;
-        width:47rem;
+        width: 47rem;
         height: 400px;
     }
 
     to {
         opacity: 1;
-        width:47rem;
+        width: 47rem;
         height: 430px;
     }
 }
 
 
 
-.Icons_2{
+.Icons_2 {
     font-size: 4rem;
     color: rgb(252, 252, 252);
 }
 
 .Icons_,
-.Disable{
+.Disable {
     font-size: 4rem;
     color: rgb(252, 252, 252);
     animation: off 1ms forwards;
@@ -71,7 +68,7 @@
 @keyframes off {
     from {
         opacity: 1;
-        
+
     }
 
     to {
@@ -80,7 +77,7 @@
     }
 }
 
-    
+
 
 /*------------------------------- BTN Login -------------------------------------------*/
 
@@ -93,5 +90,21 @@
     background-color: #fc5b5b;
 
     /* ----------- change of size ---------- */
-       
+
+}
+
+@media (max-width: 767px) {
+    @keyframes btn_content {
+        from {
+            opacity: 1;
+            width: 4rem;
+            height: 70px;
+        }
+
+        to {
+            opacity: 1;
+            width: 24rem;
+            height: 740px;
+        }
+    }
 }

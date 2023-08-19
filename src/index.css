@@ -105,7 +105,6 @@ code {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  width: 44rem;
   animation: opacity 2s forwards;
 }
 
@@ -258,7 +257,6 @@ input:focus~ :valid {
   flex-direction: row-reverse;
   justify-content: space-around;
   align-items: center;
-  width: 44rem;
   animation: opacity_ 1s forwards;
 }
 
@@ -532,10 +530,11 @@ p {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .waves {
     height: 40px;
     min-height: 40px;
+    margin-top: 8.5rem;
   }
 
   .content {
@@ -543,6 +542,48 @@ p {
   }
 
   h1 {
-    font-size: 24px;
+    font-size: 3px;
+  }
+
+  .Counter_header_2 {
+    animation: Counter_animation_media .8s forwards;
+  }
+  .Counter_header {
+    width: 23rem;
+    height: 5rem;
+  }
+  .All {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .All_ {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .form-box,
+  .form-box_ {
+    width: 362px;
+  }
+
+  @keyframes Counter_animation_media {
+    from {
+      opacity: 1;
+      width: auto;
+      height: 10rem;
+    }
+
+    to {
+      opacity: 1;
+      width: auto;
+      height: 10rem;
+    }
+
+
   }
 }

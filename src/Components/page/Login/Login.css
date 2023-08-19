@@ -12,11 +12,8 @@
     display: flex;
     justify-content: space-evenly;
     width: 72rem;
-    /* position: absolute; */
     display: flex;
     align-items: center;
-    /* margin-top: 10rem; */
-    padding: .9rem;
 }
 
 .btn_,
@@ -177,13 +174,38 @@
 /*------------------------------- BTN Supervisor -------------------------------------------*/
 
 .btn_3 {
-    /* border: 3px solid #fc5b5b; */
-    /* position: absolute; */
     font-weight: bold;
     transition: 0.2s ease all;
     background-position: 100%;
     background-color: #fc5b5b;
-
     /* ----------- change of size ---------- */
+}
 
+@media (max-width: 768px) {
+
+    .Content_options_2 {
+        z-index: 1;
+        display: flex;
+        justify-content: space-evenly;
+        width: 72rem;
+        /* position: absolute; */
+        display: flex;
+        align-items: center;
+        /* margin-top: 10rem; */
+      
+    }
+
+    @keyframes anim-down_3 {
+        from {
+            opacity: 1;
+            width: 4rem;
+            height: 70px;
+        }
+    
+        to {
+            opacity: 1;
+            width: 24rem;
+            height: 740px;
+        }
+    }
 }

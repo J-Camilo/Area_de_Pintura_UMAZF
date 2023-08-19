@@ -41,7 +41,6 @@
     justify-content: space-evenly;
     width: 72rem;
     /* position: absolute; */
-    display: flex;
     align-items: center;
     /* margin-top: 12rem; */
     padding: .9rem;
@@ -208,3 +207,27 @@
 }
 
 
+@media screen and (max-width: 767px) {
+    /* ---------  home options btn  --------------  */
+
+    .Content_options_Users {
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        width: 72rem;
+        padding: 0.9rem;
+        width: 100%;
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+    }
+
+    .btn_Forms,
+    .btn_powerBi,
+    .btn_DataBase,
+    .btn_Users,
+    .btn_Acount {
+        padding: 1rem;
+        height: 8rem;
+        margin: 1rem;
+    }
+}

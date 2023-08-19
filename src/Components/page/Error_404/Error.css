@@ -12,3 +12,9 @@
 .text_first_error {
     font-size: 3rem;
 }
+
+@media (max-width: 767px) {
+    .Error_image {
+        width: 30rem;
+    } 
+}

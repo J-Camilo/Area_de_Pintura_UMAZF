@@ -1,6 +1,6 @@
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
 
-html{
+html {
     animation: Header 1s forwards;
 }
 
@@ -88,7 +88,7 @@ h1 {
     font-family: 'Times New Roman', Times, serif;
     font-size: 1px;
     animation: Counter_animation .8s forwards;
-    
+
 }
 
 .Text_major_ {
@@ -137,6 +137,7 @@ h1 {
         transform: translate3d(85px, 0, 0);
     }
 }
+
 @keyframes Header {
     from {
         opacity: -3;
@@ -160,6 +161,47 @@ h1 {
     }
 
     h1 {
-        font-size: 24px;
+        font-size: 15px;
+    }
+
+
+
+    .waves {
+        height: 40px;
+        min-height: 40px;
+        margin-top: 8.5rem;
+    }
+
+    .content {
+        height: 30vh;
+    }
+
+ 
+
+    .Counter_header_2 {
+        animation: Counter_animation_media .8s forwards;
+    }
+    
+    .Logo {
+        width: 60px;
+        height: 20px;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        border-right: solid red 2px;
+    }
+    
+    @keyframes Counter_animation_media {
+        from {
+            opacity: 1;
+        }
+    
+        to {
+            opacity: 1;
+            width: auto;
+            height: 5rem;
+        }
+    
+    
     }
 }
+
